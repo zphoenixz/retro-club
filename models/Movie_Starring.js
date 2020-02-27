@@ -2,7 +2,7 @@
 
 const Movie_Starring = sequelize.define('Movie_Starring', {
   'id_ms': {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
     primaryKey: true,
@@ -10,7 +10,7 @@ const Movie_Starring = sequelize.define('Movie_Starring', {
     autoIncrement: true
   },
   'Movie_id_m': {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     comment: "null",
     references: {
@@ -19,7 +19,7 @@ const Movie_Starring = sequelize.define('Movie_Starring', {
     }
   },
   'Stars_id_s': {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     comment: "null",
     references: {

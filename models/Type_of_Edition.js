@@ -2,7 +2,7 @@
 
 const Type_of_Edition = sequelize.define('Type_of_Edition', {
   'id_te': {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
     primaryKey: true,
@@ -10,7 +10,7 @@ const Type_of_Edition = sequelize.define('Type_of_Edition', {
     autoIncrement: true
   },
   'description': {
-    type: DataTypes.STRING(30),
+    type: Sequelize.STRING(30),
     allowNull: false,
     comment: "null"
   }

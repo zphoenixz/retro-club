@@ -2,7 +2,7 @@
 
 const Nomination = sequelize.define('Nomination', {
   'id_pr': {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
     primaryKey: true,
@@ -10,7 +10,7 @@ const Nomination = sequelize.define('Nomination', {
     autoIncrement: true
   },
   'category': {
-    type: DataTypes.STRING(30),
+    type: Sequelize.STRING(30),
     allowNull: false,
     comment: "null"
   }

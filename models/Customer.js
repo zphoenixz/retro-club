@@ -2,7 +2,7 @@
 
 const Customer = sequelize.define('Customer', {
   'id_c': {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
     primaryKey: true,
@@ -10,7 +10,7 @@ const Customer = sequelize.define('Customer', {
     autoIncrement: true
   },
   'Person_id_p': {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     comment: "null",
     references: {
@@ -19,12 +19,12 @@ const Customer = sequelize.define('Customer', {
     }
   },
   'register_date': {
-    type: DataTypes.DATEONLY,
+    type: Sequelize.DATEONLY,
     allowNull: false,
     comment: "null"
   },
   'customer_status': {
-    type: DataTypes.INTEGER(1),
+    type: Sequelize.INTEGER(1),
     allowNull: false,
     comment: "null"
   }

@@ -2,7 +2,7 @@
 
 const Movie = sequelize.define('Movie', {
   'id_m': {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
     primaryKey: true,
@@ -10,27 +10,27 @@ const Movie = sequelize.define('Movie', {
     autoIncrement: true
   },
   'duration': {
-    type: DataTypes.STRING(30),
+    type: Sequelize.STRING(30),
     allowNull: false,
     comment: "null"
   },
   'premier_year': {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     comment: "null"
   },
   'unit_price': {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     comment: "null"
   },
   'stock': {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     comment: "null"
   },
   'movie_status': {
-    type: DataTypes.INTEGER(1),
+    type: Sequelize.INTEGER(1),
     allowNull: false,
     comment: "null"
   }

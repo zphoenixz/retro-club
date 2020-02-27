@@ -2,7 +2,7 @@
 
 const Genre = sequelize.define('Genre', {
   'id_g': {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
     primaryKey: true,
@@ -10,7 +10,7 @@ const Genre = sequelize.define('Genre', {
     autoIncrement: true
   },
   'genre_name': {
-    type: DataTypes.STRING(30),
+    type: Sequelize.STRING(30),
     allowNull: false,
     comment: "null"
   }

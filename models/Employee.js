@@ -2,7 +2,7 @@
 
 const Employee = sequelize.define('Employee', {
   'id_e': {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
     primaryKey: true,
@@ -10,7 +10,7 @@ const Employee = sequelize.define('Employee', {
     autoIncrement: true
   },
   'Person_id_p': {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     comment: "null",
     references: {
@@ -19,12 +19,12 @@ const Employee = sequelize.define('Employee', {
     }
   },
   'user': {
-    type: DataTypes.STRING(10),
+    type: Sequelize.STRING(10),
     allowNull: false,
     comment: "null"
   },
   'password': {
-    type: DataTypes.STRING(20),
+    type: Sequelize.STRING(20),
     allowNull: false,
     comment: "null"
   }

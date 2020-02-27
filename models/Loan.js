@@ -2,7 +2,7 @@
 
 const Loan = sequelize.define('Loan', {
   'id_l': {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
     primaryKey: true,
@@ -10,7 +10,7 @@ const Loan = sequelize.define('Loan', {
     autoIncrement: true
   },
   'Employee_id_e': {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     comment: "null",
     references: {
@@ -19,7 +19,7 @@ const Loan = sequelize.define('Loan', {
     }
   },
   'Customer_id_c': {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     comment: "null",
     references: {
@@ -28,12 +28,12 @@ const Loan = sequelize.define('Loan', {
     }
   },
   'start_date': {
-    type: DataTypes.DATEONLY,
+    type: Sequelize.DATEONLY,
     allowNull: false,
     comment: "null"
   },
   'end_date': {
-    type: DataTypes.DATEONLY,
+    type: Sequelize.DATEONLY,
     allowNull: false,
     comment: "null"
   }

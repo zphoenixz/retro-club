@@ -2,7 +2,7 @@
 
 const Stars = sequelize.define('Stars', {
   'id_s': {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
     primaryKey: true,
@@ -10,12 +10,12 @@ const Stars = sequelize.define('Stars', {
     autoIncrement: true
   },
   'first_name': {
-    type: DataTypes.STRING(30),
+    type: Sequelize.STRING(30),
     allowNull: false,
     comment: "null"
   },
   'last_name': {
-    type: DataTypes.STRING(30),
+    type: Sequelize.STRING(30),
     allowNull: false,
     comment: "null"
   }

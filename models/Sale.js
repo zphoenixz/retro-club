@@ -2,7 +2,7 @@
 
 const Sale = sequelize.define('Sale', {
   'id_s': {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
     primaryKey: true,
@@ -10,7 +10,7 @@ const Sale = sequelize.define('Sale', {
     autoIncrement: true
   },
   'Loan_id_l': {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     comment: "null",
     references: {
@@ -19,7 +19,7 @@ const Sale = sequelize.define('Sale', {
     }
   },
   'Discount_id_d': {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     comment: "null",
     references: {
@@ -28,7 +28,7 @@ const Sale = sequelize.define('Sale', {
     }
   },
   'Price_id_p': {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     comment: "null",
     references: {

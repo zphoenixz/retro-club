@@ -2,7 +2,7 @@
 
 const Edition_Movie = sequelize.define('Edition_Movie', {
   'id_em': {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
     primaryKey: true,
@@ -10,7 +10,7 @@ const Edition_Movie = sequelize.define('Edition_Movie', {
     autoIncrement: true
   },
   'Edition_id_et': {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     comment: "null",
     references: {
@@ -19,7 +19,7 @@ const Edition_Movie = sequelize.define('Edition_Movie', {
     }
   },
   'Movie_id_m': {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     comment: "null",
     references: {

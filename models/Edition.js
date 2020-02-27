@@ -2,7 +2,7 @@
 
 const Edition = sequelize.define('', {
   'id_et': {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
     primaryKey: true,
@@ -10,7 +10,7 @@ const Edition = sequelize.define('', {
     autoIncrement: true
   },
   'Employee_id_e': {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     comment: "null",
     references: {
@@ -19,7 +19,7 @@ const Edition = sequelize.define('', {
     }
   },
   'Type_of_Edition_id_te': {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     comment: "null",
     references: {
@@ -28,7 +28,7 @@ const Edition = sequelize.define('', {
     }
   },
   'edition_date': {
-    type: DataTypes.DATEONLY,
+    type: Sequelize.DATEONLY,
     allowNull: false,
     comment: "null"
   }

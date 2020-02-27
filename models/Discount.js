@@ -2,7 +2,7 @@
 
 const Discount = sequelize.define('Discount', {
   'id_d': {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
     primaryKey: true,
@@ -15,7 +15,7 @@ const Discount = sequelize.define('Discount', {
     comment: "null"
   },
   'superior_limit': {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     comment: "null"
   }

@@ -2,7 +2,7 @@
 
 const Price = sequelize.define('Price', {
   'id_p': {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
     primaryKey: true,
@@ -10,12 +10,12 @@ const Price = sequelize.define('Price', {
     autoIncrement: true
   },
   'first_day_price': {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     comment: "null"
   },
   'addition_per_day': {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     comment: "null"
   }

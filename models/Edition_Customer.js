@@ -2,7 +2,7 @@
 
 const Edition_Customer = sequelize.define('Edition_Customer', {
   'id_ec': {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
     primaryKey: true,
@@ -10,7 +10,7 @@ const Edition_Customer = sequelize.define('Edition_Customer', {
     autoIncrement: true
   },
   'Edition_id_et': {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     comment: "null",
     references: {
@@ -19,7 +19,7 @@ const Edition_Customer = sequelize.define('Edition_Customer', {
     }
   },
   'Customer_id_c': {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     comment: "null",
     references: {

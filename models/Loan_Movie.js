@@ -2,7 +2,7 @@
 
 const Loan_Movie = sequelize.define('Loan_Movie', {
   'id_lm': {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
     primaryKey: true,
@@ -10,7 +10,7 @@ const Loan_Movie = sequelize.define('Loan_Movie', {
     autoIncrement: true
   },
   'Loan_id_l': {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     comment: "null",
     references: {
@@ -19,7 +19,7 @@ const Loan_Movie = sequelize.define('Loan_Movie', {
     }
   },
   'Movie_id_m': {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     comment: "null",
     references: {
