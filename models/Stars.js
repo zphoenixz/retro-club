@@ -5,7 +5,6 @@ const Stars = sequelize.define('Stars', {
     type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
-    primaryKey: true,
     comment: "null",
     autoIncrement: true
   },

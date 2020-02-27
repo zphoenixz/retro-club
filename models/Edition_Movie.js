@@ -5,7 +5,6 @@ const Edition_Movie = sequelize.define('Edition_Movie', {
     type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
-    primaryKey: true,
     comment: "null",
     autoIncrement: true
   },

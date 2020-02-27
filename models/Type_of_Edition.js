@@ -5,7 +5,6 @@ const Type_of_Edition = sequelize.define('Type_of_Edition', {
     type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
-    primaryKey: true,
     comment: "null",
     autoIncrement: true
   },

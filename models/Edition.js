@@ -5,7 +5,6 @@ const Edition = sequelize.define('', {
     type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
-    primaryKey: true,
     comment: "null",
     autoIncrement: true
   },

@@ -5,7 +5,6 @@ const Employee = sequelize.define('Employee', {
     type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
-    primaryKey: true,
     comment: "null",
     autoIncrement: true
   },

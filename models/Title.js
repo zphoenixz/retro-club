@@ -5,7 +5,6 @@ const Title = sequelize.define('Title', {
     type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
-    primaryKey: true,
     comment: "null",
     autoIncrement: true
   },

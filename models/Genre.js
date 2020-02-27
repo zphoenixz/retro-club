@@ -5,7 +5,6 @@ const Genre = sequelize.define('Genre', {
     type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
-    primaryKey: true,
     comment: "null",
     autoIncrement: true
   },

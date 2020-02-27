@@ -5,7 +5,6 @@ const Movie_Prize = sequelize.define('Movie_Prize', {
     type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
-    primaryKey: true,
     comment: "null",
     autoIncrement: true
   },

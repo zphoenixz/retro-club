@@ -5,7 +5,6 @@ const Movie_Genre = sequelize.define('Movie_Genre', {
     type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
-    primaryKey: true,
     comment: "null",
     autoIncrement: true
   },
