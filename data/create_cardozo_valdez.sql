@@ -1,5 +1,5 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2020-02-25 00:43:07.493
+-- Last modification date: 2020-02-28 00:49:14.319
 
 -- tables
 -- Table: Customer
@@ -48,15 +48,15 @@ CREATE TABLE Edition_Movie (
 CREATE TABLE Employee (
     id_e int NOT NULL AUTO_INCREMENT,
     Person_id_p int NOT NULL,
-    user varchar(10) NOT NULL,
-    password varchar(20) NOT NULL,
+    user varchar(30) NOT NULL,
+    password varchar(30) NOT NULL,
     CONSTRAINT Employee_pk PRIMARY KEY (id_e)
 );
 
 -- Table: Genre
 CREATE TABLE Genre (
     id_g int NOT NULL AUTO_INCREMENT,
-    genre_name varchar(30) NOT NULL,
+    genre_name varchar(60) NOT NULL,
     CONSTRAINT Genre_pk PRIMARY KEY (id_g)
 );
 
@@ -81,7 +81,7 @@ CREATE TABLE Loan_Movie (
 -- Table: Movie
 CREATE TABLE Movie (
     id_m int NOT NULL AUTO_INCREMENT,
-    duration varchar(30) NOT NULL,
+    duration varchar(60) NOT NULL,
     premier_year int NOT NULL,
     unit_price int NOT NULL,
     stock int NOT NULL,
@@ -118,23 +118,23 @@ CREATE TABLE Movie_Starring (
 -- Table: Nomination
 CREATE TABLE Nomination (
     id_pr int NOT NULL AUTO_INCREMENT,
-    category varchar(30) NOT NULL,
+    category varchar(60) NOT NULL,
     CONSTRAINT Nomination_pk PRIMARY KEY (id_pr)
 );
 
 -- Table: Person
 CREATE TABLE Person (
     id_p int NOT NULL AUTO_INCREMENT,
-    first_name varchar(30) NOT NULL,
-    last_name varchar(30) NOT NULL,
-    phone varchar(30) NOT NULL,
-    email varchar(30) NOT NULL,
+    first_name varchar(60) NOT NULL,
+    last_name varchar(60) NOT NULL,
+    phone varchar(60) NOT NULL,
+    email varchar(60) NOT NULL,
     birth_date date NOT NULL,
-    address varchar(30) NOT NULL,
-    idnumber varchar(30) NOT NULL,
-    nit varchar(30) NOT NULL,
-    lat double(10,10) NOT NULL,
-    longitude double(10,10) NOT NULL,
+    address varchar(60) NOT NULL,
+    idnumber varchar(60) NOT NULL,
+    nit varchar(60) NOT NULL,
+    lat double(10,5) NOT NULL,
+    longitude double(10,5) NOT NULL,
     CONSTRAINT Person_pk PRIMARY KEY (id_p)
 );
 
@@ -168,8 +168,8 @@ CREATE TABLE Sale (
 -- Table: Stars
 CREATE TABLE Stars (
     id_s int NOT NULL AUTO_INCREMENT,
-    first_name varchar(30) NOT NULL,
-    last_name varchar(30) NOT NULL,
+    first_name varchar(60) NOT NULL,
+    last_name varchar(60) NOT NULL,
     CONSTRAINT Stars_pk PRIMARY KEY (id_s)
 );
 
@@ -177,14 +177,14 @@ CREATE TABLE Stars (
 CREATE TABLE Title (
     id_t int NOT NULL AUTO_INCREMENT,
     Movie_id_m int NOT NULL,
-    name varchar(30) NOT NULL,
+    movie_name varchar(60) NOT NULL,
     CONSTRAINT Title_pk PRIMARY KEY (id_t)
 );
 
 -- Table: Type_of_Edition
 CREATE TABLE Type_of_Edition (
     id_te int NOT NULL AUTO_INCREMENT,
-    description varchar(30) NOT NULL,
+    description varchar(60) NOT NULL,
     CONSTRAINT Type_of_Edition_pk PRIMARY KEY (id_te)
 );
 
