@@ -11,6 +11,11 @@ The SQL ORM for this project:
 Database have been designed using Vertabelo.
 website: https://www.vertabelo.com
 
+## FrontEnd
+EJS template engine is being used in frontend.
+website: https://ejs.co/
+
+
 <footer>
 <p style="float:left; width: 20%;">
 RV & MC 2020. UCB - Bolivia.
