@@ -29,4 +29,5 @@ const Movie_Genre = sequelize.define('Movie_Genre', {
 }, {
   tableName: 'Movie_Genre'
 });
+
 module.exports = Movie_Genre;

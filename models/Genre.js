@@ -9,11 +9,12 @@ const Genre = sequelize.define('Genre', {
     autoIncrement: true
   },
   'genre_name': {
-    type: Sequelize.STRING(30),
+    type: Sequelize.STRING(60),
     allowNull: false,
     comment: "null"
   }
 }, {
   tableName: 'Genre'
 });
+
 module.exports = Genre;

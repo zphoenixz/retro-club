@@ -39,4 +39,5 @@ const Loan = sequelize.define('Loan', {
 }, {
   tableName: 'Loan'
 });
+
 module.exports = Loan;

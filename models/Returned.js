@@ -35,4 +35,5 @@ const Returned = sequelize.define('Returned', {
   tableName: 'Returned'
 });
 
+
 module.exports = Returned;

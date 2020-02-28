@@ -17,8 +17,8 @@ const Title = sequelize.define('Title', {
       key: 'id_m'
     }
   },
-  'name': {
-    type: Sequelize.STRING(30),
+  'movie_name': {
+    type: Sequelize.STRING(60),
     allowNull: false,
     comment: "null"
   }

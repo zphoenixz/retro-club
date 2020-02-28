@@ -9,7 +9,7 @@ const Nomination = sequelize.define('Nomination', {
     autoIncrement: true
   },
   'category': {
-    type: Sequelize.STRING(30),
+    type: Sequelize.STRING(60),
     allowNull: false,
     comment: "null"
   }

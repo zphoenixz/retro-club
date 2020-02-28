@@ -9,12 +9,12 @@ const Stars = sequelize.define('Stars', {
     autoIncrement: true
   },
   'first_name': {
-    type: Sequelize.STRING(30),
+    type: Sequelize.STRING(60),
     allowNull: false,
     comment: "null"
   },
   'last_name': {
-    type: Sequelize.STRING(30),
+    type: Sequelize.STRING(60),
     allowNull: false,
     comment: "null"
   }

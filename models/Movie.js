@@ -9,7 +9,7 @@ const Movie = sequelize.define('Movie', {
     autoIncrement: true
   },
   'duration': {
-    type: Sequelize.STRING(30),
+    type: Sequelize.STRING(60),
     allowNull: false,
     comment: "null"
   },

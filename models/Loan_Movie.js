@@ -29,4 +29,5 @@ const Loan_Movie = sequelize.define('Loan_Movie', {
 }, {
   tableName: 'Loan_Movie'
 });
+
 module.exports = Loan_Movie;

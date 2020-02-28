@@ -29,4 +29,5 @@ const Edition_Movie = sequelize.define('Edition_Movie', {
 }, {
   tableName: 'Edition_Movie'
 });
+
 module.exports = Edition_Movie;

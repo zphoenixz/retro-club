@@ -1,6 +1,6 @@
 /* jshint indent: 2 */
 
-const Edition = sequelize.define('', {
+const Edition = sequelize.define('Edition', {
   'id_et': {
     type: Sequelize.INTEGER,
     allowNull: false,
@@ -34,4 +34,5 @@ const Edition = sequelize.define('', {
 }, {
   tableName: 'Edition'
 });
+
 module.exports = Edition;

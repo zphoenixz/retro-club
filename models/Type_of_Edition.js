@@ -9,7 +9,7 @@ const Type_of_Edition = sequelize.define('Type_of_Edition', {
     autoIncrement: true
   },
   'description': {
-    type: Sequelize.STRING(30),
+    type: Sequelize.STRING(60),
     allowNull: false,
     comment: "null"
   }

@@ -9,22 +9,22 @@ const Person = sequelize.define('Person', {
     autoIncrement: true
   },
   'first_name': {
-    type: Sequelize.STRING(30),
+    type: Sequelize.STRING(60),
     allowNull: false,
     comment: "null"
   },
   'last_name': {
-    type: Sequelize.STRING(30),
+    type: Sequelize.STRING(60),
     allowNull: false,
     comment: "null"
   },
   'phone': {
-    type: Sequelize.STRING(30),
+    type: Sequelize.STRING(60),
     allowNull: false,
     comment: "null"
   },
   'email': {
-    type: Sequelize.STRING(30),
+    type: Sequelize.STRING(60),
     allowNull: false,
     comment: "null"
   },
@@ -34,27 +34,27 @@ const Person = sequelize.define('Person', {
     comment: "null"
   },
   'address': {
-    type: Sequelize.STRING(30),
+    type: Sequelize.STRING(60),
     allowNull: false,
     comment: "null"
   },
   'idnumber': {
-    type: Sequelize.STRING(30),
+    type: Sequelize.STRING(60),
     allowNull: false,
     comment: "null"
   },
   'nit': {
-    type: Sequelize.STRING(30),
+    type: Sequelize.STRING(60),
     allowNull: false,
     comment: "null"
   },
   'lat': {
-    type: "DOUBLE(10,10)",
+    type: "DOUBLE(10,5)",
     allowNull: false,
     comment: "null"
   },
   'longitude': {
-    type: "DOUBLE(10,10)",
+    type: "DOUBLE(10,5)",
     allowNull: false,
     comment: "null"
   }

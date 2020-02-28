@@ -18,16 +18,17 @@ const Employee = sequelize.define('Employee', {
     }
   },
   'user': {
-    type: Sequelize.STRING(10),
+    type: Sequelize.STRING(30),
     allowNull: false,
     comment: "null"
   },
   'password': {
-    type: Sequelize.STRING(20),
+    type: Sequelize.STRING(30),
     allowNull: false,
     comment: "null"
   }
 }, {
   tableName: 'Employee'
 });
+
 module.exports = Employee;
