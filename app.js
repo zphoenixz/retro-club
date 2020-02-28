@@ -4,6 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const sequelize = require('./util/database');
+
 const Customer = require('./models/Customer');
 const Discount = require('./models/Discount');
 const EditionCustomer = require('./models/Edition_Customer');
@@ -14,7 +15,7 @@ const Genre = require('./models/Genre');
 const LoanMovie = require('./models/Loan_Movie');
 const Loan = require('./models/Loan');
 const MovieGenre = require('./models/Movie_Genre');
-const MoviePrize = require('./models/Movie_Prize');
+const MovieNomination = require('./models/Movie_Nomination');
 const MovieStarring = require('./models/Movie_Starring');
 const Movie = require('./models/Movie');
 const Nomination = require('./models/Nomination');
