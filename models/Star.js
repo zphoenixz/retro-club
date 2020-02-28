@@ -2,8 +2,8 @@ const Sequelize = require('sequelize');
 
 const sequelize = require('../util/database');
 
-const Title = sequelize.define('Title', {
-  'id_t': {
+const Star = sequelize.define('Star', {
+  'id_s': {
     type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
@@ -11,22 +11,18 @@ const Title = sequelize.define('Title', {
     comment: "null",
     autoIncrement: true
   },
-  'Movie_id_m': {
-    type: Sequelize.INTEGER,
+  'first_name': {
+    type: Sequelize.STRING(60),
     allowNull: false,
-    comment: "null",
-    references: {
-      model: 'Movie',
-      key: 'id_m'
-    }
+    comment: "null"
   },
-  'movie_name': {
+  'last_name': {
     type: Sequelize.STRING(60),
     allowNull: false,
     comment: "null"
   }
 }, {
-  tableName: 'Title'
+  tableName: 'Star'
 });
 
-module.exports = Title;
+module.exports = Star;

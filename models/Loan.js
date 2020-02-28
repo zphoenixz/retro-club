@@ -1,15 +1,20 @@
-/* jshint indent: 2 */
+const Sequelize = require('sequelize');
+
+const sequelize = require('../util/database');
 
 const Loan = sequelize.define('Loan', {
   'id_l': {
     type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
+    primaryKey: true,
+    comment: "null",
     autoIncrement: true
   },
   'Employee_id_e': {
     type: Sequelize.INTEGER,
     allowNull: false,
+    comment: "null",
     references: {
       model: 'Employee',
       key: 'id_e'
@@ -18,6 +23,7 @@ const Loan = sequelize.define('Loan', {
   'Customer_id_c': {
     type: Sequelize.INTEGER,
     allowNull: false,
+    comment: "null",
     references: {
       model: 'Customer',
       key: 'id_c'
@@ -25,11 +31,13 @@ const Loan = sequelize.define('Loan', {
   },
   'start_date': {
     type: Sequelize.DATEONLY,
-    allowNull: false
+    allowNull: false,
+    comment: "null"
   },
   'end_date': {
     type: Sequelize.DATEONLY,
-    allowNull: false
+    allowNull: false,
+    comment: "null"
   }
 }, {
   tableName: 'Loan'

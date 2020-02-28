@@ -1,18 +1,22 @@
-/* jshint indent: 2 */
+const Sequelize = require('sequelize');
 
-const Type_of_Edition = sequelize.define('Type_of_Edition', {
-  'id_te': {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-    primaryKey: true,
-    autoIncrement: true
-  },
-  'description': {
-    type: Sequelize.STRING(60),
-    allowNull: false
-  }
-}, {
-  tableName: 'Type_of_Edition'
-});
+const sequelize = require('../util/database');
 
-module.exports = Type_of_Edition;
+const TypeOfEdition =sequelize.define('Type_of_Edition', {
+    'id_te': {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      comment: "null",
+      autoIncrement: true
+    },
+    'description': {
+      type: Sequelize.STRING(60),
+      allowNull: false,
+      comment: "null"
+    }
+  }, {
+    tableName: 'Type_of_Edition'
+  });
+
+  module.exports = TypeOfEdition;

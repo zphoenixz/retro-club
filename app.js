@@ -22,7 +22,7 @@ const Person = require('./models/Person');
 const Price = require('./models/Price');
 const Returned = require('./models/Returned');
 const Sale = require('./models/Sale');
-const Stars = require('./models/Stars');
+const Star = require('./models/Star');
 const Title = require('./models/Title');
 const TypeOfEdition = require('./models/Type_of_Edition');
 

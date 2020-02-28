@@ -1,15 +1,20 @@
-/* jshint indent: 2 */
+const Sequelize = require('sequelize');
 
-const Edition_Customer = sequelize.define('Edition_Customer', {
+const sequelize = require('../util/database');
+
+const EditionCustomer = sequelize.define('Edition_Customer', {
   'id_ec': {
     type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
+    primaryKey: true,
+    comment: "null",
     autoIncrement: true
   },
   'Edition_id_et': {
     type: Sequelize.INTEGER,
     allowNull: false,
+    comment: "null",
     references: {
       model: 'Edition',
       key: 'id_et'
@@ -18,6 +23,7 @@ const Edition_Customer = sequelize.define('Edition_Customer', {
   'Customer_id_c': {
     type: Sequelize.INTEGER,
     allowNull: false,
+    comment: "null",
     references: {
       model: 'Customer',
       key: 'id_c'
@@ -27,4 +33,4 @@ const Edition_Customer = sequelize.define('Edition_Customer', {
   tableName: 'Edition_Customer'
 });
 
-module.exports = Edition_Customer;
+module.exports = EditionCustomer;

@@ -1,5 +1,5 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2020-02-28 00:49:14.319
+-- Last modification date: 2020-02-28 07:06:18.743
 
 -- tables
 -- Table: Customer
@@ -97,14 +97,14 @@ CREATE TABLE Movie_Genre (
     CONSTRAINT Movie_Genre_pk PRIMARY KEY (id_mg)
 );
 
--- Table: Movie_Prize
-CREATE TABLE Movie_Prize (
+-- Table: Movie_Nomination
+CREATE TABLE Movie_Nomination (
     id_mp int NOT NULL AUTO_INCREMENT,
     Movie_id_m int NOT NULL,
     Nomination_id_pr int NOT NULL,
-    year int NOT NULL,
+    winner_year int NOT NULL,
     winner bool NOT NULL,
-    CONSTRAINT Movie_Prize_pk PRIMARY KEY (id_mp)
+    CONSTRAINT Movie_Nomination_pk PRIMARY KEY (id_mp)
 );
 
 -- Table: Movie_Starring
@@ -165,12 +165,12 @@ CREATE TABLE Sale (
     CONSTRAINT Sale_pk PRIMARY KEY (id_s)
 );
 
--- Table: Stars
-CREATE TABLE Stars (
+-- Table: Star
+CREATE TABLE Star (
     id_s int NOT NULL AUTO_INCREMENT,
     first_name varchar(60) NOT NULL,
     last_name varchar(60) NOT NULL,
-    CONSTRAINT Stars_pk PRIMARY KEY (id_s)
+    CONSTRAINT Star_pk PRIMARY KEY (id_s)
 );
 
 -- Table: Title
@@ -245,12 +245,12 @@ ALTER TABLE Movie_Genre ADD CONSTRAINT Movie_Genre_Genre FOREIGN KEY Movie_Genre
 ALTER TABLE Movie_Genre ADD CONSTRAINT Movie_Genre_Movie FOREIGN KEY Movie_Genre_Movie (Movie_id_m)
     REFERENCES Movie (id_m);
 
--- Reference: Movie_Prize_Movie (table: Movie_Prize)
-ALTER TABLE Movie_Prize ADD CONSTRAINT Movie_Prize_Movie FOREIGN KEY Movie_Prize_Movie (Movie_id_m)
+-- Reference: Movie_Prize_Movie (table: Movie_Nomination)
+ALTER TABLE Movie_Nomination ADD CONSTRAINT Movie_Prize_Movie FOREIGN KEY Movie_Prize_Movie (Movie_id_m)
     REFERENCES Movie (id_m);
 
--- Reference: Movie_Prize_Oscar_Nomination (table: Movie_Prize)
-ALTER TABLE Movie_Prize ADD CONSTRAINT Movie_Prize_Oscar_Nomination FOREIGN KEY Movie_Prize_Oscar_Nomination (Nomination_id_pr)
+-- Reference: Movie_Prize_Oscar_Nomination (table: Movie_Nomination)
+ALTER TABLE Movie_Nomination ADD CONSTRAINT Movie_Prize_Oscar_Nomination FOREIGN KEY Movie_Prize_Oscar_Nomination (Nomination_id_pr)
     REFERENCES Nomination (id_pr);
 
 -- Reference: Movie_Starring_Movie (table: Movie_Starring)
@@ -259,7 +259,7 @@ ALTER TABLE Movie_Starring ADD CONSTRAINT Movie_Starring_Movie FOREIGN KEY Movie
 
 -- Reference: Movie_Starring_Stars (table: Movie_Starring)
 ALTER TABLE Movie_Starring ADD CONSTRAINT Movie_Starring_Stars FOREIGN KEY Movie_Starring_Stars (Stars_id_s)
-    REFERENCES Stars (id_s);
+    REFERENCES Star (id_s);
 
 -- Reference: Nickname_Movie (table: Title)
 ALTER TABLE Title ADD CONSTRAINT Nickname_Movie FOREIGN KEY Nickname_Movie (Movie_id_m)
