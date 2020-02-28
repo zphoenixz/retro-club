@@ -5,18 +5,15 @@ const Stars = sequelize.define('Stars', {
     type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
-    comment: "null",
     autoIncrement: true
   },
   'first_name': {
     type: Sequelize.STRING(60),
-    allowNull: false,
-    comment: "null"
+    allowNull: false
   },
   'last_name': {
     type: Sequelize.STRING(60),
-    allowNull: false,
-    comment: "null"
+    allowNull: false
   }
 }, {
   tableName: 'Stars'

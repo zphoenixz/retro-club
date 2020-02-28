@@ -5,13 +5,11 @@ const Type_of_Edition = sequelize.define('Type_of_Edition', {
     type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
-    comment: "null",
     autoIncrement: true
   },
   'description': {
     type: Sequelize.STRING(60),
-    allowNull: false,
-    comment: "null"
+    allowNull: false
   }
 }, {
   tableName: 'Type_of_Edition'

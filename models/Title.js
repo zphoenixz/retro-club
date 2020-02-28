@@ -5,13 +5,11 @@ const Title = sequelize.define('Title', {
     type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
-    comment: "null",
     autoIncrement: true
   },
   'Movie_id_m': {
     type: Sequelize.INTEGER,
     allowNull: false,
-    comment: "null",
     references: {
       model: 'Movie',
       key: 'id_m'
@@ -19,8 +17,7 @@ const Title = sequelize.define('Title', {
   },
   'movie_name': {
     type: Sequelize.STRING(60),
-    allowNull: false,
-    comment: "null"
+    allowNull: false
   }
 }, {
   tableName: 'Title'

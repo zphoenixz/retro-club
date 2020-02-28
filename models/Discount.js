@@ -5,18 +5,15 @@ const Discount = sequelize.define('Discount', {
     type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
-    comment: "null",
     autoIncrement: true
   },
   'discount': {
     type: "DOUBLE(3,2)",
-    allowNull: false,
-    comment: "null"
+    allowNull: false
   },
   'superior_limit': {
     type: Sequelize.INTEGER,
-    allowNull: false,
-    comment: "null"
+    allowNull: false
   }
 }, {
   tableName: 'Discount'

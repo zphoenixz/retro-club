@@ -5,13 +5,11 @@ const Edition = sequelize.define('Edition', {
     type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
-    comment: "null",
     autoIncrement: true
   },
   'Employee_id_e': {
     type: Sequelize.INTEGER,
     allowNull: false,
-    comment: "null",
     references: {
       model: 'Employee',
       key: 'id_e'
@@ -20,7 +18,6 @@ const Edition = sequelize.define('Edition', {
   'Type_of_Edition_id_te': {
     type: Sequelize.INTEGER,
     allowNull: false,
-    comment: "null",
     references: {
       model: 'Type_of_Edition',
       key: 'id_te'
@@ -28,8 +25,7 @@ const Edition = sequelize.define('Edition', {
   },
   'edition_date': {
     type: Sequelize.DATEONLY,
-    allowNull: false,
-    comment: "null"
+    allowNull: false
   }
 }, {
   tableName: 'Edition'

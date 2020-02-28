@@ -5,18 +5,15 @@ const Price = sequelize.define('Price', {
     type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
-    comment: "null",
     autoIncrement: true
   },
   'first_day_price': {
     type: Sequelize.INTEGER,
-    allowNull: false,
-    comment: "null"
+    allowNull: false
   },
   'addition_per_day': {
     type: Sequelize.INTEGER,
-    allowNull: false,
-    comment: "null"
+    allowNull: false
   }
 }, {
   tableName: 'Price'

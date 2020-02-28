@@ -5,33 +5,27 @@ const Movie = sequelize.define('Movie', {
     type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
-    comment: "null",
     autoIncrement: true
   },
   'duration': {
     type: Sequelize.STRING(60),
-    allowNull: false,
-    comment: "null"
+    allowNull: false
   },
   'premier_year': {
     type: Sequelize.INTEGER,
-    allowNull: false,
-    comment: "null"
+    allowNull: false
   },
   'unit_price': {
     type: Sequelize.INTEGER,
-    allowNull: false,
-    comment: "null"
+    allowNull: false
   },
   'stock': {
     type: Sequelize.INTEGER,
-    allowNull: false,
-    comment: "null"
+    allowNull: false
   },
   'movie_status': {
     type: Sequelize.INTEGER(1),
-    allowNull: false,
-    comment: "null"
+    allowNull: false
   }
 }, {
   tableName: 'Movie'

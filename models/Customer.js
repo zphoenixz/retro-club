@@ -5,13 +5,11 @@ const Customer = sequelize.define('Customer', {
     type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
-    comment: "null",
     autoIncrement: true
   },
   'Person_id_p': {
     type: Sequelize.INTEGER,
     allowNull: false,
-    comment: "null",
     references: {
       model: 'Person',
       key: 'id_p'
@@ -19,13 +17,11 @@ const Customer = sequelize.define('Customer', {
   },
   'register_date': {
     type: Sequelize.DATEONLY,
-    allowNull: false,
-    comment: "null"
+    allowNull: false
   },
   'customer_status': {
     type: Sequelize.INTEGER(1),
-    allowNull: false,
-    comment: "null"
+    allowNull: false
   }
 }, {
   tableName: 'Customer'

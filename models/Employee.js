@@ -5,13 +5,11 @@ const Employee = sequelize.define('Employee', {
     type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
-    comment: "null",
     autoIncrement: true
   },
   'Person_id_p': {
     type: Sequelize.INTEGER,
     allowNull: false,
-    comment: "null",
     references: {
       model: 'Person',
       key: 'id_p'
@@ -19,13 +17,11 @@ const Employee = sequelize.define('Employee', {
   },
   'user': {
     type: Sequelize.STRING(30),
-    allowNull: false,
-    comment: "null"
+    allowNull: false
   },
   'password': {
     type: Sequelize.STRING(30),
-    allowNull: false,
-    comment: "null"
+    allowNull: false
   }
 }, {
   tableName: 'Employee'

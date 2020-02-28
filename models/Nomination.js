@@ -5,13 +5,11 @@ const Nomination = sequelize.define('Nomination', {
     type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
-    comment: "null",
     autoIncrement: true
   },
   'category': {
     type: Sequelize.STRING(60),
-    allowNull: false,
-    comment: "null"
+    allowNull: false
   }
 }, {
   tableName: 'Nomination'

@@ -5,13 +5,11 @@ const Movie_Prize = sequelize.define('Movie_Prize', {
     type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
-    comment: "null",
     autoIncrement: true
   },
   'Movie_id_m': {
     type: Sequelize.INTEGER,
     allowNull: false,
-    comment: "null",
     references: {
       model: 'Movie',
       key: 'id_m'
@@ -20,7 +18,6 @@ const Movie_Prize = sequelize.define('Movie_Prize', {
   'Nomination_id_pr': {
     type: Sequelize.INTEGER,
     allowNull: false,
-    comment: "null",
     references: {
       model: 'Nomination',
       key: 'id_pr'
@@ -28,13 +25,11 @@ const Movie_Prize = sequelize.define('Movie_Prize', {
   },
   'year': {
     type: Sequelize.INTEGER,
-    allowNull: false,
-    comment: "null"
+    allowNull: false
   },
   'winner': {
     type: Sequelize.INTEGER(1),
-    allowNull: false,
-    comment: "null"
+    allowNull: false
   }
 }, {
   tableName: 'Movie_Prize'

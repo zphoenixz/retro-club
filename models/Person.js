@@ -5,58 +5,47 @@ const Person = sequelize.define('Person', {
     type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
-    comment: "null",
     autoIncrement: true
   },
   'first_name': {
     type: Sequelize.STRING(60),
-    allowNull: false,
-    comment: "null"
+    allowNull: false
   },
   'last_name': {
     type: Sequelize.STRING(60),
-    allowNull: false,
-    comment: "null"
+    allowNull: false
   },
   'phone': {
     type: Sequelize.STRING(60),
-    allowNull: false,
-    comment: "null"
+    allowNull: false
   },
   'email': {
     type: Sequelize.STRING(60),
-    allowNull: false,
-    comment: "null"
+    allowNull: false
   },
   'birth_date': {
     type: Sequelize.DATEONLY,
-    allowNull: false,
-    comment: "null"
+    allowNull: false
   },
   'address': {
     type: Sequelize.STRING(60),
-    allowNull: false,
-    comment: "null"
+    allowNull: false
   },
   'idnumber': {
     type: Sequelize.STRING(60),
-    allowNull: false,
-    comment: "null"
+    allowNull: false
   },
   'nit': {
     type: Sequelize.STRING(60),
-    allowNull: false,
-    comment: "null"
+    allowNull: false
   },
   'lat': {
     type: "DOUBLE(10,5)",
-    allowNull: false,
-    comment: "null"
+    allowNull: false
   },
   'longitude': {
     type: "DOUBLE(10,5)",
-    allowNull: false,
-    comment: "null"
+    allowNull: false
   }
 }, {
   tableName: 'Person'

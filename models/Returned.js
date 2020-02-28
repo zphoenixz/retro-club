@@ -5,13 +5,11 @@ const Returned = sequelize.define('Returned', {
     type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
-    comment: "null",
     autoIncrement: true
   },
   'Loan_id_l': {
     type: Sequelize.INTEGER,
     allowNull: false,
-    comment: "null",
     references: {
       model: 'Loan',
       key: 'id_l'
@@ -20,7 +18,6 @@ const Returned = sequelize.define('Returned', {
   'Employee_id_e': {
     type: Sequelize.INTEGER,
     allowNull: false,
-    comment: "null",
     references: {
       model: 'Employee',
       key: 'id_e'
@@ -28,8 +25,7 @@ const Returned = sequelize.define('Returned', {
   },
   'return_date': {
     type: Sequelize.DATEONLY,
-    allowNull: false,
-    comment: "null"
+    allowNull: false
   }
 }, {
   tableName: 'Returned'

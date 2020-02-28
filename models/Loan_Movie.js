@@ -5,13 +5,11 @@ const Loan_Movie = sequelize.define('Loan_Movie', {
     type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
-    comment: "null",
     autoIncrement: true
   },
   'Loan_id_l': {
     type: Sequelize.INTEGER,
     allowNull: false,
-    comment: "null",
     references: {
       model: 'Loan',
       key: 'id_l'
@@ -20,7 +18,6 @@ const Loan_Movie = sequelize.define('Loan_Movie', {
   'Movie_id_m': {
     type: Sequelize.INTEGER,
     allowNull: false,
-    comment: "null",
     references: {
       model: 'Movie',
       key: 'id_m'

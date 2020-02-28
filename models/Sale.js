@@ -5,13 +5,11 @@ const Sale = sequelize.define('Sale', {
     type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
-    comment: "null",
     autoIncrement: true
   },
   'Loan_id_l': {
     type: Sequelize.INTEGER,
     allowNull: false,
-    comment: "null",
     references: {
       model: 'Loan',
       key: 'id_l'
@@ -20,7 +18,6 @@ const Sale = sequelize.define('Sale', {
   'Discount_id_d': {
     type: Sequelize.INTEGER,
     allowNull: false,
-    comment: "null",
     references: {
       model: 'Discount',
       key: 'id_d'
@@ -29,7 +26,6 @@ const Sale = sequelize.define('Sale', {
   'Price_id_p': {
     type: Sequelize.INTEGER,
     allowNull: false,
-    comment: "null",
     references: {
       model: 'Price',
       key: 'id_p'
@@ -37,8 +33,7 @@ const Sale = sequelize.define('Sale', {
   },
   'total': {
     type: "DOUBLE(5,1)",
-    allowNull: false,
-    comment: "null"
+    allowNull: false
   }
 }, {
   tableName: 'Sale'
