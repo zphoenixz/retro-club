@@ -9,7 +9,7 @@ The SQL ORM for this project:
 ![](others/db_pic.png)
 
 Database have been designed using Vertabelo.
-https://www.vertabelo.com
+website: https://www.vertabelo.com
 
 <footer>
 <p style="float:left; width: 20%;">
