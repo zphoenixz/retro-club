@@ -12,9 +12,12 @@ Database have been designed using Vertabelo.
 website: https://www.vertabelo.com
 
 ## FrontEnd
-EJS template engine is being used in frontend.
+EJS template engine is being used in client side.
 website: https://ejs.co/
 
+## BackEnd
+Express JS is being used as Node Js framework in server side.
+website: https://expressjs.com/
 
 <footer>
 <p style="float:left; width: 20%;">
