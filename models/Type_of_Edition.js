@@ -16,7 +16,9 @@ const TypeOfEdition =sequelize.define('Type_of_Edition', {
       comment: "null"
     }
   }, {
-    tableName: 'Type_of_Edition'
+    tableName: 'Type_of_Edition',
+    underscored: true,
+    timestamps: false
   });
 
   module.exports = TypeOfEdition;

@@ -2,6 +2,10 @@ const Person = require('../models/Person');
 const Customer = require('../models/Customer');
 const Employee = require('../models/Employee');
 
+const EditionCustomer = require('../models/Edition_Customer');
+const TypeOfEdition = require('../models/Type_of_Edition');
+const Edition = require('../models/Edition');
+
 //GETS -----------------------------------------------------------------
 exports.getPersons = (req, res, next) => {
     Person.findAll()
@@ -86,11 +90,15 @@ exports.postEmployee = (req, res, next) => {
         })
         .then((employee) => {
             console.log(employee);
+            return;
         })
         .catch(err => console.log(err));
 };
 
 exports.postCustomer = (req, res, next) => {
+    let employeeId = 3;//3 = employeeId------------------------req.body.
+    let typeEdition = 1;//1 = Crear
+
     let firstname = "Ramo"; //req.body.firstname
     let lastname = "Vald"; //req.body.lastname
     let phone = "67890195"; //req.body.phone
@@ -127,7 +135,7 @@ exports.postCustomer = (req, res, next) => {
             longitude: longitude,
         })
         .then(person => {
-            console.log(person);
+            console.log("Person: ", person);
             return Customer
                 .create({
                     Person_id_p: person.id_p,
@@ -135,8 +143,21 @@ exports.postCustomer = (req, res, next) => {
                     register_date: registerDate
                 });
         })
-        .then((employee) => {
-            console.log(employee);
+        .then((Customer) => {
+            console.log("Customer: ", Customer);
+            return [Edition.create({
+                Employee_id_e: employeeId,
+                Type_of_Edition_id_te: typeEdition,
+                edition_date: registerDate
+            }), Customer.id_c];
+
+        })
+        .then((Data) => {
+            console.log("Edition: ", Data[0]);
+            return EditionCustomer.create({
+                Edition_id_et: Data[0].id_et,
+                Customer: Data[1]
+            });
         })
         .catch(err => console.log(err));
 };

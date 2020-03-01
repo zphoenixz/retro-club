@@ -29,7 +29,9 @@ const EditionCustomer = sequelize.define('Edition_Customer', {
     }
   }
 }, {
-  tableName: 'Edition_Customer'
+  tableName: 'Edition_Customer',
+  underscored: true,
+  timestamps: false
 });
 
 module.exports = EditionCustomer;

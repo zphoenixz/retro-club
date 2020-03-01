@@ -45,12 +45,22 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/admin', adminRoutes);
 
-
+// 0 =============================
 Employee.belongsTo(Person);
 Person.hasMany(Employee);
 
 Customer.belongsTo(Person);
 Person.hasMany(Customer);
+
+// 1 =============================
+Edition.belongsTo(Employee);
+Employee.hasMany(Edition);
+
+EditionCustomer.belongsTo(Edition);
+Edition.hasMany(EditionCustomer);
+
+EditionCustomer.belongsTo(Customer);
+Customer.hasMany(EditionCustomer)
 
 // db.execute('SELECT * FROM anytable')
 //     .then(result => {

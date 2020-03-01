@@ -13,7 +13,7 @@ router.get('/employees/all', adminController.getEmployees);
 
 
 //POSTS -----------------------------------------------------------
-router.get('/employee/add', adminController.postEmployee);
+router.get('/employees/add', adminController.postEmployee);
 router.get('/customers/add', adminController.postCustomer);
 
 module.exports = router;

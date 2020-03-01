@@ -34,7 +34,9 @@ const Edition = sequelize.define('Edition', {
     comment: "null"
   }
 }, {
-  tableName: 'Edition'
+  tableName: 'Edition',
+  underscored: true,
+  timestamps: false
 });
 
 module.exports = Edition;
