@@ -7,7 +7,6 @@ const LoanMovie = sequelize.define('Loan_Movie', {
     type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
-    primaryKey: true,
     comment: "null",
     autoIncrement: true
   },

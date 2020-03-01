@@ -7,7 +7,6 @@ const Employee = sequelize.define('Employee', {
     type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
-    primaryKey: true,
     comment: "null",
     autoIncrement: true
   },
@@ -31,7 +30,9 @@ const Employee = sequelize.define('Employee', {
     comment: "null"
   }
 }, {
-  tableName: 'Employee'
+  tableName: 'Employee',
+  underscored: true,
+  timestamps: false
 });
 
 module.exports = Employee;

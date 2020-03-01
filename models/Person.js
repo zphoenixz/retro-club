@@ -7,7 +7,6 @@ const Person = sequelize.define('Person', {
     type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
-    primaryKey: true,
     comment: "null",
     autoIncrement: true
   },
@@ -62,7 +61,9 @@ const Person = sequelize.define('Person', {
     comment: "null"
   }
 }, {
-  tableName: 'Person'
+  tableName: 'Person',
+  underscored: true,
+  timestamps: false
 });
 
 module.exports = Person;

@@ -7,7 +7,6 @@ const Discount = sequelize.define('Discount', {
     type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
-    primaryKey: true,
     comment: "null",
     autoIncrement: true
   },

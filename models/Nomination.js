@@ -2,11 +2,10 @@ const Sequelize = require('sequelize');
 
 const sequelize = require('../util/database');
 
-const CarNominationtItem = sequelize.define('Nomination', {
+const Nomination = sequelize.define('Nomination', {
   'id_pr': {
     type: Sequelize.INTEGER,
     allowNull: false,
-    primaryKey: true,
     primaryKey: true,
     comment: "null",
     autoIncrement: true

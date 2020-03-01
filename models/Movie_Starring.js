@@ -7,7 +7,6 @@ const MovieStarring = sequelize.define('Movie_Starring', {
     type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
-    primaryKey: true,
     comment: "null",
     autoIncrement: true
   },

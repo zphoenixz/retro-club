@@ -7,7 +7,6 @@ const Loan = sequelize.define('Loan', {
     type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
-    primaryKey: true,
     comment: "null",
     autoIncrement: true
   },
