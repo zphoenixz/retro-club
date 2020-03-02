@@ -35,6 +35,7 @@ app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 const adminRoutes = require('./routes/admin');
+const authRoutes = require('./routes/auth');
 
 
 app.use(bodyParser.urlencoded({
@@ -43,6 +44,7 @@ app.use(bodyParser.urlencoded({
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/admin', adminRoutes);
+app.use('/', authRoutes);
 
 // app.use(errorController.get404);
 // 0 =============================
