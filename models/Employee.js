@@ -30,9 +30,9 @@ const Employee = sequelize.define('Employee', {
     comment: "null"
   }
 }, {
-  tableName: 'Employee',
-  underscored: true,
-  timestamps: false
+  tableName: 'Employee'
+  // underscored: true,
+  // timestamps: false
 });
 
 module.exports = Employee;

@@ -29,9 +29,9 @@ const Customer = sequelize.define('Customer', {
     comment: "null"
   }
 }, {
-  tableName: 'Customer',
-  underscored: true,
-  timestamps: false
+  tableName: 'Customer'
+  // underscored: true,
+  // timestamps: false
 });
 
 module.exports = Customer;

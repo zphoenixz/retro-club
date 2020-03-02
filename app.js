@@ -7,7 +7,7 @@ const Person = require('./models/Person');
 const Customer = require('./models/Customer');
 const Employee = require('./models/Employee');
 
-
+// const errorController = require('./controllers/error');
 
 const sequelize = require('./util/database');
 const Discount = require('./models/Discount');
@@ -27,8 +27,7 @@ const Returned = require('./models/Returned');
 const Sale = require('./models/Sale');
 const Star = require('./models/Star');
 const Title = require('./models/Title');
-const TypeOfEdition = require('./models/Type_of_Edition');
-
+const EditionReason = require('./models/Editiontype');
 
 const app = express();
 
@@ -45,6 +44,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/admin', adminRoutes);
 
+// app.use(errorController.get404);
 // 0 =============================
 Employee.belongsTo(Person);
 Person.hasMany(Employee);
@@ -56,19 +56,15 @@ Person.hasMany(Customer);
 Edition.belongsTo(Employee);
 Employee.hasMany(Edition);
 
-EditionCustomer.belongsTo(Edition);
-Edition.hasMany(EditionCustomer);
+// EditionCustomer.belongsTo(Edition);
+// Edition.hasMany(EditionCustomer);
 
-EditionCustomer.belongsTo(Customer);
-Customer.hasMany(EditionCustomer)
+// EditionCustomer.belongsTo(Customer);
+// Customer.hasMany(EditionCustomer)
+Edition.belongsToMany(Customer, {through: EditionCustomer});
+Customer.belongsToMany(Edition, {through: EditionCustomer});
 
-// db.execute('SELECT * FROM anytable')
-//     .then(result => {
-//         console.log(result[0], result[1]);
-//     })
-//     .catch(err => {
-//         console.log(err);
-//     });
+
 
 
 app.listen(3000);

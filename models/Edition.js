@@ -19,12 +19,12 @@ const Edition = sequelize.define('Edition', {
       key: 'id_e'
     }
   },
-  'Type_of_Edition_id_te': {
+  'Editiontype_id_te': {
     type: Sequelize.INTEGER,
     allowNull: false,
     comment: "null",
     references: {
-      model: 'Type_of_Edition',
+      model: 'Editiontype',
       key: 'id_te'
     }
   },
@@ -34,9 +34,9 @@ const Edition = sequelize.define('Edition', {
     comment: "null"
   }
 }, {
-  tableName: 'Edition',
-  underscored: true,
-  timestamps: false
+  tableName: 'Edition'
+  // underscored: true,
+  // timestamps: false
 });
 
 module.exports = Edition;

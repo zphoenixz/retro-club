@@ -570,13 +570,13 @@ VALUES (1, 1, '2019/01/09'),
 (29, 1, '2019/05/30'),
 (30, 1, '2019/12/31');
 
-INSERT INTO Type_of_Edition (description)
+INSERT INTO Editiontype (description)
 VALUES ('crear'),
 ('actualizar'),
 ('eliminar'),
 ('agregar a la blacklist');
 
-INSERT INTO Edition(Employee_id_e, Type_of_Edition_id_te, edition_date) values 
+INSERT INTO Edition(Employee_id_e, Editiontype_id_te, edition_date) values 
 (2, 1, '2019/01/01'),
 (2, 1, '2019/01/01'),
 (1, 1, '2019/01/01'),

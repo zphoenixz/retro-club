@@ -23,7 +23,7 @@ CREATE TABLE Discount (
 CREATE TABLE Edition (
     id_et int NOT NULL AUTO_INCREMENT,
     Employee_id_e int NOT NULL,
-    Type_of_Edition_id_te int NOT NULL,
+    Editiontype_id_te int NOT NULL,
     edition_date date NOT NULL,
     CONSTRAINT Edition_pk PRIMARY KEY (id_et)
 );
@@ -181,11 +181,11 @@ CREATE TABLE Title (
     CONSTRAINT Title_pk PRIMARY KEY (id_t)
 );
 
--- Table: Type_of_Edition
-CREATE TABLE Type_of_Edition (
+-- Table: Editiontype
+CREATE TABLE Editiontype (
     id_te int NOT NULL AUTO_INCREMENT,
     description varchar(60) NOT NULL,
-    CONSTRAINT Type_of_Edition_pk PRIMARY KEY (id_te)
+    CONSTRAINT Editiontype_pk PRIMARY KEY (id_te)
 );
 
 -- foreign keys
@@ -213,9 +213,9 @@ ALTER TABLE Edition_Movie ADD CONSTRAINT Edition_Movie_Edition FOREIGN KEY Editi
 ALTER TABLE Edition_Movie ADD CONSTRAINT Edition_Movie_Movie FOREIGN KEY Edition_Movie_Movie (Movie_id_m)
     REFERENCES Movie (id_m);
 
--- Reference: Edition_Type_of_Edition (table: Edition)
-ALTER TABLE Edition ADD CONSTRAINT Edition_Type_of_Edition FOREIGN KEY Edition_Type_of_Edition (Type_of_Edition_id_te)
-    REFERENCES Type_of_Edition (id_te);
+-- Reference: Edition_Editiontype (table: Edition)
+ALTER TABLE Edition ADD CONSTRAINT Edition_Editiontype FOREIGN KEY Edition_Editiontype (Editiontype_id_te)
+    REFERENCES Editiontype (id_te);
 
 -- Reference: Employee_People (table: Employee)
 ALTER TABLE Employee ADD CONSTRAINT Employee_People FOREIGN KEY Employee_People (Person_id_p)
@@ -286,4 +286,5 @@ ALTER TABLE Sale ADD CONSTRAINT Sale_Price FOREIGN KEY Sale_Price (Price_id_p)
     REFERENCES Price (id_p);
 
 -- End of file.
+
 

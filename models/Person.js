@@ -61,9 +61,9 @@ const Person = sequelize.define('Person', {
     comment: "null"
   }
 }, {
-  tableName: 'Person',
-  underscored: true,
-  timestamps: false
+  tableName: 'Person'
+  // underscored: true,
+  // timestamps: false
 });
 
 module.exports = Person;

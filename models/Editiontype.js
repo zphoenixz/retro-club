@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 
 const sequelize = require('../util/database');
 
-const TypeOfEdition =sequelize.define('Type_of_Edition', {
+const EditionType =sequelize.define('Editiontype', {
     'id_te': {
       type: Sequelize.INTEGER,
       allowNull: false,
@@ -16,9 +16,9 @@ const TypeOfEdition =sequelize.define('Type_of_Edition', {
       comment: "null"
     }
   }, {
-    tableName: 'Type_of_Edition',
-    underscored: true,
-    timestamps: false
+    tableName: 'Editiontype'
+    // underscored: true,
+    // timestamps: false
   });
 
-  module.exports = TypeOfEdition;
+  module.exports = EditionType;

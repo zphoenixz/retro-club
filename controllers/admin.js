@@ -3,7 +3,7 @@ const Customer = require('../models/Customer');
 const Employee = require('../models/Employee');
 
 const EditionCustomer = require('../models/Edition_Customer');
-const TypeOfEdition = require('../models/Type_of_Edition');
+const EditionReason = require('../models/Editiontype');
 const Edition = require('../models/Edition');
 
 //GETS -----------------------------------------------------------------
@@ -96,8 +96,8 @@ exports.postEmployee = (req, res, next) => {
 };
 
 exports.postCustomer = (req, res, next) => {
-    let employeeId = 3;//3 = employeeId------------------------req.body.
-    let typeEdition = 1;//1 = Crear
+    let employeeId = 2; //3 = employeeId------------------------req.body.
+    let typeEdition = 1; //1 = Crear
 
     let firstname = "Ramo"; //req.body.firstname
     let lastname = "Vald"; //req.body.lastname
@@ -112,12 +112,7 @@ exports.postCustomer = (req, res, next) => {
 
     let customerStatus = true; //req.body.password
 
-    let dateObj = new Date();
-    let month = dateObj.getUTCMonth() + 1; //months from 1-12
-    let day = dateObj.getUTCDate();
-    let year = dateObj.getUTCFullYear();
-
-    let registerDate = year + "/" + month + "/" + day;
+    let registerDate = new Date().toISOString().slice(0, 10).replace('T', ' ')
 
     Person
         .create({
@@ -136,6 +131,7 @@ exports.postCustomer = (req, res, next) => {
         })
         .then(person => {
             console.log("Person: ", person);
+
             return Customer
                 .create({
                     Person_id_p: person.id_p,
@@ -145,19 +141,25 @@ exports.postCustomer = (req, res, next) => {
         })
         .then((Customer) => {
             console.log("Customer: ", Customer);
-            return [Edition.create({
-                Employee_id_e: employeeId,
-                Type_of_Edition_id_te: typeEdition,
-                edition_date: registerDate
-            }), Customer.id_c];
-
+            return Edition.create({
+                    Editiontype_id_te: typeEdition,
+                    Employee_id_e: employeeId,
+                    edition_date: registerDate,
+                })
+                .then((Edition) => {
+                    return [Edition, Customer.id_c]
+                })
         })
         .then((Data) => {
-            console.log("Edition: ", Data[0]);
+            console.log("Edition: ", Data);
             return EditionCustomer.create({
                 Edition_id_et: Data[0].id_et,
-                Customer: Data[1]
+                Customer_id_c: Data[1]
             });
+        })
+        .then((EditionCustomer) => {
+            console.log("Edition Customer: ", EditionCustomer);
+            return;
         })
         .catch(err => console.log(err));
 };
