@@ -1,5 +1,13 @@
+@font-face {
+    font-family: "BalsamiqSansBold";
+    src: url("/fonts/balsamiqsansbold.eot");    
+    src: url("/fonts/balsamiqsansbold.woff");
+    src: url("/fonts/balsamiqsansbold.woff2");
+}
+
 body {
     background-color: #3d9796;
+    font-family: BalsamiqSansBold;
 }
 
 #column1{
@@ -31,17 +39,21 @@ input{
     text-align: center;
 }
 
+input::placeholder {
+    font-family: BalsamiqSansBold;
+}
+
 button{
     width: 240px;
     height: 35px;
     background-color: #f2edbe;
     border-style: solid;
     border-color: black;
+    font-family: BalsamiqSansBold;
 }
 
 h2{
     color: #f2edbe;
-    font-family: sans-serif;
     text-align: left;
     margin-left: 220px;
     font-size: 35px;
