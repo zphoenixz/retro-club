@@ -149,7 +149,6 @@ exports.postCustomer = (req, res, next) => {
                     Editiontype_id_te: typeEdition,
                     Employee_id_e: employeeId,
                     edition_date: registerDate,
-
                 })
                 .then((Edition) => {
                     console.log("Edition: ", Edition);
