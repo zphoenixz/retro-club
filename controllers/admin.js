@@ -16,6 +16,7 @@ exports.getPersons = (req, res, next) => {
             //     path: '/products'
             // });
             console.log(persons);
+            res.end();
         })
         .catch(err => {
             console.log(err);
@@ -26,6 +27,7 @@ exports.getCustomers = (req, res, next) => {
     Customer.findAll()
         .then(customers => {
             console.log(customers);
+            res.end();
         })
         .catch(err => {
             console.log(err);
@@ -36,6 +38,7 @@ exports.getEmployees = (req, res, next) => {
     Employee.findAll()
         .then(employees => {
             console.log(employees);
+            res.end();
         })
         .catch(err => {
             console.log(err);
@@ -81,16 +84,16 @@ exports.postEmployee = (req, res, next) => {
             //     }
             // });
             console.log(person);
-            return Employee
-                .create({
-                    Person_id_p: person.id_p,
+            return person
+                .createEmployee({
+                    // Person_id_p: person.id_p,
                     user: user,
                     password: password
                 });
         })
         .then((employee) => {
             console.log(employee);
-            return;
+            res.end();
         })
         .catch(err => console.log(err));
 };
@@ -132,8 +135,8 @@ exports.postCustomer = (req, res, next) => {
         .then(person => {
             console.log("Person: ", person);
 
-            return Customer
-                .create({
+            return person
+                .createCustomer({
                     Person_id_p: person.id_p,
                     customer_status: customerStatus,
                     register_date: registerDate
@@ -141,25 +144,18 @@ exports.postCustomer = (req, res, next) => {
         })
         .then((Customer) => {
             console.log("Customer: ", Customer);
-            return Edition.create({
+            //Table Customer_edition creates automatically thanks to association
+            return Customer.createEdition({
                     Editiontype_id_te: typeEdition,
                     Employee_id_e: employeeId,
                     edition_date: registerDate,
+
                 })
                 .then((Edition) => {
-                    return [Edition, Customer.id_c]
+                    console.log("Edition: ", Edition);
+                    // return [Edition, Customer]
+                    res.end();
                 })
-        })
-        .then((Data) => {
-            console.log("Edition: ", Data);
-            return EditionCustomer.create({
-                Edition_id_et: Data[0].id_et,
-                Customer_id_c: Data[1]
-            });
-        })
-        .then((EditionCustomer) => {
-            console.log("Edition Customer: ", EditionCustomer);
-            return;
         })
         .catch(err => console.log(err));
 };
