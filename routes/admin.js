@@ -13,7 +13,9 @@ router.get('/employees/all', adminController.getEmployees);
 
 
 //POSTS -----------------------------------------------------------
+//Add - Create
 router.get('/employees/add', adminController.postEmployee);
 router.get('/customers/add', adminController.postCustomer);
+router.get('/movies/add', adminController.postMovie);
 
 module.exports = router;
