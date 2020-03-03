@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>Add client</title>
+    <title>Edit Client</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="add_client.css" type="text/css">
+    <link rel="stylesheet" href="edit_client.css" type="text/css">
 </head>
 
 <body>
     <div class="contenedor">
-        <img src="imagenes/new_client.png" width="224" height="113">        
+        <img src="imagenes/edit_client.png" width="250" height="113">        
         <form>
             <input type="text" id="id_card" placeholder="ID Card"><br>
             <input type="text" id="last_name" placeholder="Last name"><br>
@@ -16,8 +16,26 @@
             <input type="text" id="phone" placeholder="Phone"><br>
             <input type="text" id="email" placeholder="Email"><br>
             <input type="text" id="address" placeholder="Address"><br>
-            <button>Register</button> 
+
+            <select id="loans">
+              <option value="volvo">Volvo</option>
+              <option value="saab">Saab</option>
+              <option value="mercedes">Mercedes</option>
+              <option value="audi">Audi</option>
+            </select><br> 
+
+            <select id="blacklist">
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+              </select><br> 
+
+            <button id="button1">Modify</button> 
+            <button id="button2">Delete</button> 
+
         </form> 
     </div>
 </body>
 </html>
+

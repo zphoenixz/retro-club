@@ -23,48 +23,32 @@ body{
     float:left; width:30%;
     height: 117px;
 	background:#30323d;
-	text-align:left;
+    text-align:left;
 }
 
 #container1{
     margin: 10px;
     margin-bottom: 20px;
-    float:left; width:30%;
-    height: 117px;
-	background:#eafdf8;
-    text-align:left;
-    color:black;
-}
-
-#container2{
-    margin: 10px;
-    margin-bottom: 20px;
-    float:left; width:30%;
+    margin-left: 90px;
+    float:left; width:50%;
     height: 117px;
 	background:#30323d;
     text-align:left;
     color:white;
 }
 
+
 #container3{
 	margin: 10px;
-    float:left; width:30%;
+    float:left; width:50%;
     height: 117px;
 	background:#3d9796;
     text-align:left;
     color:white;
+    margin-left: 90px;
 }
 
 #container4{
-	margin: 10px;
-    float:left; width:30%;
-    height: 117px;
-	background:#23395b;
-    text-align:left;
-    color:white;
-}
-
-#container5{
 	margin: 10px;
     float:left; width:30%;
     height: 117px;
@@ -72,7 +56,6 @@ body{
     text-align:left;
     color:white;
 }
-
 
 
 
