@@ -48,23 +48,23 @@ app.use('/', authRoutes);
 
 // app.use(errorController.get404);
 // 0 =============================
-Employee.belongsTo(Person);
-Person.hasMany(Employee);
+Employee.belongsTo(Person, {as: 'Person', foreignKey: 'Person_id_p'});
+Person.hasMany(Employee, {as: 'Employee', foreignKey: 'Person_id_p'});
 
-Customer.belongsTo(Person);
-Person.hasMany(Customer);
+Customer.belongsTo(Person, {as: 'Person', foreignKey: 'Person_id_p'});
+Person.hasMany(Customer, {as: 'Customer', foreignKey: 'Person_id_p'});
 
 // 1 =============================
-Edition.belongsTo(Employee);
-Employee.hasMany(Edition);
+// Edition.belongsTo(Employee, {as: 'Employee', foreignKey: 'Employee_ide_e'});
+// Employee.hasMany(Edition, {as: 'Edition', foreignKey: 'Employee_ide_e'});
 
-// EditionCustomer.belongsTo(Edition);
-// Edition.hasMany(EditionCustomer);
+// EditionCustomer.belongsTo(Edition, {as: 'Edition', foreignKey: 'Edition_id_et'});
+// Edition.hasMany(EditionCustomer, {as: 'Edition_Customer', foreignKey: 'Edition_id_et'});
 
-// EditionCustomer.belongsTo(Customer);
-// Customer.hasMany(EditionCustomer)
-Edition.belongsToMany(Customer, {through: EditionCustomer});
-Customer.belongsToMany(Edition, {through: EditionCustomer});
+// EditionCustomer.belongsTo(Customer, {as: 'Customer', foreignKey: 'Customer_id_c'});
+// Customer.hasMany(EditionCustomer, {as: 'Edition_Customer', foreignKey: 'Customer_id_c'})
+Edition.belongsToMany(Customer, { through: 'Edition_Customer', foreignKey: 'Edition_id_et'});
+Customer.belongsToMany(Edition, {through: 'Edition_Customer', foreignKey: 'Customer_id_c'});
 
 
 
