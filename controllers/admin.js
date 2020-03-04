@@ -7,14 +7,14 @@ const EditionReason = require('../models/Editiontype');
 const Edition = require('../models/Edition');
 
 const Movie = require('../models/Movie');
-const Genre = require('./models/Genre');
-const MovieStarring = require('./models/Movie_Starring');
-const MovieGenre = require('./models/Movie_Genre');
-const Star = require('./models/Star');
-const MovieNomination = require('./models/Movie_Nomination');
-const Nomination = require('./models/Nomination');
-const Title = require('./models/Title');
-const EditionMovie = require('./models/Edition_Movie');
+const Genre = require('../models/Genre');
+const MovieStarring = require('../models/Movie_Starring');
+const MovieGenre = require('../models/Movie_Genre');
+const Star = require('../models/Star');
+const MovieNomination = require('../models/Movie_Nomination');
+const Nomination = require('../models/Nomination');
+const Title = require('../models/Title');
+const EditionMovie = require('../models/Edition_Movie');
 
 //GETS -----------------------------------------------------------------
 exports.getPersons = (req, res, next) => {
@@ -179,7 +179,7 @@ exports.postMovie = async (req, res, next) => {
 
     let genres = [1, 2];
 
-    let titles = ["La Matrix", "The Matrix"]
+    let titles = ["La Matrix 2", "The Matrix 2", "La Matriz 2"]
 
     let nominations = [1, 2, 3, 4, 5];
     let winner = [false, false, false, true, true];
@@ -189,17 +189,34 @@ exports.postMovie = async (req, res, next) => {
     let registerDate = new Date().toISOString().slice(0, 10).replace('T', ' ')
 
     try {
-        const movie = await Movie
-            .create({
-                duration: duration,
-                premier_year: premierYear,
-                unit_price: unitPrice,
-                stock: stock,
-                movie_status: movieStatus
-            });
-        console.log("Movie: ", movie);
+        const movieExists = await Title.findAll({
+            limit: 1,
+            where: {
+                movie_name: titles[0]
+            }
+        });
+        console.log("Movie Exists?: ", movieExists);
 
-        const edition = await Movie
+        let movie;
+        if (movieExists.length > 0) {
+            return res.status(409).json({
+                msg: 'Movie already exists!',
+                movieId: movieExists[0].Movie_id_m
+            });
+
+        } else {
+            movie = await Movie
+                .create({
+                    duration: duration,
+                    premier_year: premierYear,
+                    unit_price: unitPrice,
+                    stock: stock,
+                    movie_status: movieStatus
+                });
+            console.log("Movie: ", Movie);
+        }
+
+        const edition = await movie
             .createEdition({
                 Editiontype_id_te: typeEdition,
                 Employee_id_e: employeeId,
@@ -207,15 +224,15 @@ exports.postMovie = async (req, res, next) => {
             });
         console.log("Edition: ", edition);
 
-        titles.forEach(title => {
+        titles.forEach(async (title) => {
             const mTitle = await movie
                 .createTitle({
-                    Movie_name: title,
+                    movie_name: title,
                 });
             console.log("Title: ", mTitle);
         });
 
-        genres.forEach(genre => {
+        genres.forEach(async (genre) => {
             const mGenre = await MovieGenre
                 .create({
                     Movie_id_m: movie.id_m,
@@ -224,12 +241,33 @@ exports.postMovie = async (req, res, next) => {
             console.log("Genre: ", mGenre);
         });
 
-        starring.forEach(star => {
-            const mStar = await movie
-                .createStar({
-                    first_name: star.split(" ")[0],
-                    last_name: star.split(" ")[1]
-                });
+
+        starring.forEach(async (star) => {
+            const firstName = star.split(" ")[0];
+            const lastName = star.split(" ")[1];
+
+            let mStar;
+            const starExists = await Star.findOne({
+                where: {
+                    first_name: firstName,
+                    last_name: lastName
+                }
+            });
+            console.log("Star Exists: ", starExists);
+            if (!starExists) {
+                mStar = await movie
+                    .createStar({
+                        first_name: star.split(" ")[0],
+                        last_name: star.split(" ")[1]
+                    });
+            } else {
+                mStar = await MovieStarring
+                    .create({
+                        Movie_id_m: movie.id_m,
+                        Stars_id_s: starExists.id_s
+                    });
+            }
+
             console.log("Star: ", mStar);
         });
 
@@ -244,11 +282,18 @@ exports.postMovie = async (req, res, next) => {
             console.log("NovieNomination: ", movieNomination);
         }
 
+        return res.status(201).json({
+            msg: 'Movie created succesfully!',
+            movieName: titles[0],
+            movieId: movie.id_m,
+
+        })
+
 
     } catch (err) {
-        if (!err.statusCode) {
-            err.statusCode = 500;
-        }
-        next(err);
+        console.log(err);
+        return res.status(500).json({
+            msg: 'Error when creating movie.'
+        })
     }
 };
