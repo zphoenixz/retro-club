@@ -61,8 +61,8 @@ Customer.belongsTo(Person, {as: 'Person', foreignKey: 'Person_id_p'});
 Person.hasMany(Customer, {as: 'Customer', foreignKey: 'Person_id_p'});
 
 // 1 =============================
-// Edition.belongsTo(Employee, {as: 'Employee', foreignKey: 'Employee_ide_e'});
-// Employee.hasMany(Edition, {as: 'Edition', foreignKey: 'Employee_ide_e'});
+Edition.belongsTo(Employee, {as: 'Employee', foreignKey: 'Employee_id_e'});
+Employee.hasMany(Edition, {as: 'Edition', foreignKey: 'Employee_id_e'});
 
 // EditionCustomer.belongsTo(Edition, {as: 'Edition', foreignKey: 'Edition_id_et'});
 // Edition.hasMany(EditionCustomer, {as: 'Edition_Customer', foreignKey: 'Edition_id_et'});
@@ -95,4 +95,29 @@ Movie.hasMany(Title, {as: 'Title', foreignKey: 'Movie_id_m'});
 
 
 // 3 =============================
+Sale.belongsTo(Loan, {as: 'Loan', foreignKey: 'Loan_id_l'});
+Loan.hasMany(Sale, {as: 'Sale', foreignKey: 'Loan_id_l'});
+
+Price.belongsTo(Sale, {as: 'Sale', foreignKey: 'Price_id_p'});
+Sale.hasMany(Price, {as: 'Price', foreignKey: 'Price_id_p'});
+
+Discount.belongsTo(Sale, {as: 'Sale', foreignKey: 'Discount_id_d'});
+Sale.hasMany(Discount, {as: 'Discount', foreignKey: 'Discount_id_d'});
+
+Movie.belongsToMany(Loan, { through: 'Loan_Movie', foreignKey: 'Movie_id_m'});
+Loan.belongsToMany(Movie, { through: 'Loan_Movie', foreignKey: 'Loan_id_l'});
+
+Returned.belongsTo(Loan, {as: 'Loan', foreignKey: 'Loan_id_l'});
+Loan.hasMany(Returned, {as: 'Returned', foreignKey: 'Loan_id_l'});
+
+Returned.belongsTo(Employee, {as: 'Employee', foreignKey: 'Employee_id_e'});
+Employee.hasMany(Returned, {as: 'Returned', foreignKey: 'Employee_id_e'});
+
+Loan.belongsTo(Employee, {as: 'Employee', foreignKey: 'Employee_id_e'});
+Employee.hasMany(Loan, {as: 'Loan', foreignKey: 'Employee_id_e'});
+
+Loan.belongsTo(Customer, {as: 'Customer', foreignKey: 'Customer_id_c'});
+Customer.hasMany(Loan, {as: 'Loan', foreignKey: 'Customer_id_c'});
+
+
 app.listen(3000);
