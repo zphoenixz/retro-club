@@ -2,6 +2,13 @@
 Video Club webhosted app.
 Software Engineering lecture task.
 
+## Prototype
+Sign in page sample.
+
+![](others/sign_in.png)
+
+Done using balsamiq.
+https://balsamiq.cloud/
 ## Database
 We are using MYSQL v8.
 The SQL ORM for this project:
