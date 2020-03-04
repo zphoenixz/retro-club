@@ -1,0 +1,86 @@
+body {
+    background-color: #eafdf8;
+}
+
+#loan{
+    background-color: #eafdf8;
+    color: black;
+}
+
+#status{
+    background-color: #eafdf8;
+    color: black;
+}
+
+#customer_details{
+    background-color: #aa4465;
+    color: white;
+}
+
+#paid{
+    background-color: #eafdf8;
+    color:black;
+}
+
+#from{
+    background-color: #f2edbe;
+    color:black;
+}
+
+#to{
+    background-color: #30323d;
+    color:white;
+}
+
+#address{
+    background-color: #23395b;
+    color:white
+}
+
+#loans{
+    background-color: white;
+    color: black;
+}
+
+#blacklist{
+    background-color: white;
+    color: black;
+}
+
+div.contenedor{
+    margin-top: 120px;
+    margin-left: 589px;
+    border-color: #f2edbe;
+    border-style:solid;
+    width: 255px;
+    height: 500px;
+    background-color: #2a628f;
+    padding: 20px;
+    text-align: center;
+}
+
+input{
+    width: 200px;
+    height: 27px;
+    border-style: solid;
+    border-color: black;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+select{
+    width: 200px;
+    height: 27px;
+    margin-bottom: 10px;
+}
+
+button{
+    width: 200px;
+    height: 35px;
+    background-color: #f2edbe;
+    border-style: solid;
+    border-color: black;
+    color: black;
+    margin-top: 10px;
+}
+

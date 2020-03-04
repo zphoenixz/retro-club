@@ -1,0 +1,88 @@
+body {
+    background-color: #eafdf8;
+}
+
+#title{
+    background-color: #aa4465;
+    color: white;
+    text-align: center;
+}
+
+#year{
+    background-color: #f2edbe;  
+    color: black;
+    text-align: center;
+}
+
+#duration{
+    background-color: #eafdf8;
+    color: black;
+    text-align: center;
+}
+
+#unit_price{
+    background-color: #30323d;
+    color:white;
+    text-align: center;
+}
+
+#container1{
+    float:left; width:45%;
+    height: 100px;
+    background:#2a628f;
+    border-style:solid;
+    border-radius: 25px;
+    border-color: black;
+    text-align:center;
+    margin-left: 30px;
+}
+
+#container2{
+    margin-left: 20px;
+    float:left; width:45%;
+    height: 100px;
+    text-align:left;
+    color:black;
+}
+
+#container3{
+    float:left; width:45%;
+    height: 100px;    
+    background:#2a628f;
+    border-style: solid;
+    border-color: black;
+    border-radius: 25px;
+    text-align:left;
+}
+
+#container4{
+    float:left; width:45%;
+    height: 100px;
+    background:#eafdf8;
+    border-radius: 25px;
+    border-style: solid;
+    border-color: black;
+    text-align:left;
+    color:black;
+}
+
+input{
+    width: 186px;
+    height: 27px;   
+}
+
+select{
+    width: 186px;
+    height: 27px;
+}
+
+div.contenedor{
+    margin-top: 120px;
+    margin-left: 450px;
+    border-color: #f2edbe;
+    border-style:solid;
+    width: 580px;
+    height: 500px;
+    background-color: #2a628f;
+    text-align: center;
+}
