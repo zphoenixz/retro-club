@@ -338,11 +338,7 @@ exports.postMovie = async (req, res, next) => {
 
 exports.postLoan = async (req, res, next) => {
     let employeeId = 2; //3 = employeeId------------------------req.body.
-<<<<<<< HEAD
     let customerId = 4;
-=======
-    let customerId =4;
->>>>>>> 969287c68daf9a676df4d88095f337b1d94d4da2
     let priceId = 1;
     let moviesId = [7, 8];
 
@@ -380,7 +376,6 @@ exports.postLoan = async (req, res, next) => {
                 where: {
                     Loan_id_l: prevLoan[0].id_l
                 }
-<<<<<<< HEAD
             });
             console.log("Last Returned: ", lastReturned, prevLoan[0].end_date, startDate);
 
@@ -443,70 +438,6 @@ exports.postLoan = async (req, res, next) => {
                     id_m: movie.id_m
                 }
             });
-=======
-            });
-            console.log("Last Returned: ", lastReturned,prevLoan[0].end_date ,startDate);
-
-            if (prevLoan[0].end_date >= startDate && !lastReturned) {
-                return res.status(409).json({
-                    msg: 'Loan rejected. User is yet to return a loan.',
-                    loanId: prevLoan[0].id_l,
-                    userID: customerId
-                    // reason:
-                });
-            } else if (prevLoan[0].end_date < startDate && !lastReturned) {
-
-                const customerUpdated = await Customer.update({
-                    customer_status: 0
-                }, {
-                    where: {
-                        id_c: customerId
-                    }
-                });
-                console.log("customer Updated: ", customerUpdated);
-
-                return res.status(409).json({
-                    msg: 'Loan rejected. User owes a loan. Client have been Blacklisted.',
-                    loanId: prevLoan[0].id_l,
-                    userID: customerId
-                    // reason:
-                });
-            }
-        }
-
-        moviesId.forEach(async (movieId) => {
-            const movieEnoughStock = await Movie.findByPk(movieId);
-            if (movieEnoughStock.stock == 0) {
-                return res.status(409).json({
-                    msg: 'Loan rejected. Movie is out of stock.',
-                    movieId: movieEnoughStock.Movie_id_m
-                });
-            }
-            movies.push(movieEnoughStock);
-            console.log("Movie Enough Stock: ", movieEnoughStock);
-        });
-
-        const loan = await Loan.create({
-            Employee_id_e: employeeId,
-            Customer_id_c: customerId,
-            start_date: startDate,
-            end_date: endDate
-        });
-
-        movies.forEach(async (movie) => {
-            const loanMovie = await LoanMovie.create({
-                Loan_id_l: loan.id_l,
-                Movie_id_m: movie.id_m
-            });
-            console.log("Loan Movie: ", loanMovie);
-            const movieUpdated = await movie.update({
-                stock: sequelize.literal('stock - 1')
-            }, {
-                where: {
-                    id_m: movie.id_m
-                }
-            });
->>>>>>> 969287c68daf9a676df4d88095f337b1d94d4da2
             console.log("Updated Movie: ", movieUpdated);
         });
 
