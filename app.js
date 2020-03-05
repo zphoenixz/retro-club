@@ -30,7 +30,7 @@ const Price = require('./models/Price');
 const Returned = require('./models/Returned');
 const Sale = require('./models/Sale');
 
-const Sale = require('./models/InCart');
+const InCart = require('./models/InCart');
 
 
 
