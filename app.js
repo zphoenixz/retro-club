@@ -2,7 +2,7 @@ const path = require('path');
 
 const express = require('express');
 const bodyParser = require('body-parser');
-// const errorController = require('./controllers/error');
+const errorController = require('./controllers/error');
 const session = require('express-session');
 
 const sequelize = require('./util/database');
@@ -73,7 +73,7 @@ app.use(function (err, req, res, next) {
     });
     return;
 });
-// app.use(errorController.get404);
+app.use(errorController.get404);
 // 0 =============================
 Employee.belongsTo(Person, {
     as: 'Person',

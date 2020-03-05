@@ -1,0 +1,24 @@
+@font-face {
+    font-family: "BalsamiqSansBold";
+    src: url("/fonts/balsamiqsansbold.eot");    
+    src: url("/fonts/balsamiqsansbold.woff");
+    src: url("/fonts/balsamiqsansbold.woff2");
+}
+
+body{
+    background-color: #f2edbe;
+}
+
+img{
+    width: 100%;
+    height: auto;
+}
+
+
+div{
+    position: absolute;
+    left: 35%;
+    right: 35%;
+    top:15%;
+
+}
