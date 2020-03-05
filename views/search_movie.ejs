@@ -3,22 +3,25 @@
 <head>
     <title>Search Loans</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="search_movie.css" type="text/css">
+    <link rel="stylesheet" href="/css/search_movie.css" type="text/css">
 </head>
 
 <body>
-    <form id="header">
-        <input type="image" formaction="cart_summary.html" src="/images/icons/shopping_cart.png" width="30" height="30" />
-        <input type="image" formaction="sign_up.html" src="/images/icons/exit.png" width="30" height="30" />
+    <form id="header1" name="header1" action="/admin/cart" method="get">
+        <input type="image" src="/images/icons/shopping_cart.png" width="30" height="30" />
     </form>    
 
+    <form id="header2" name="header2" action="/logout" method="post">
+        <input type="image" src="/images/icons/exit.png" width="30" height="30" />
+    </form>   
+
     <div class="contenedor">
-        <form>
-            <input type="image" formaction="movies.html" id="back" src="/images/icons/go_back.png" width="24" height="24"> 
+        <form action="/admin/movies" method="get">
+            <input type="image" id="back" src="/images/icons/go_back.png" width="24" height="24"> 
         </form>
 
         <center>
-            <img src="/images/icons/search_movie.png" width="307" height="120">        
+            <img src="/images/titles/search_movie.png" width="307" height="120">        
         </center>
 
         <form>

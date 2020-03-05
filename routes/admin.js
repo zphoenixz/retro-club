@@ -29,6 +29,12 @@ router.get('/customers/search', isAuth, adminController.getSearchCustomerview);
 router.get('/customers/edit', isAuth, adminController.getSearchCustomerview);
 router.get('/customers/new', isAuth, adminController.getAddCustomerview);
 
-router.get('/loan', isAuth, adminController.getLoanview);
-router.get('/loan/search', isAuth, adminController.getLoanSearchview);
+router.get('/loans', isAuth, adminController.getLoanview);
+router.get('/loans/search', isAuth, adminController.getLoanSearchview);
+
+router.get('/movies', isAuth, adminController.getMovieview);
+router.get('/movies/search', isAuth, adminController.getMovieSearchview);
+router.get('/movies/new', isAuth, adminController.getMovieAddview);
+
+router.get('/rules', isAuth, adminController.getRulesview);
 module.exports = router;

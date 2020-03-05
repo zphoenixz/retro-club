@@ -85,6 +85,33 @@ exports.getLoanSearchview = (req, res, next) => {
     });
 };
 
+exports.getMovieview = (req, res, next) => {
+    console.log('Employee Id', req.session.employee);
+    res.render('movies', {
+        path: '/movie'
+    });
+};
+
+exports.getMovieSearchview = (req, res, next) => {
+    console.log('Employee Id', req.session.employee);
+    res.render('search_movie', {
+        path: '/movie'
+    });
+};
+
+exports.getMovieAddview = (req, res, next) => {
+    console.log('Employee Id', req.session.employee);
+    res.render('add_movie', {
+        path: '/movie'
+    });
+};
+
+exports.getRulesview = (req, res, next) => {
+    console.log('Employee Id', req.session.employee);
+    res.render('rules', {
+        path: '/movie'
+    });
+};
 
 
 //GETS -----------------------------------------------------------------
