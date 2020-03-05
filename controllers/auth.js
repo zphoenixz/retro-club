@@ -12,6 +12,12 @@ exports.loginPage = (req, res, next) => {
 };
 
 exports.authEmployee = (req, res, next) => {
+    const employee = await Employee.findOne({
+        where: {
+            id_c: customerId
+        }
+    });
+
     Employee.findAll()
         .then(employees => {
             // res.render('shop/product-list', {
