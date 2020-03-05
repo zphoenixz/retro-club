@@ -2,22 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="add_client.css" type="text/css">
+    <link rel="stylesheet" href="/css/add_client.css" type="text/css">
 </head>
 
 <body>
-    <form id="header">
-        <input type="image" formaction="cart_summary.html" src="images/title/shopping_cart.png" id="shopping" width="30" height="30" />
-        <input type="image" formaction="sign_up.html" src="images/title/exit.png" id="exit" width="30" height="30" />
-    </form>
+    <form id="header1" name="header1" action="/admin/cart" method="get">
+        <input type="image" src="/images/icons/shopping_cart.png" width="30" height="30" />
+    </form>    
 
-    <div class="contenedor">
-        <form>
-            <input type="image" formaction="client.html" src="images/title/go_back.png" id="back" width="30" height="30"/>    
+    <form id="header2" name="header2" action="/logout" method="post">
+        <input type="image" src="/images/icons/exit.png" width="30" height="30" />
+    </form>   
+
+    <div class="contenedor" >
+        <form action="/admin/customers" method="get">
+            <input type="image" src="/images/icons/go_back.png" id="back" width="30" height="30"/>    
         </form>    
 
         <center>
-            <img src="images/title/new_client.png" width="224" height="113">        
+            <img src="/images/titles/new_client.png" width="224" height="113">        
         </center>
 
         <form>

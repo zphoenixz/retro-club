@@ -2,22 +2,25 @@
 <html lang="es">
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="search_client.css" type="text/css">
+    <link rel="stylesheet" href="/css/search_client.css" type="text/css">
 </head>
 
 <body>
-    <form id="header">
-        <input type="image" formaction="cart_summary.html" src="images/title/shopping_cart.png" width="30" height="30" />
-        <input type="image" formaction="sign_up.html" src="images/title/exit.png" width="30" height="30" />
+    <form id="header1" name="header1" action="/admin/cart" method="get">
+        <input type="image" src="/images/icons/shopping_cart.png" width="30" height="30" />
     </form>    
 
-    <div class="contenedor">
-        <form>
-            <input type="image" formaction="loans.html" id="back" src="images/title/go_back.png" width="24" height="24"> 
+    <form id="header2" name="header2" action="/logout" method="post">
+        <input type="image" src="/images/icons/exit.png" width="30" height="30" />
+    </form>    
+
+    <div class="contenedor" action="/admin/loan" method="get">
+        <form action="/admin/loan" method="get">
+            <input type="image" id="back" src="/images/icons/go_back.png" width="24" height="24"> 
         </form>
 
         <center>
-            <img src="images/title/search_loans.png" width="307" height="120">        
+            <img src="/images/titles/search_loans.png" width="307" height="120">        
         </center>
 
         <form>
@@ -35,28 +38,28 @@
 
         <form>
             <input type="text" id="field_1" class="field left" readonly>
-            <input type="image" id=view_edit formaction="loan_details.html" src="images/title/view_edit.png" width="24" height="24"> <br>
+            <input type="image" id=view_edit formaction="loan_details.html" src="/images/icons/view_edit.png" width="24" height="24"> <br>
     
             <input type="text" id="field_2" class="field left" readonly>
-            <input type="image" id=view_edit formaction="loan_details.html" src="images/title/view_edit.png" width="24" height="24"> <br>
+            <input type="image" id=view_edit formaction="loan_details.html" src="/images/icons/view_edit.png" width="24" height="24"> <br>
     
             <input type="text" id="field_3" class="field left" readonly>
-            <input type="image" id=view_edit formaction="loan_details.html" src="images/title/view_edit.png" width="24" height="24"> <br>
+            <input type="image" id=view_edit formaction="loan_details.html" src="/images/icons/view_edit.png" width="24" height="24"> <br>
     
             <input type="text" id="field_4" class="field left" readonly>
-            <input type="image" id=view_edit formaction="loan_details.html" src="images/title/view_edit.png" width="24" height="24"> <br>
+            <input type="image" id=view_edit formaction="loan_details.html" src="/images/icons/view_edit.png" width="24" height="24"> <br>
     
             <input type="text" id="field_5" class="field left" readonly>
-            <input type="image" id=view_edit formaction="loan_details.html" src="images/title/view_edit.png" width="24" height="24"> <br>
+            <input type="image" id=view_edit formaction="loan_details.html" src="/images/icons/view_edit.png" width="24" height="24"> <br>
     
             <input type="text" id="field_6" class="field left" readonly>
-            <input type="image" id=view_edit formaction="loan_details.html" src="images/title/view_edit.png" width="24" height="24"> <br>
+            <input type="image" id=view_edit formaction="loan_details.html" src="/images/icons/view_edit.png" width="24" height="24"> <br>
     
             <input type="text" id="field_6" class="field left" readonly>
-            <input type="image" id=view_edit formaction="loan_details.html" src="images/title/view_edit.png" width="24" height="24"> <br>
+            <input type="image" id=view_edit formaction="loan_details.html" src="/images/icons/view_edit.png" width="24" height="24"> <br>
     
             <input type="text" id="field_8" class="field left" readonly>
-            <input type="image" id=view_edit formaction="loan_details.html" src="images/title/view_edit.png" width="24" height="24"> <br>
+            <input type="image" id=view_edit formaction="loan_details.html" src="/images/icons/view_edit.png" width="24" height="24"> <br>
         </form>
     </div>
 </body>

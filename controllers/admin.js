@@ -46,7 +46,42 @@ exports.getCartview = (req, res, next) => {
 exports.getCustomerview = (req, res, next) => {
     console.log('Employee Id', req.session.employee);
     res.render('client', {
-        path: '/client'
+        path: '/customer'
+    });
+};
+
+exports.getSearchCustomerview = (req, res, next) => {
+    console.log('Employee Id', req.session.employee);
+    res.render('search_client', {
+        path: '/customer'
+    });
+};
+
+exports.getAddCustomerview = (req, res, next) => {
+    console.log('Employee Id', req.session.employee);
+    res.render('add_client', {
+        path: '/customer'
+    });
+};
+
+exports.getEditCustomerview = (req, res, next) => {
+    console.log('Employee Id', req.session.employee);
+    res.render('edit_client', {
+        path: '/customer'
+    });
+};
+
+exports.getLoanview = (req, res, next) => {
+    console.log('Employee Id', req.session.employee);
+    res.render('loans', {
+        path: '/loan'
+    });
+};
+
+exports.getLoanSearchview = (req, res, next) => {
+    console.log('Employee Id', req.session.employee);
+    res.render('search_loans', {
+        path: '/loan'
     });
 };
 
