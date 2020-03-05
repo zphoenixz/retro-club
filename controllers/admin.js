@@ -359,7 +359,7 @@ exports.postLoan = async (req, res, next) => {
                 Customer_id_c: customerId
             },
             order: [
-                ['end_date', 'DESC'],
+                ['start_date', 'DESC'],
             ]
         });
 
@@ -371,23 +371,31 @@ exports.postLoan = async (req, res, next) => {
             });
 
 
-            if(prevLoan.endDate <= startDate && !lastReturned){
+            if (prevLoan.endDate <= startDate && !lastReturned) {
                 return res.status(409).json({
                     msg: 'Loan rejected. User is yet to return a loan.',
                     loanId: prevLoan.id_l,
                     userID: customerId
                     // reason:
                 });
-            }else if(prevLoan.endDate > startDate && !lastReturned){
+            } else if (prevLoan.endDate > startDate && !lastReturned) {
+
+                const customerUpdated = Customer.update({
+                    customer_status: false
+                }, {
+                    where: {
+                        id_c: customerId
+                    }
+                });
+                console.log("customer Updated: ", customerUpdated);
+
                 return res.status(409).json({
-                    msg: 'Loan rejected. User owes a loan. Client have been moved to Blacklist.',
+                    msg: 'Loan rejected. User owes a loan. Client have been Blacklisted.',
                     loanId: prevLoan.id_l,
                     userID: customerId
                     // reason:
                 });
             }
-
-            
         }
 
         moviesId.forEach(async (movieId) => {
