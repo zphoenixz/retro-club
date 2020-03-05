@@ -9,6 +9,9 @@ const router = express.Router();
 
 //GETS -----------------------------------------------------------
 router.get('/', authController.loginPage);
-router.get('/login', authController.authEmployee);
+
+
+
+router.post('/admin/home', authController.authEmployee);
 
 module.exports = router;
