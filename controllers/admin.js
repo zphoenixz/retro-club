@@ -28,6 +28,16 @@ const Price = require('../models/Price');
 const Returned = require('../models/Returned');
 const Sale = require('../models/Sale');
 
+//Views -----------------------------------------------------------------
+exports.getHome = (req, res, next) => {
+    console.log('Employee Id', req.session.employee);
+    res.render('shortcuts', {
+        path: '/shortcuts'
+    });
+};
+
+
+
 //GETS -----------------------------------------------------------------
 exports.getPersons = (req, res, next) => {
     Person.findAll()
@@ -328,7 +338,7 @@ exports.postMovie = async (req, res, next) => {
 
 exports.postLoan = async (req, res, next) => {
     let employeeId = 2; //3 = employeeId------------------------req.body.
-    let customerId =4;
+    let customerId = 4;
     let priceId = 1;
     let moviesId = [7, 8];
 
@@ -367,7 +377,7 @@ exports.postLoan = async (req, res, next) => {
                     Loan_id_l: prevLoan[0].id_l
                 }
             });
-            console.log("Last Returned: ", lastReturned,prevLoan[0].end_date ,startDate);
+            console.log("Last Returned: ", lastReturned, prevLoan[0].end_date, startDate);
 
             if (prevLoan[0].end_date >= startDate && !lastReturned) {
                 return res.status(409).json({

@@ -3,6 +3,8 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 // const errorController = require('./controllers/error');
+const session = require('express-session');
+
 const sequelize = require('./util/database');
 
 const Person = require('./models/Person');
@@ -31,16 +33,23 @@ const Sale = require('./models/Sale');
 
 
 const app = express();
+app.set('view engine', 'ejs');
+app.set('views', 'views');
 
 const adminRoutes = require('./routes/admin');
 const authRoutes = require('./routes/auth');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
-    extended: false
+    extended: true
 }))
-app.set('view engine', 'ejs');
-app.set('views', 'views');
+app.use(
+    session({
+        secret: 'secret',
+        resave: false,
+        saveUninitialized: false
+    })
+);
 
 // app.use((req, res, next) => {
 //     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -52,7 +61,8 @@ app.set('views', 'views');
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/admin', adminRoutes);
-app.use('/', authRoutes);
+app.use(authRoutes);
+
 app.use(function (err, req, res, next) {
     res.status(err.status || 500);
     res.send({
