@@ -1,3 +1,8 @@
+const {
+    Op
+} = require("sequelize");
+const sequelize = require('../util/database');
+
 const Person = require('../models/Person');
 const Customer = require('../models/Customer');
 const Employee = require('../models/Employee');
@@ -15,6 +20,13 @@ const MovieNomination = require('../models/Movie_Nomination');
 const Nomination = require('../models/Nomination');
 const Title = require('../models/Title');
 const EditionMovie = require('../models/Edition_Movie');
+
+const Discount = require('../models/Discount');
+const LoanMovie = require('../models/Loan_Movie');
+const Loan = require('../models/Loan');
+const Price = require('../models/Price');
+const Returned = require('../models/Returned');
+const Sale = require('../models/Sale');
 
 //GETS -----------------------------------------------------------------
 exports.getPersons = (req, res, next) => {
@@ -197,7 +209,7 @@ exports.postMovie = async (req, res, next) => {
 
     let genres = [1, 2];
 
-    let titles = ["La Matrix 2", "The Matrix 2", "La Matriz 2"]
+    let titles = ["La Matrix", "The Matrix", "La Matriz"]
 
     let nominations = [1, 2, 3, 4, 5];
     let winner = [false, false, false, true, true];
@@ -318,131 +330,138 @@ exports.postMovie = async (req, res, next) => {
 
 exports.postLoan = async (req, res, next) => {
     let employeeId = 2; //3 = employeeId------------------------req.body.
-    let typeEdition = 1; //1 = Crear
+    let customerId = 1;
+    let priceId = 1;
+    let moviesId = [1, 2, 3];
 
-    let duration = "150"; //req.body.firstname
-    let premierYear = 2000; //req.body.lastname
-    let unitPrice = 10; //req.body.phone
-    let stock = 20; //req.body.email
-    let movieStatus = true;
-
-    let genres = [1, 2];
-
-    let titles = ["La Matrix 2", "The Matrix 2", "La Matriz 2"]
-
-    let nominations = [1, 2, 3, 4, 5];
-    let winner = [false, false, false, true, true];
-    let winnerYear = 2001;
-    let starring = ["Keanu Reeves", "Carrie-Ann Moss", "Laurence Fishburne"];
-
-    let registerDate = new Date().toISOString().slice(0, 10).replace('T', ' ')
+    var today = new Date();
+    let startDate = today.toISOString().slice(0, 10).replace('T', ' ');
+    let days = 5;
+    // console.log(startDate);
+    var endDate = new Date(today.getTime() + 60 * 60 * 24 * 1000 * days).toISOString().slice(0, 10).replace('T', ' ');
+    // console.log(endDate);
 
     try {
-        const movieExists = await Title.findAll({
-            limit: 1,
-            where: {
-                movie_name: titles[0]
-            }
-        });
-        console.log("Movie Exists?: ", movieExists);
+        let movies = [];
 
-        let movie;
-        if (movieExists.length > 0) {
+        const customerStatus = Customer.findByPk(customerId);
+
+        if (!customerStatus.customer_status) {
             return res.status(409).json({
-                msg: 'Movie already exists!',
-                movieId: movieExists[0].Movie_id_m
+                msg: 'Loan rejected. User is Blacklisted.',
+                userID: customerId
+                // reason:
             });
-
-        } else {
-            movie = await Movie
-                .create({
-                    duration: duration,
-                    premier_year: premierYear,
-                    unit_price: unitPrice,
-                    stock: stock,
-                    movie_status: movieStatus
-                });
-            console.log("Movie: ", Movie);
         }
 
-        const edition = await movie
-            .createEdition({
-                Editiontype_id_te: typeEdition,
-                Employee_id_e: employeeId,
-                edition_date: registerDate,
-            });
-        console.log("Edition: ", edition);
-
-        titles.forEach(async (title) => {
-            const mTitle = await movie
-                .createTitle({
-                    movie_name: title,
-                });
-            console.log("Title: ", mTitle);
+        const prevLoan = loan.findAll({
+            where: {
+                Customer_id_c: customerId
+            },
+            order: [
+                ['end_date', 'DESC'],
+            ]
         });
 
-        genres.forEach(async (genre) => {
-            const mGenre = await MovieGenre
-                .create({
-                    Movie_id_m: movie.id_m,
-                    Genre_id_g: genre
-                });
-            console.log("Genre: ", mGenre);
-        });
-
-
-        starring.forEach(async (star) => {
-            const firstName = star.split(" ")[0];
-            const lastName = star.split(" ")[1];
-
-            let mStar;
-            const starExists = await Star.findOne({
+        if (prevLoan.length > 0) {
+            const lastReturned = Returned.findOne({
                 where: {
-                    first_name: firstName,
-                    last_name: lastName
+                    Loan_id_l: prevLoan[0].id_l
                 }
             });
-            console.log("Star Exists: ", starExists);
-            if (!starExists) {
-                mStar = await movie
-                    .createStar({
-                        first_name: star.split(" ")[0],
-                        last_name: star.split(" ")[1]
-                    });
-            } else {
-                mStar = await MovieStarring
-                    .create({
-                        Movie_id_m: movie.id_m,
-                        Stars_id_s: starExists.id_s
-                    });
+
+
+            if(prevLoan.endDate <= startDate && !lastReturned){
+                return res.status(409).json({
+                    msg: 'Loan rejected. User is yet to return a loan.',
+                    loanId: prevLoan.id_l,
+                    userID: customerId
+                    // reason:
+                });
+            }else if(prevLoan.endDate > startDate && !lastReturned){
+                return res.status(409).json({
+                    msg: 'Loan rejected. User owes a loan. Client have been moved to Blacklist.',
+                    loanId: prevLoan.id_l,
+                    userID: customerId
+                    // reason:
+                });
             }
 
-            console.log("Star: ", mStar);
-        });
-
-        for (let i = 0; i < nominations.length; i++) {
-            const movieNomination = await MovieNomination
-                .create({
-                    Movie_id_m: movie.id_m,
-                    Nomination_id_pr: nominations[i],
-                    winner: winner[i],
-                    winner_year: winnerYear
-                });
-            console.log("NovieNomination: ", movieNomination);
+            
         }
 
+        moviesId.forEach(async (movieId) => {
+            const movieEnoughStock = await Movie.findByPk(movieId);
+            if (movieEnoughStock.stock == 0) {
+                return res.status(409).json({
+                    msg: 'Loan rejected. Movie is out of stock.',
+                    movieId: movieEnoughStock.Movie_id_m
+                });
+            }
+            movies.push(movieEnoughStock);
+            console.log("Movie Enough Stock: ", movieEnoughStock);
+        });
+
+        const loan = await Loan.create({
+            Employee_id_e: employeeId,
+            Customer_id_c: customerId,
+            start_date: startDate,
+            end_date: endDate
+        });
+
+        movies.forEach(async (movie) => {
+            const loanMovie = await LoanMovie.create({
+                Loan_id_l: loan.id_l,
+                Movie_id_m: movie.id_m
+            });
+            console.log("Loan Movie: ", loanMovie);
+            const movieUpdated = movie.update({
+                stock: sequelize.literal('stock - 1')
+            }, {
+                where: {
+                    id_m: movie.id_m
+                }
+            });
+            console.log("Updated Movie: ", movieUpdated);
+        });
+
+        const discount = (await Discount.findAll({
+            where: {
+                superior_limit: {
+                    [Op.gt]: moviesId.length,
+                }
+            },
+            order: [
+                ['id_d', 'ASC'],
+            ]
+        }))[0];
+        console.log("Discount: ", discount);
+
+        const price = await Price.findByPk(priceId);
+        console.log("Price: ", price);
+
+        const total1 = price.first_day_price + price.addition_per_day * (days - 1);
+        const total2 = moviesId.length * total1;
+        const total3 = total2 * (1 - discount.discount);
+        const total4 = Math.round(total3 * 10) / 10
+        console.log(total1, total2, total3, total4);
+        const sale = await Sale.create({
+            Loan_id_l: loan.id_l,
+            Discount_id_d: discount.id_d,
+            Price_id_p: price.id_p,
+            total: total4
+        });
+        console.log("Sale: ", sale);
+
         return res.status(201).json({
-            msg: 'Movie created succesfully!',
-            movieName: titles[0],
-            movieId: movie.id_m,
-
+            msg: 'Loan created succesfully!',
+            loanId: loan.id_l,
+            total: total4
         })
-
-
     } catch (err) {
         console.log(err);
         return res.status(500).json({
-            msg: 'Error when creating movie.'
+            msg: 'Error when creating loan.'
         })
     }
 };

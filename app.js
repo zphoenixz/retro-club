@@ -85,10 +85,11 @@ Edition.belongsToMany(Movie, { through: 'Edition_Movie', foreignKey: 'Edition_id
 
 // Movie.belongsToMany(Nomination, { through: 'Movie_Nomination', foreignKey: 'Movie_id_m'});
 // Nomination.belongsToMany(Movie, { through: 'Movie_Nomination', foreignKey: 'Nomination_id_pr'});
-Movie.belongsTo(MovieNomination, {as: 'Movie_Nomination', foreignKey: 'Nomination_id_pr'});
-MovieNomination.hasMany(Movie, {as: 'Movie', foreignKey: 'Nomination_id_pr'});
-Nomination.belongsTo(MovieNomination, {as: 'Movie_Nomination', foreignKey: 'Nomination_id_pr'});
-MovieNomination.hasMany(Nomination, {as: 'Nomination', foreignKey: 'Nomination_id_pr'});
+MovieNomination.belongsTo(Movie, {as: 'Movie', foreignKey: 'Movie_id_m'});
+Movie.hasMany(MovieNomination, {as: 'MovieNomination', foreignKey: 'Movie_id_m'});
+
+MovieNomination.belongsTo(Nomination, {as: 'Nomination', foreignKey: 'Nomination_id_pr'});
+Nomination.hasMany(MovieNomination, {as: 'MovieNomination', foreignKey: 'Nomination_id_pr'});
 
 Title.belongsTo(Movie, {as: 'Movie', foreignKey: 'Movie_id_m'});
 Movie.hasMany(Title, {as: 'Title', foreignKey: 'Movie_id_m'});
@@ -98,11 +99,11 @@ Movie.hasMany(Title, {as: 'Title', foreignKey: 'Movie_id_m'});
 Sale.belongsTo(Loan, {as: 'Loan', foreignKey: 'Loan_id_l'});
 Loan.hasMany(Sale, {as: 'Sale', foreignKey: 'Loan_id_l'});
 
-Price.belongsTo(Sale, {as: 'Sale', foreignKey: 'Price_id_p'});
-Sale.hasMany(Price, {as: 'Price', foreignKey: 'Price_id_p'});
+Sale.belongsTo(Price, {as: 'Price', foreignKey: 'Price_id_p'});
+Price.hasMany(Sale, {as: 'Sale', foreignKey: 'Price_id_p'});
 
-Discount.belongsTo(Sale, {as: 'Sale', foreignKey: 'Discount_id_d'});
-Sale.hasMany(Discount, {as: 'Discount', foreignKey: 'Discount_id_d'});
+Sale.belongsTo(Discount, {as: 'Discount', foreignKey: 'Discount_id_d'});
+Discount.hasMany(Sale, {as: 'Sale', foreignKey: 'Discount_id_d'});
 
 Movie.belongsToMany(Loan, { through: 'Loan_Movie', foreignKey: 'Movie_id_m'});
 Loan.belongsToMany(Movie, { through: 'Loan_Movie', foreignKey: 'Loan_id_l'});
