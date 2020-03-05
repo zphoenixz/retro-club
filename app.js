@@ -3,11 +3,8 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 // const errorController = require('./controllers/error');
-<<<<<<< HEAD
 const session = require('express-session');
 
-=======
->>>>>>> 969287c68daf9a676df4d88095f337b1d94d4da2
 const sequelize = require('./util/database');
 
 const Person = require('./models/Person');
@@ -32,11 +29,6 @@ const Loan = require('./models/Loan');
 const Price = require('./models/Price');
 const Returned = require('./models/Returned');
 const Sale = require('./models/Sale');
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 969287c68daf9a676df4d88095f337b1d94d4da2
 
 
 
