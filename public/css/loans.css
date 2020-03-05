@@ -1,5 +1,13 @@
+@font-face {
+    font-family: "BalsamiqSansBold";
+    src: url("/fonts/balsamiqsansbold.eot");    
+    src: url("/fonts/balsamiqsansbold.woff");
+    src: url("/fonts/balsamiqsansbold.woff2");
+}
+
 body{
     background-color: #f2edbe;
+    font-family: BalsamiqSansBold;
 }
 
 #sideContainer{
@@ -9,12 +17,60 @@ body{
     text-align: right;
 }
 
+#first{
+    width: 206px;
+    height: 26px;
+    background-color: #3d9796;
+    border-style: solid;
+    border-color: black;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    margin-right: 30px;
+    padding-left: 5px;
+}
+
+#second{
+    width: 136px;
+    height: 26px;
+    background-color: #3d9796;
+    border-style: solid;
+    border-color: black;
+    color: white;
+    margin-bottom: 5px;
+    margin-right: 100px;
+    padding-left: 5px;
+}
+
+#third{
+    width: 114px;
+    height: 26px;
+    background-color: #3d9796;
+    border-style: solid;
+    border-color: black;
+    color: white;
+    margin-bottom: 5px;
+    margin-right: 123px;
+    padding-left: 5px;
+}
+
 #mainContainer{
     margin-top: 100px;
     background-color: #30323d;
     border-style: solid;
 	float:left; width:40%;
     height: 550px;
+    opacity: 85%;
+}
+
+#header{
+    margin-left: 1400px;
+    margin-right: 10px;
+    margin-top: 20px;
+}
+
+#home{
+    margin: 10px;
 }
 
 #container0{
@@ -34,6 +90,8 @@ body{
     height: 117px;
 	background:#30323d;
     text-align:left;
+    border-style: solid;
+    border-color: black;
     color:white;
 }
 
@@ -45,6 +103,8 @@ body{
 	background:#3d9796;
     text-align:left;
     color:white;
+    border-style: solid;
+    border-color: black;
     margin-left: 90px;
 }
 
@@ -54,6 +114,8 @@ body{
     height: 117px;
 	background:#aa4465;
     text-align:left;
+    border-style: solid;
+    border-color: black;
     color:white;
 }
 

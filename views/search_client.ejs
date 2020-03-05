@@ -1,37 +1,53 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <title>Search Customer</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="search_client.css" type="text/css">
 </head>
 
 <body>
+
+    <form id="header">
+        <input type="image" formaction="cart_summary.html" src="imagenes/shopping_cart.png" id="shopping" width="30" height="30" />
+        <input type="image" formaction="sign_up.html" src="imagenes/exit.png" id="exit" width="30" height="30" />
+    </form>
+
     <div class="contenedor">
-        <img src="imagenes/search_customer.png" width="307" height="120">        
         <form>
+            <input type="image" formaction="client.html" id="back" src="imagenes/go_back.png" width="24" height="24"> 
+        </form>
+
+        <center>
+            <img src="imagenes/search_customer.png" width="307" height="120">        
+        </center>
+
+        <form>
+            <input type="image" src="imagenes/search_icon.png" width="15" height="15"> 
             <input type="text" id="search" placeholder="search customers">
             <select id="by">
                 <option value="">By</option>
+                <option value="first_name">First name</option>
+                <option value="last_name">Last name</option>
+                <option value="email">Email</option>                
+                <option value="phone">Phone</option>
             </select><br> 
-
             <input type="text" id="field_1" class="field left" readonly>
-            <input type="image" id=view_edit src="imagenes/view_edit.png" width="24" height="24"> <br>
+            <input type="image" id=view_edit formaction="edit_client.html" src="imagenes/view_edit.png" width="24" height="24"> <br>
             <input type="text" id="field_2" class="field left" readonly>
-            <input type="image" id=view_edit src="imagenes/view_edit.png" width="24" height="24"> <br>
+            <input type="image" id=view_edit formaction="edit_client.html" src="imagenes/view_edit.png" width="24" height="24"> <br>
             <input type="text" id="field_3" class="field left" readonly>
-            <input type="image" id=view_edit src="imagenes/view_edit.png" width="24" height="24"> <br>
+            <input type="image" id=view_edit formaction="edit_client.html" src="imagenes/view_edit.png" width="24" height="24"> <br>
             <input type="text" id="field_4" class="field left" readonly>
-            <input type="image" id=view_edit src="imagenes/view_edit.png" width="24" height="24"> <br>
+            <input type="image" id=view_edit formaction="edit_client.html" src="imagenes/view_edit.png" width="24" height="24"> <br>
             <input type="text" id="field_5" class="field left" readonly>
-            <input type="image" id=view_edit src="imagenes/view_edit.png" width="24" height="24"> <br>
+            <input type="image" id=view_edit formaction="edit_client.html" src="imagenes/view_edit.png" width="24" height="24"> <br>
             <input type="text" id="field_6" class="field left" readonly>
-            <input type="image" id=view_edit src="imagenes/view_edit.png" width="24" height="24"> <br>
+            <input type="image" id=view_edit formaction="edit_client.html" src="imagenes/view_edit.png" width="24" height="24"> <br>
             <input type="text" id="field_6" class="field left" readonly>
-            <input type="image" id=view_edit src="imagenes/view_edit.png" width="24" height="24"> <br>
+            <input type="image" id=view_edit formaction="edit_client.html" src="imagenes/view_edit.png" width="24" height="24"> <br>
             <input type="text" id="field_8" class="field left" readonly>
-            <input type="image" id=view_edit src="imagenes/view_edit.png" width="24" height="24"> <br>
-        </form> 
+            <input type="image" id=view_edit formaction="edit_client.html" src="imagenes/view_edit.png" width="24" height="24"> <br>
+        </form>
     </div>
 </body>
 </html>

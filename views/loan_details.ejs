@@ -7,8 +7,20 @@
 </head>
 
 <body>
+    <form id="header">
+        <input type="image" formaction="cart_summary.html" src="imagenes/shopping_cart.png" width="30" height="30" />
+        <input type="image" formaction="sign_up.html" src="imagenes/exit.png" width="30" height="30" />
+    </form>    
+
     <div class="contenedor">
-        <img src="imagenes/loan_details.png" width="312" height="116">        
+        <form>
+            <input type="image" formaction="search_loans.html" id="back" src="imagenes/go_back.png" width="24" height="24"> 
+        </form>
+
+        <center>
+            <img src="imagenes/loan_details.png" width="280" height="100">        
+        </center>
+
         <form>
             <input type="text" id="loan"><br>
             <input type="text" id="status"><br>
@@ -16,17 +28,17 @@
             <input type="text" id="paid"><br>
             <input type="text" id="from"><br>
             <input type="text" id="to"><br>
-
+    
             <select id="movie">
               <option value="">Movie</option>
             </select><br> 
-
+    
             <select id="status">
                 <option value="">Status</option>
               </select><br> 
-
+    
             <button id="new_status">Set new status</button> 
-        </form> 
+        </form>
     </div>
 </body>
 </html>

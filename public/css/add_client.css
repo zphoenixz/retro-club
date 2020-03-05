@@ -1,5 +1,23 @@
+@font-face {
+    font-family: "BalsamiqSansBold";
+    src: url("/fonts/balsamiqsansbold.eot");    
+    src: url("/fonts/balsamiqsansbold.woff");
+    src: url("/fonts/balsamiqsansbold.woff2");
+}
+
 body {
     background-color: #eafdf8;
+}
+
+#header{
+    margin-left: 1400px;
+    margin-right: 10px;
+    margin-top: 20px;
+}
+
+#back{
+    margin: 10px;
+    float: left;
 }
 
 #id_card{
@@ -33,23 +51,21 @@ body {
 }
 
 div.contenedor{
-    margin-top: 120px;
-    margin-left: 589px;
+    margin-top: 100px;
+    margin-left: 620px;
     border-color: #f2edbe;
     border-style:solid;
     width: 225px;
     height: 400px;
     background-color: #2a628f;
-    padding: 20px;
     text-align: center;
+    padding: 10px;
 }
 
 input{
     width: 165;
     height: 29;
-    border-style: solid;
-    border-color: black;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     text-align: center;
 }
 

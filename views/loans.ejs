@@ -5,37 +5,44 @@
 <title>Loan</title>
 </head>
 <body>
+    <form id="header">
+        <input type="image" formaction="cart_summary.html" src="imagenes/shopping_cart.png" width="30" height="30" />
+        <input type="image" formaction="sign_up.html" src="imagenes/exit.png" width="30" height="30" />
+    </form>    
 
     <article id=sideContainer>
-        <img src="imagenes/retro_club.jpg" width="250" height="60">
+        <img src="imagenes/retro_club.jpg" width="250" height="60"><br>
+        <input type="text" id="first" readonly><br>
+        <input type="text" id="second" readonly><br>            
+        <input type="text" id="third" readonly><br>            
     </article> 
 
     <article id=mainContainer>
-        <center>
-            <img src="imagenes/loans.png" width="300" height="105">
-        </center>
+        <form>
+            <input type="image" formaction="shortcuts.html" src="imagenes/home.png" id="home" width="30" height="30"/><br>
 
-        <br>
-
-        <article id="container0">
-
-        </article>
+            <center>
+                <img src="imagenes/loans.png" width="300" height="105">
+            </center>
     
-        <button id="container1">
-            <h3>Consult-Search-View</h3>
-        </button>
+            <article id="container0">
+            </article>
         
-        <br>
-    
-        <button id="container3">
-
-        </button>
-    
-        <button id="container4">
-
-        </button>
-    
+            <button id="container1" formaction="search_loans.html">
+                <h3>Consult-Search-View</h3>
+                <img src="imagenes/search_icon.png" width="40px" height="40px">
+                <img src="imagenes/document.png" width="40px" height="40px">
+                <img src="imagenes/eye.png" width="40px" height="40px">
+            </button>
+            
+            <br>
+        
+            <button id="container3">
+            </button>
+        
+            <button id="container4">
+            </button>
+        </form>
     </article>
-
 </body>
 </html>

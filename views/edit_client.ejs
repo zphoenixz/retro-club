@@ -1,14 +1,26 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <title>Edit Client</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="edit_client.css" type="text/css">
 </head>
 
 <body>
+
+    <form id="header">
+        <input type="image" formaction="cart_summary.html" src="imagenes/shopping_cart.png" id="shopping" width="30" height="30" />
+        <input type="image" formaction="sign_up.html" src="imagenes/exit.png" id="exit" width="30" height="30" />
+    </form>
+
     <div class="contenedor">
-        <img src="imagenes/edit_client.png" width="250" height="113">        
+        <form>
+            <input type="image" formaction="client.html" src="imagenes/go_back.png" id="back" width="30" height="30"/>    
+        </form>
+
+        <center>
+            <img src="imagenes/edit_client.png" width="250" height="90">        
+        </center>
+
         <form>
             <input type="text" id="id_card" placeholder="ID Card"><br>
             <input type="text" id="last_name" placeholder="Last name"><br>
@@ -18,23 +30,16 @@
             <input type="text" id="address" placeholder="Address"><br>
 
             <select id="loans">
-              <option value="volvo">Volvo</option>
-              <option value="saab">Saab</option>
-              <option value="mercedes">Mercedes</option>
-              <option value="audi">Audi</option>
+                <option value="">Loans</option>
             </select><br> 
-
+  
             <select id="blacklist">
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="mercedes">Mercedes</option>
-                <option value="audi">Audi</option>
-              </select><br> 
-
+                <option value="">Blacklist</option>
+            </select><br> 
+  
             <button id="button1">Modify</button> 
-            <button id="button2">Delete</button> 
-
-        </form> 
+            <button id="button2">Delete</button>    
+        </form>
     </div>
 </body>
 </html>

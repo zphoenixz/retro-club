@@ -5,54 +5,68 @@
     <title>Rules</title>
 </head>
 <body>
+    <form id="header">
+        <input type="image" formaction="cart_summary.html" src="imagenes/shopping_cart.png" width="30" height="30" />
+        <input type="image" formaction="sign_up.html" src="imagenes/exit.png" width="30" height="30" />
+    </form>    
 
     <article id=sideContainer>
-        <img src="imagenes/retro_club.jpg" width="250" height="60">
+        <img src="imagenes/retro_club.jpg" width="250" height="60"><br>
+        <input type="text" id="first" readonly><br>
+        <input type="text" id="second" readonly><br>            
+        <input type="text" id="third" readonly><br>            
     </article> 
 
     <article id=mainContainer>
-        <center>
-            <img src="imagenes/rules.png" width="307" height="99">
-        </center>
+        <form>
+            <input type="image" formaction="shortcuts.html" src="imagenes/home.png" id="home" width="30" height="30"/><br>
 
-        <br>
+            <center>
+                <img src="imagenes/rules.png" width="307" height="99">
+            </center>
+        
+            <article id="container1">
+                <h3>Discount policies</h3>
+
+                <article id="options">
+                    <select>
+                        <option value="">options</option>
+                        <option value="first_discount">1 to 3</option>
+                        <option value="second_discount">3 to 5</option>
+                        <option value="third_discount">5 or more</option>
+                    </select> 
+                </article>
+
+                <article id=discount_tag>
+                    <p>Discount:</p>
+                </article>
+
+                <br>
+
+                <input type="text" id="min">to</input>
+                <input type="text" id="max">videos.</input>                    
+                <input type="text" id="des">%</input>           
+            </article>
     
-        <article id="container1">
-            <h3>Discount policies</h3>
-            <select id="discount">
-                <option value="">options</option>
-                <option value="first_discount">1 to 3</option>
-                <option value="second_discount">3 to 5</option>
-                <option value="third_discount">5 or more</option>
-            </select> <br>
-
-            <input type="text" id="min">
-            <input type="text" id="max">
-            <input type="text" id="des"><br>
-
-        </article>
-
-        <br>
-
-   
-        <article id="container2">
-            <h3>First day price</h3>
-                <input type="text" id="first_day_price">
-        </article>
-         
-        <article id="container3">
-            <h3>After price</h3>
-            <input type="text" id="after_price"><br>
-        </article>
+            <br>
+       
+            <article id="container2">
+                <h3>First day price</h3>
+                <input type="text" id="first_day_price">Bs.</input>
+            </article>
+             
+            <article id="container3">
+                <h3>After price</h3>
+                <input type="text" id="after_price">Bs.</input>
+            </article>
+        
+            <article id="container4">
+                <h3>Max days</h3>
+                <input type="text" id="max_days">days</input>
+            </article>
     
-        <article id="container4">
-            <h3>Max days</h3>
-            <input type="text" id="max_days"><br>
-        </article>
-
-        <button>Save Changes</button>
-
+            <button>Save Changes</button>
+        </form>
     </article>
-
 </body>
 </html>

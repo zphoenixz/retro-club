@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="cart_summary.css">
+<title>Shortcuts</title>
+</head>
+<body>
+    <form id="header">
+        <input type="image" formaction="cart_summary.html" src="imagenes/shopping_cart.png" width="30" height="30" />
+        <input type="image" formaction="sign_up.html" src="imagenes/exit.png" width="30" height="30" />
+    </form>    
+
+    <article id=mainContainer>
+        <form>
+            <input type="image" formaction="shortcuts.html" src="imagenes/home.png" id="home" width="30" height="30"/>
+        </form> 
+
+        <center>
+            <img src="imagenes/cart_summary.png" width="339" height="113">
+        </center>
+        
+        <article id="column1">
+            <form>
+                <h3>Items</h3>
+                <input type="text" id="item" readonly>
+                <input type="image" src="imagenes/eye.png" width="30" height="30"/>
+                <input type="image" src="imagenes/delete.png" width="30" height="30"/>
+            </form>
+        </article>    
+             
+        <article id="column2">
+            <form>
+                <input type="text" id="customer_id" readonly><br>
+                <select id="days">
+                    <option value="">Number of days</option>
+                </select><br>                 
+                <input type="text" id="pre_total" value="Pre total:" readonly>
+                <input type="text" id="pre_total_bs" readonly><br>
+                <input type="text" id="discount" value="Discount:" readonly>
+                <input type="text" id="discount_p" readonly>
+                <input type="text" id="discount_bs" readonly><br>
+                <input type="text" id="total" value="Total:" readonly>
+                <input type="text" id="total_bs" readonly>
+                <button>Pay</button>
+            </form>
+        </article>
+    </article>
+</body>
+</html>

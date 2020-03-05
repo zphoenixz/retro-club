@@ -27,11 +27,6 @@ body {
     padding-left: 10px;
 }
 
-select{
-    width: 109px;
-    height: 27px;
-}
-
 #field_1{
     background-color: #f2edbe;
     color: white;
@@ -129,4 +124,8 @@ div.contenedor{
     height: 550px;
     background-color: #2a628f;
     text-align: center;
+}
+
+a{
+    color: white;
 }

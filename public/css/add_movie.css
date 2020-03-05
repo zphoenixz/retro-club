@@ -1,3 +1,10 @@
+@font-face {
+    font-family: "BalsamiqSansBold";
+    src: url("/fonts/balsamiqsansbold.eot");    
+    src: url("/fonts/balsamiqsansbold.woff");
+    src: url("/fonts/balsamiqsansbold.woff2");
+}
+
 body {
     background-color: #eafdf8;
 }

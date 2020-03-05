@@ -1,46 +1,61 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
+<html>
 <head>
-    <title>home</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="main.css" type="text/css">
+    <link rel="stylesheet" href="shortcuts.css">
 </head>
-
 <body>
-    <article id="column1">
-        
+    <form id="header">
+        <input type="image" formaction="cart_summary.html" src="imagenes/shopping_cart.png" width="30" height="30" />
+        <input type="image" formaction="sign_up.html" src="imagenes/exit.png" width="30" height="30" />
+    </form>    
+
+    <article id=sideContainer>
+        <img src="imagenes/retro_club.jpg" width="250" height="60"><br>
+        <input type="text" id="first" readonly><br>
+        <input type="text" id="second" readonly><br>            
+        <input type="text" id="third" readonly><br>            
     </article> 
 
-    <article id="column2">
-        
-        <h2>Customers</h2>
-        <div id="container1">
+    <article id=mainContainer>
+        <form>
+            <input type="image" formaction="shortcuts.html" src="imagenes/home.png" id="home" width="30" height="30"/><br>
 
-        </div>
+            <center>
+                <img src="imagenes/shortcuts.png" width="250" height="130">
+            </center>
 
-        <h2>Loans</h2>
-        <div id="container2">
-            
-        </div>
+            <article id="container0">
+            </article>
 
-        <h2>Shopping</h2>
-        <div id="container3">
-            
-        </div>
+            <button id="container1" formaction="client.html">
+                <h3>Customers</h3>
+                <img src="imagenes/people.png" width="60" height="60">
+            </button>
 
-        <h2>Movie</h2>   
-        <div id="container4">
-            
-        </div>
+            <button id="container2" formaction="loans.html">
+                <h3>Loans</h3>
+                <img src="imagenes/loan.png" width="60" height="60">
+            </button>
 
-        <h2>Loan Rules</h2>
-        <div id="container5">
-            
-        </div>
+            <br>    
 
+            <button id="container3" formaction="cart_summary.html">
+                <h3>Shopping</h3>
+                <img src="imagenes/shopping_cart.png" width="60" height="60">
+            </button>
+
+            <button id="container4" formaction="movies.html">
+                <h3>Movies</h3>
+                <img src="imagenes/cinema.png" width="60" height="60">
+            </button>    
+
+            <button id="container5" formaction="rules.html">
+                <h3>Loan Rules</h3>
+                <img src="imagenes/paper_rules.png" width="60" height="60">
+            </button>
+        </form>
     </article>
-
-
-    
 </body>
 </html>
