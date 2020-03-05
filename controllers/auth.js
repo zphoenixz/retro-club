@@ -2,11 +2,11 @@ const Employee = require('../models/Employee');
 
 //GETS -----------------------------------------------------------------
 exports.loginPage = (req, res, next) => {
-    res.render('sign_in', {
+    res.render('sign_up', {
         
     //     prods: products,
     //     pageTitle: 'All Products',
-       path: '/sign_in'
+    path: '/sign_in'
     });
 
 };
