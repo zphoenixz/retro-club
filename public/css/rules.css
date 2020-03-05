@@ -62,8 +62,14 @@ body{
     opacity: 85%;
 }
 
-#header{
+#header1{
     margin-left: 1400px;
+    margin-right: 10px;
+    margin-top: 20px;
+}
+
+#header2{
+    margin-left: 1410px;
     margin-right: 10px;
     margin-top: 20px;
 }

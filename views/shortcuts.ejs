@@ -3,57 +3,71 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="shortcuts.css">
+    <link rel="stylesheet" href="/css/shortcuts.css">
 </head>
 <body>
-    <form id="header">
-        <input type="image" formaction="cart_summary.html" src="imagenes/shopping_cart.png" width="30" height="30" />
-        <input type="image" formaction="sign_up.html" src="imagenes/exit.png" width="30" height="30" />
+
+    <form id="header1" name="header1" action="/admin/cart" method="get">
+        <input type="image" src="/images/icons/shopping_cart.png" width="30" height="30" />
+    </form>    
+
+    <form id="header2" name="header2" action="/sign" method="get">
+        <input type="image" src="/images/icons/exit.png" width="30" height="30" />
     </form>    
 
     <article id=sideContainer>
-        <img src="imagenes/retro_club.jpg" width="250" height="60"><br>
+        <img src="/images/titles/retro_club.jpg" width="250" height="60"><br>
         <input type="text" id="first" readonly><br>
         <input type="text" id="second" readonly><br>            
         <input type="text" id="third" readonly><br>            
     </article> 
 
     <article id=mainContainer>
-        <form>
-            <input type="image" formaction="shortcuts.html" src="imagenes/home.png" id="home" width="30" height="30"/><br>
+        <form action="/admin/home" method="get">
+            <input type="image" src="/images/titles/home.png" id="home" name="home" width="30" height="30"/><br>
+        </form>
 
-            <center>
-                <img src="imagenes/shortcuts.png" width="250" height="130">
-            </center>
+        <center>
+            <img src="/images/titles/shortcuts.png" width="250" height="130">
+        </center>
 
-            <article id="container0">
-            </article>
+        <article id="container0">
+        </article>
 
-            <button id="container1" formaction="client.html">
+        <form action="/admin/customers" method="get">
+            <button id="container1" name="container1">
                 <h3>Customers</h3>
-                <img src="imagenes/people.png" width="60" height="60">
+                <img src="/images/titles/people.png" width="60" height="60">
             </button>
+        </form>
 
-            <button id="container2" formaction="loans.html">
+        <form action="/admin/loans" method="get">
+            <button id="container2" name="container2">
                 <h3>Loans</h3>
-                <img src="imagenes/loan.png" width="60" height="60">
+                <img src="/images/titles/loan.png" width="60" height="60">
             </button>
+        </form>
 
-            <br>    
+        <br>    
 
-            <button id="container3" formaction="cart_summary.html">
+        <form action="/admin/cart" method="get">
+            <button id="container3" name="container3">
                 <h3>Shopping</h3>
-                <img src="imagenes/shopping_cart.png" width="60" height="60">
+                <img src="/images/titles/shopping_cart.png" width="60" height="60">
             </button>
+        </form>
 
-            <button id="container4" formaction="movies.html">
+        <form action="/admin/movies" method="get">
+            <button id="container4" name="container4">
                 <h3>Movies</h3>
-                <img src="imagenes/cinema.png" width="60" height="60">
+                <img src="/images/titles/cinema.png" width="60" height="60">
             </button>    
+        </form>
 
-            <button id="container5" formaction="rules.html">
+        <form action="/admin/rules" method="get">
+            <button id="container5" name="container5">
                 <h3>Loan Rules</h3>
-                <img src="imagenes/paper_rules.png" width="60" height="60">
+                <img src="/images/titles/paper_rules.png" width="60" height="60">
             </button>
         </form>
     </article>

@@ -5,50 +5,57 @@
 <title>Client</title>
 </head>
 <body>
-    <form id="header">
-        <input type="image" formaction="cart_summary.html" src="imagenes/shopping_cart.png" width="30" height="30" />
-        <input type="image" formaction="sign_up.html" src="imagenes/exit.png" width="30" height="30" />
+    <form name="header" action="/admin/cart" method="get">
+        <input type="image" src="images/titles/shopping_cart.png" width="30" height="30" />
+    </form>    
+
+    <form name="header" action="/sign" method="get">
+        <input type="image" src="images/titles/exit.png" width="30" height="30" />
     </form>    
 
     <article id=sideContainer>
-        <img src="imagenes/retro_club.jpg" width="250" height="60"><br>
+        <img src="images/title/retro_club.jpg" width="250" height="60"><br>
         <input type="text" id="first" readonly><br>
         <input type="text" id="second" readonly><br>            
         <input type="text" id="third" readonly><br>            
     </article> 
 
     <article id=mainContainer>
-        <form>
-            <input type="image" formaction="shortcuts.html" src="imagenes/home.png" id="home" width="30" height="30"/><br>
+        <form action="/admin/home" method="get">
+            <input type="image" src="images/titles/home.png" id="home" width="30" height="30"/><br>
+        </form>
 
-            <center>
-                <img src="imagenes/customers.png" width="210" height="105">
-            </center>
+        <center>
+            <img src="images/title/customers.png" width="210" height="105">
+        </center>
     
-            <article id="container0">
-            </article>
+        <article id="container0">
+        </article>
         
-            <button id="container1">
-            </button>
-    
-            <button id="container2" formaction="add_client.html">
+        <button id="container1">
+        </button>
+   
+        <form action="admin/customers/new" method="post">
+           <button id="container2">
                 <h3>Add</h3>
-                <img src="imagenes/add_customer.png" width="55" height="50">
-            </button>
-    
-            <br>
-        
-            <button id="container3" formaction="search_client.html">
-                <h3>Search</h3>
-                <img src="imagenes/search_icon.png" width="40" height="40">
-                <img src="imagenes/eye.png" width="40" height="40">
-                <img src="imagenes/pencil.png" width="40" height="40">
-                <img src="imagenes/delete.png" width="40" height="40">
-            </button>
-        
-            <button id="container4">
+                <img src="images/title/add_customer.png" width="55" height="50">
             </button>
         </form>
+     
+        <br>
+
+        <form action="admin/customers/search" method="get">
+            <button id="container3">
+                <h3>Search</h3>
+                <img src="images/title/search_icon.png" width="40" height="40">
+                <img src="images/title/eye.png" width="40" height="40">
+                <img src="images/title/pencil.png" width="40" height="40">
+                <img src="images/title/delete.png" width="40" height="40">
+            </button>
+        </form>       
+        
+        <button id="container4">
+        </button>
     </article>
 </body>
 </html>
