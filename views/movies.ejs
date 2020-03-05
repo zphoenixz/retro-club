@@ -1,54 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="movies.css">
+<link rel="stylesheet" href="/public/css/movies.css">
     <title>Movies</title>
 </head>
 <body>
-    <form id="header">
-        <input type="image" formaction="cart_summary.html" src="imagenes/shopping_cart.png" width="30" height="30" />
-        <input type="image" formaction="sign_up.html" src="imagenes/exit.png" width="30" height="30" />
+
+   <form id="header1" name="header1" action="/admin/cart" method="GET">
+        <input type="image" src="images/icons/shopping_cart.png" width="30" height="30" />
+    </form>    
+
+    <form id="header2" name="header2" action="/sign" method="GET">
+        <input type="image" src="images/icons/exit.png" width="30" height="30" />
     </form>    
 
     <article id=sideContainer>
-        <img src="imagenes/retro_club.jpg" width="250" height="60"><br>
+        <img src="images/title/retro_club.jpg" width="250" height="60"><br>
         <input type="text" id="first" readonly><br>
         <input type="text" id="second" readonly><br>            
         <input type="text" id="third" readonly><br>            
     </article> 
 
     <article id=mainContainer>
-        <form>
-            <input type="image" formaction="shortcuts.html" src="imagenes/home.png" id="home" width="30" height="30"/><br>
-
-            <center>
-                <img src="imagenes/movies.png" width="307" height="99">
-            </center>
-     
-            <article id="container0">
-            </article>
-    
-            <article id="container1">
-            </article>
-    
-            <button id="container2" formaction="add_movie.html">
-                <h3>Add</h3>
-                <img src="imagenes/plus.png" width="55" height="50">
-            </button>
-    
-            <br>
-       
-            <button id="container3" formaction="search_movie.html">
-                <h3>Search</h3>
-                <img src="imagenes/search_icon.png" width="40" height="40">
-                <img src="imagenes/eye.png" width="40" height="40">
-                <img src="imagenes/pencil.png" width="40" height="40">
-                <img src="imagenes/minus.png" width="40" height="40">
-            </button>
-             
-            <article id="container4">
-            </article>
+        <form action="/admin/home" method="GET">
+            <input type="image" src="images/title/home.png" id="home" name="home" width="30" height="30"/><br>
         </form>
+        
+        <center>
+            <img src="images/title/movies.png" width="307" height="99">
+        </center>
+     
+        <article id="container0">
+        </article>
+    
+        <article id="container1">
+        </article>
+    
+        <form action="admin/movies/new" method="GET">
+            <button id="container2" name="container2">
+                <h3>Add</h3>
+                <img src="images/title/plus.png" width="55" height="50">
+            </button>
+        </form>
+
+        <br>
+
+        <form action="/admin/movies/search" method="GET">
+            <button id="container3" name="container3">
+                <h3>Search</h3>
+                <img src="images/title/search_icon.png" width="40" height="40">
+                <img src="images/title/eye.png" width="40" height="40">
+                <img src="images/title/pencil.png" width="40" height="40">
+                <img src="images/title/minus.png" width="40" height="40">
+            </button>
+        </form>
+       
+        <article id="container4">
+        </article>
     </article>
 </body>
 </html>

@@ -9,7 +9,13 @@ body {
     background-color: #eafdf8;
 }
 
-#header{
+#header1{
+    margin-left: 1400px;
+    margin-right: 10px;
+    margin-top: 20px;
+}
+
+#header2{
     margin-left: 1400px;
     margin-right: 10px;
     margin-top: 20px;
