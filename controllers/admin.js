@@ -271,7 +271,6 @@ exports.postMovie = async (req, res, next) => {
             console.log("Genre: ", mGenre);
         });
 
-
         starring.forEach(async (star) => {
             const firstName = star.split(" ")[0];
             const lastName = star.split(" ")[1];
@@ -319,7 +318,6 @@ exports.postMovie = async (req, res, next) => {
 
         })
 
-
     } catch (err) {
         console.log(err);
         return res.status(500).json({
@@ -330,9 +328,9 @@ exports.postMovie = async (req, res, next) => {
 
 exports.postLoan = async (req, res, next) => {
     let employeeId = 2; //3 = employeeId------------------------req.body.
-    let customerId = 1;
+    let customerId =4;
     let priceId = 1;
-    let moviesId = [1, 2, 3];
+    let moviesId = [7, 8];
 
     var today = new Date();
     let startDate = today.toISOString().slice(0, 10).replace('T', ' ');
@@ -344,9 +342,9 @@ exports.postLoan = async (req, res, next) => {
     try {
         let movies = [];
 
-        const customerStatus = Customer.findByPk(customerId);
+        const customerStatus = await Customer.findByPk(customerId);
 
-        if (!customerStatus.customer_status) {
+        if (customerStatus.customer_status == 0) {
             return res.status(409).json({
                 msg: 'Loan rejected. User is Blacklisted.',
                 userID: customerId
@@ -354,7 +352,7 @@ exports.postLoan = async (req, res, next) => {
             });
         }
 
-        const prevLoan = loan.findAll({
+        const prevLoan = await Loan.findAll({
             where: {
                 Customer_id_c: customerId
             },
@@ -362,26 +360,26 @@ exports.postLoan = async (req, res, next) => {
                 ['start_date', 'DESC'],
             ]
         });
-
+        console.log("Previous Loan: ", prevLoan[0]);
         if (prevLoan.length > 0) {
-            const lastReturned = Returned.findOne({
+            const lastReturned = await Returned.findOne({
                 where: {
                     Loan_id_l: prevLoan[0].id_l
                 }
             });
+            console.log("Last Returned: ", lastReturned,prevLoan[0].end_date ,startDate);
 
-
-            if (prevLoan.endDate <= startDate && !lastReturned) {
+            if (prevLoan[0].end_date >= startDate && !lastReturned) {
                 return res.status(409).json({
                     msg: 'Loan rejected. User is yet to return a loan.',
-                    loanId: prevLoan.id_l,
+                    loanId: prevLoan[0].id_l,
                     userID: customerId
                     // reason:
                 });
-            } else if (prevLoan.endDate > startDate && !lastReturned) {
+            } else if (prevLoan[0].end_date < startDate && !lastReturned) {
 
-                const customerUpdated = Customer.update({
-                    customer_status: false
+                const customerUpdated = await Customer.update({
+                    customer_status: 0
                 }, {
                     where: {
                         id_c: customerId
@@ -391,7 +389,7 @@ exports.postLoan = async (req, res, next) => {
 
                 return res.status(409).json({
                     msg: 'Loan rejected. User owes a loan. Client have been Blacklisted.',
-                    loanId: prevLoan.id_l,
+                    loanId: prevLoan[0].id_l,
                     userID: customerId
                     // reason:
                 });
@@ -423,7 +421,7 @@ exports.postLoan = async (req, res, next) => {
                 Movie_id_m: movie.id_m
             });
             console.log("Loan Movie: ", loanMovie);
-            const movieUpdated = movie.update({
+            const movieUpdated = await movie.update({
                 stock: sequelize.literal('stock - 1')
             }, {
                 where: {
