@@ -20,8 +20,11 @@ router.get('/movies/add', isAuth, adminController.postMovie);
 
 router.get('/loan/add', isAuth, adminController.postLoan);
 
-router.get('/home', isAuth, adminController.getHome)
-router.get('/', isAuth, adminController.getHome)
+router.get('/home', isAuth, adminController.getHomeview);
+router.get('/', isAuth, adminController.getHomeview);
+
+router.get('/cart', isAuth, adminController.getCartview);
+router.get('/customers', isAuth, adminController.getCustomerview);
 
 
 module.exports = router;

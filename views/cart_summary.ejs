@@ -1,26 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<link rel="stylesheet" href="cart_summary.css">
+    <meta charset="utf-8">
+<link rel="stylesheet" href="/css/cart_summary.css">
 <title>Shortcuts</title>
 </head>
 <body>
     <form name="header" action="/admin/cart" method="get">
-        <input type="image" src="images/titles/shopping_cart.png" width="30" height="30" />
+        <input type="image" src="/images/icons/shopping_cart.png" width="30" height="30" />
     </form>    
 
-    <form name="header" action="/sign" method="get">
-        <input type="image" src="images/titles/exit.png" width="30" height="30" />
+    <form name="header" action="/logout" method="post">
+        <input type="image" src="/images/icons/exit.png" width="30" height="30" />
     </form>    
 
     <article id=mainContainer>
 
         <form action="/admin/home" method="get">
-            <input type="image" src="images/title/home.png" name="home" width="30" height="30"/>
+            <input type="image" src="/images/icons/home.png" name="home" width="30" height="30"/>
         </form> 
 
         <center>
-            <img src="images/title/cart_summary.png" width="339" height="113">
+            <img src="/images/titles/cart_summary.png" width="339" height="113">
         </center>
         
         <article id="column1">
@@ -31,11 +32,11 @@
             </form>
             
             <form action="" method="get">
-            <input type="image" src="images/title/eye.png" name="edit" width="30" height="30"/>
+            <input type="image" src="/images/icons/eye.png" name="edit" width="30" height="30"/>
             </form>
 
             <form action="" method="">
-                <input type="image" src="images/title/delete.png" name="delete" width="30" height="30"/>
+                <input type="image" src="/images/icons/delete.png" name="delete" width="30" height="30"/>
             </form>
         </article>    
              

@@ -29,10 +29,24 @@ const Returned = require('../models/Returned');
 const Sale = require('../models/Sale');
 
 //Views -----------------------------------------------------------------
-exports.getHome = (req, res, next) => {
+exports.getHomeview = (req, res, next) => {
     console.log('Employee Id', req.session.employee);
     res.render('shortcuts', {
         path: '/shortcuts'
+    });
+};
+
+exports.getCartview = (req, res, next) => {
+    console.log('Employee Id', req.session.employee);
+    res.render('cart_summary', {
+        path: '/cart'
+    });
+};
+
+exports.getCustomerview = (req, res, next) => {
+    console.log('Employee Id', req.session.employee);
+    res.render('client', {
+        path: '/client'
     });
 };
 

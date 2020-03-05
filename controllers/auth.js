@@ -2,11 +2,16 @@ const Employee = require('../models/Employee');
 
 //GETS -----------------------------------------------------------------
 exports.getLogin = (req, res, next) => {
-    res.render('sign_up', {
-        //     prods: products,
-        //     pageTitle: 'All Products',
-        path: '/'
-    });
+    if (!req.session.isLoggedIn) {
+        res.render('sign_up', {
+            //     prods: products,
+            //     pageTitle: 'All Products',
+            path: '/'
+        });
+    } else {
+        return res.redirect('/admin/home');
+    }
+    
 };
 
 exports.postLogin = async (req, res, next) => {

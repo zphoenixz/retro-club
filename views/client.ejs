@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="client.css">
+<link rel="stylesheet" href="/css/client.css">
 <title>Client</title>
 </head>
 <body>
     <form name="header" action="/admin/cart" method="get">
-        <input type="image" src="images/titles/shopping_cart.png" width="30" height="30" />
+        <input type="image" src="/images/icons/shopping_cart.png" width="30" height="30" />
     </form>    
 
-    <form name="header" action="/sign" method="get">
-        <input type="image" src="images/titles/exit.png" width="30" height="30" />
+    <form name="header" action="/logout" method="post">
+        <input type="image" src="/images/icons/exit.png" width="30" height="30" />
     </form>    
 
     <article id=sideContainer>
-        <img src="images/title/retro_club.jpg" width="250" height="60"><br>
+        <img src="/images/titles/retro_club.jpg" width="250" height="60"><br>
         <input type="text" id="first" readonly><br>
         <input type="text" id="second" readonly><br>            
         <input type="text" id="third" readonly><br>            
@@ -22,11 +22,11 @@
 
     <article id=mainContainer>
         <form action="/admin/home" method="get">
-            <input type="image" src="images/titles/home.png" id="home" width="30" height="30"/><br>
+            <input type="image" src="/images/icons/home.png" id="home" width="30" height="30"/><br>
         </form>
 
         <center>
-            <img src="images/title/customers.png" width="210" height="105">
+            <img src="/images/titles/customers.png" width="210" height="105">
         </center>
     
         <article id="container0">
@@ -38,7 +38,7 @@
         <form action="admin/customers/new" method="post">
            <button id="container2">
                 <h3>Add</h3>
-                <img src="images/title/add_customer.png" width="55" height="50">
+                <img src="/images/icons/add_customer.png" width="55" height="50">
             </button>
         </form>
      
@@ -47,10 +47,10 @@
         <form action="admin/customers/search" method="get">
             <button id="container3">
                 <h3>Search</h3>
-                <img src="images/title/search_icon.png" width="40" height="40">
-                <img src="images/title/eye.png" width="40" height="40">
-                <img src="images/title/pencil.png" width="40" height="40">
-                <img src="images/title/delete.png" width="40" height="40">
+                <img src="/images/icons/search_icon.png" width="40" height="40">
+                <img src="/images/icons/eye.png" width="40" height="40">
+                <img src="/images/icons/pencil.png" width="40" height="40">
+                <img src="/images/icons/delete.png" width="40" height="40">
             </button>
         </form>       
         
