@@ -11,21 +11,20 @@ body {
 }
 
 #column1{
-    margin-top: 300px;
-    margin-left: 230px;
-    float:left; width:40%;
+    float:left; width:50%;
+    margin-top: 250px;
     text-align:center;  
 }
 
 #column2{
-    margin-top: 200px;
+    float:left; width:50%;
+    margin-top: 150px;
+    text-align:center;
+    width: 300px;
+    height: 430px;    
     border-color: #f2edbe;
     border-style:solid;
-    width: 200px;
-    height: 450px;
     background-color: #30323d;
-    float:left; width:18%;
-    text-align:center;
 }
 
 #sign_in{
@@ -33,30 +32,32 @@ body {
 }
 
 input{
+    font-family: BalsamiqSansBold;
+    font-size: 17px;
+    color:white;
+    text-align: center;
     width: 240px;
     height: 27px;
+    margin-bottom: 15px;
     background-color: #88958d;
     border-style: solid;
     border-color: black;
-    margin-bottom: 15px;
-    color:white;
-    text-align: center;
-    font-size: 17px;
 }
 
 button{
+    font-family: BalsamiqSansBold;
+    font-size: 17px;
     width: 240px;
     height: 35px;
     background-color: #f2edbe;
     border-style: solid;
     border-color: black;
-    font-size: 17px;
+    box-shadow: 5px 10px;
 }
 
 h2{
     color: #f2edbe;
-    font-family: sans-serif;
     text-align: left;
     margin-left: 220px;
-    font-size: 35px;
+    font-size: 30px;
 }

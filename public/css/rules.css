@@ -7,13 +7,14 @@
 
 body{
     background-color: #f2edbe;
+    font-family: BalsamiqSansBold;
 }
 
 #sideContainer{
-    margin-top: 200px;
-    margin-right: 70px;
     float:left; width:40%;
     text-align: right;
+    margin-top: 150px;
+    margin-right: 50px;
 }
 
 #first{
@@ -54,108 +55,70 @@ body{
 }
 
 #mainContainer{
-    margin-top: 100px;
+    float:left; width:60%;
+    width: 600px;
+    height: 580px;
     background-color: #30323d;
-    border-style: solid;
-	float:left; width:40%;
-    height: 550px;
     opacity: 85%;
 }
 
 #header1{
     margin-left: 1400px;
-    margin-right: 10px;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 #header2{
-    margin-left: 1410px;
-    margin-right: 10px;
-    margin-top: 20px;
+    margin-left: 1400px;
+    margin-top: 10px;
 }
 
 #home{
     margin: 10px;
 }
 
-#options{
-    float:left; width:50%;
-    text-align:left;
-}
-
-#discount_tag{
-    float:left; width:40%;
-    text-align:left;
-    margin-left: 15px;
-}
-
 #container1{
-    margin-left: 40px;
-    margin-bottom: 20px;
     float:left; width:80%;
-    height: 117px;
+    width: 500px;
+    height: 130px;
+    margin-left: 40px;
+    margin-bottom: 40px;
+    padding: 5px;
     border-style: solid;
     border-color: black;
 	background:#30323d;
     text-align:left;
     color:white;
-    padding: 10px;
     font-size: 13px;
+    box-shadow: 5px 10px #000000;
+    font-family: BalsamiqSansBold;
 }
 
-#container2{
-	margin-left: 40px;
-    float:left; width:20%;
-    height: 117px;
-    border-style: solid;
-    border-color: black;
-	background:#3d9796;
-    text-align:left;
-    color:white;
-    padding: 10px;
-    font-size: 13px;
+p{
+    width: 135px;
+    height: 18px;
 }
 
-#container3{
-	margin-left: 30px;
-    float:left; width:20%;
-    height: 117px;
-    background:#23395b;
-    border-style: solid;
-    border-color: black;
+#options{
+    float:left; width:50%;
+    width: 212px;
+    height: 27px;
     text-align:left;
-    color:white;
-    padding: 10px;
-    font-size: 13px;
-}
-
-#container4{
-	margin-left: 30px;
-    float:left; width:20%;
-    height: 117px;
-    border-style: solid;
-    border-color: black;
-	background:#aa4465;
-    text-align:left;
-    color:white;
-    padding: 10px;
-    font-size: 13px;
 }
 
 select{
     width: 212px;
     height: 17px;
-    margin-bottom: 10px;
+    font-family: BalsamiqSansBold;
+    border-style: solid;
+    border-color: black;
 }
 
-button{
-    width: 400px;
-    height: 35px;
-    background-color: #f2edbe;
-    margin-top: 20px;
-    margin-left: 40px;
-    border-color: black;
-    border-style: solid;
+#discount_tag{
+    float:left; width:50%;
+    width: 70px;
+    height: 18px;
+    text-align:left;
+    margin-left: 55px;
 }
 
 #min{
@@ -164,7 +127,7 @@ button{
     border-style: solid;
     border-color: black;
     margin-right: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 #max{
@@ -174,7 +137,7 @@ button{
     border-color: black;
     margin-right: 20px;
     margin-left: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 #des{
@@ -184,20 +147,82 @@ button{
     border-color: black;
     margin-right: 20px;
     margin-left: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+#container2{
+    float:left; width:30%;
+    width: 130px;
+    height: 117px;
+    border-style: solid;
+    border-color: black;
+	background:#3d9796;
+    text-align:left;
+    color:white;
+    font-size: 13px;
+    box-shadow: 5px 10px #000000;
+    font-family: BalsamiqSansBold;
+    padding-left: 5px;
+}
+
+#container3{
+    float:left; width:30%;
+    width: 130px;
+    height: 117px;
+	margin-left: 38px;
+    background:#23395b;
+    border-style: solid;
+    border-color: black;
+    text-align:left;
+    color:white;
+    font-size: 13px;
+    box-shadow: 5px 10px #000000;
+    font-family: BalsamiqSansBold;
+    padding-left: 5px;
+}
+
+#container4{
+    float:left; width:30%;
+    width: 130px;
+    height: 117px;
+	margin-left: 38px;
+    border-style: solid;
+    border-color: black;
+	background:#aa4465;
+    text-align:left;
+    color:white;
+    font-size: 13px;
+    box-shadow: 5px 10px #000000;
+    font-family: BalsamiqSansBold;
+    padding-left: 5px;
+}
+
+button{
+    width: 400px;
+    height: 35px;
+    background-color: #f2edbe;
+    margin-top: 20px;
+    border-color: black;
+    border-style: solid;
+    font-size: 13px;
+    box-shadow: 5px 10px #000000;
+    font-family: BalsamiqSansBold;
 }
 
 #first_day_price{
     width: 56px;
     height: 27px;
+    margin: 5px;
 }
 
 #after_price{
     width: 56px;
     height: 27px;
+    margin: 5px;
 }
 
 #max_days{
     width: 56px;
     height: 27px;
+    margin: 5px;
 }

@@ -6,53 +6,52 @@
 <title>Summary</title>
 </head>
 <body>
-    <form name="header" action="/admin/cart" method="get">
+    <form id="header1" name="header1" action="/admin/cart" method="get">
         <input type="image" src="/images/icons/shopping_cart.png" width="30" height="30" />
     </form>    
 
-    <form name="header" action="/logout" method="post">
+    <form id="header2" name="header2" action="/logout" method="post">
         <input type="image" src="/images/icons/exit.png" width="30" height="30" />
     </form>    
 
     <article id=mainContainer>
-
         <form action="/admin/home" method="get">
-            <input type="image" src="/images/icons/home.png" name="home" width="30" height="30"/>
-        </form> 
+            <input type="image" src="/images/icons/home.png" id="home" name="home" width="30" height="30"/>
+        </form>
 
         <center>
-            <img src="/images/titles/cart_summary.png" width="339" height="113">
+            <img src="/images/titles/cart_summary.png" width="339" height="120">
         </center>
         
         <article id="column1">
             <h3>Items</h3>
 
             <form action="" method="get">
-                <input type="text" name="item" readonly>
+                <input type="text" id="item" name="item" readonly>
             </form>
             
             <form action="" method="get">
-            <input type="image" src="/images/icons/eye.png" name="edit" width="30" height="30"/>
+            <input type="image" src="/images/icons/eye.png" id="edit" name="edit" width="30" height="30"/>
             </form>
 
             <form action="" method="">
-                <input type="image" src="/images/icons/delete.png" name="delete" width="30" height="30"/>
+                <input type="image" src="/images/icons/delete.png" id="delete" name="delete" width="30" height="30"/>
             </form>
         </article>    
              
         <article id="column2">
             <form action="" method="get">
-                <input type="text" name="customer_id" readonly><br>
+                <input type="text" id="customer_id" name="customer_id" readonly><br>
                 <select id="days">
                     <option value="">Number of days</option>
                 </select><br>                 
-                <input type="text" name="pre_total" value="Pre total:" readonly>
-                <input type="text" name="pre_total_bs" readonly><br>
-                <input type="text" name="discount" value="Discount:" readonly>
-                <input type="text" name="discount_p" readonly>
-                <input type="text" name="discount_bs" readonly><br>
-                <input type="text" name="total" value="Total:" readonly>
-                <input type="text" name="total_bs" readonly>
+                <input type="text" id="pre_total" name="pre_total" value="Pre total:" readonly>
+                <input type="text" id="pre_total_bs" name="pre_total_bs" readonly><br>
+                <input type="text" id="discount" name="discount" value="Discount:" readonly>
+                <input type="text" id="discount_p" name="discount_p" readonly>
+                <input type="text" id="discount_bs" name="discount_bs" readonly><br>
+                <input type="text" id="total" name="total" value="Total:" readonly>
+                <input type="text" id="total_bs" name="total_bs" readonly>
                 <button type="submit">Pay</button>
             </form>
         </article>

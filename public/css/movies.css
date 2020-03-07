@@ -11,10 +11,10 @@ body{
 }
 
 #sideContainer{
-    margin-top: 200px;
-    margin-right: 70px;
     float:left; width:40%;
     text-align: right;
+    margin-top: 150px;
+    margin-right: 50px;
 }
 
 #first{
@@ -55,18 +55,21 @@ body{
 }
 
 #mainContainer{
-    margin-top: 100px;
+    float:left; width:60%;
+    width: 600px;
+    height: 580px;
     background-color: #30323d;
-    border-style: solid;
-	float:left; width:40%;
-    height: 550px;
     opacity: 85%;
 }
 
-#header{
+#header1{
     margin-left: 1400px;
-    margin-right: 10px;
-    margin-top: 20px;
+    margin-top: 30px;
+}
+
+#header2{
+    margin-left: 1400px;
+    margin-top: 10px;
 }
 
 #home{
@@ -74,69 +77,71 @@ body{
 }
 
 #container0{
-    margin-left: 40px;
-    margin-bottom: 20px;
-    float:left; width:25%;
+    float:left; width:30%;
+    width: 130px;
     height: 117px;
+    margin-left: 40px;
 	background:#30323d;
-    text-align:left;
-    color:white;
-    font-size: 13px;
 }
 
 #container1{
-    margin-left: 30px;
-    margin-bottom: 20px;
-    float:left; width:25%;
+    float:left; width:30%;
+    width: 130px;
     height: 117px;
+    margin-left: 40px;
     border-style: solid;
     border-color: black;
 	background:#eafdf8;
     text-align:left;
     color:white;
     font-size: 13px;
+    box-shadow: 5px 10px #000000;
+    font-family: BalsamiqSansBold;
 }
 
 #container2{
-    margin-left: 30px;
-    margin-bottom: 20px;
-    float:left; width:25%;
-    height: 117px;
+    float:left; width:30%;
+    width: 130px;
+    height: 117px;    
+    margin-left: 40px;
     border-style: solid;
     border-color: black;
 	background:#30323d;
     text-align:left;
     color:white;
-    padding: 10px;
     font-size: 13px;
+    box-shadow: 5px 10px #000000;
+    font-family: BalsamiqSansBold;
 }
 
 #container3{
-	margin-left: 40px;
     float:left; width:56%;
+    width: 300px;
     height: 117px;
+    margin-left: 50px;
+    margin-top: 30px;
     background:#3d9796;
     border-style: solid;
     border-color: black;
     text-align:left;
     color:white;
     font-size: 13px;
+    box-shadow: 5px 10px #000000;
+    font-family: BalsamiqSansBold;
 }
 
 #container4{
-	margin-left: 30px;
-    float:left; width:20%;
+    float:left; width:30%;
+    width: 130px;
     height: 117px;
+    margin-top: 30px;
+    margin-left: 30px;
     border-style: solid;
     border-color: black;
 	background:#aa4465;
     text-align:left;
     color:white;
     font-size: 13px;
-}
-
-select{
-    width: 212px;
-    height: 17px;
-    margin-bottom: 10px;
+    box-shadow: 5px 10px #000000;
+    font-family: BalsamiqSansBold;
 }
