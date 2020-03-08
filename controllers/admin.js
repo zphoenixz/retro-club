@@ -215,7 +215,7 @@ exports.postEmployee = (req, res, next) => {
         });
 };
 
-exports.postCustomer = (req, res, next) => {
+exports.postCustomer = async (req, res, next) => {
     let employeeId = 2; //3 = employeeId------------------------req.body.
     let typeEdition = 1; //1 = Crear
 
