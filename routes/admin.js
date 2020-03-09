@@ -37,4 +37,5 @@ router.get('/movies/search', isAuth, adminController.getMovieSearchview);
 router.get('/movies/new', isAuth, adminController.getMovieAddview);
 
 router.get('/rules', isAuth, adminController.getRulesview);
+router.post('/rules', isAuth, adminController.postRulesnew);
 module.exports = router;

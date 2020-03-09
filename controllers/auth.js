@@ -4,14 +4,11 @@ const Employee = require('../models/Employee');
 exports.getLogin = (req, res, next) => {
     if (!req.session.isLoggedIn) {
         res.render('sign_up', {
-            //     prods: products,
-            //     pageTitle: 'All Products',
             path: '/'
         });
     } else {
         return res.redirect('/admin/home');
     }
-    
 };
 
 exports.postLogin = async (req, res, next) => {

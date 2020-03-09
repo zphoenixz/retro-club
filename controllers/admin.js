@@ -109,7 +109,7 @@ exports.getMovieAddview = (req, res, next) => {
 exports.getRulesview = (req, res, next) => {
     console.log('Employee Id', req.session.employee);
     res.render('rules', {
-        path: '/movie'
+        path: '/rules'
     });
 };
 
@@ -556,4 +556,52 @@ exports.postLoan = async (req, res, next) => {
             msg: 'Error when creating loan.'
         })
     }
+};
+
+exports.postRulesnew = async (req, res, next) => {
+
+    const option = parseInt(req.body.options);
+
+    const min = req.body.min;
+    const max = req.body.max;
+    const dis = parseInt(req.body.des) / 100;
+
+    const firstDayPrice = req.body.first_day_price;
+    const afterPrice = req.body.after_price;
+
+    const maxDays = req.body.max_days;
+    console.log(min, max, dis, firstDayPrice, afterPrice, maxDays);
+
+    try {
+        if (min > max) {
+            const error = new Error("Min % cannot be greater than Max %.")
+            throw error;
+        }
+
+        if (2 > maxDays) {
+            const error = new Error("Max days cannot be smaller than 2 days.")
+            throw error;
+        }
+
+        const discountTable = await Discount.findByPk(option);
+
+        console.log(discountTable);
+        await discountTable.update({
+            discount: dis
+        });
+
+        console.log(discountTable);
+        res.render('rules', {
+            path: '/rules'
+        });
+
+    } catch (error) {
+        console.log(error);
+        res.render('rules', {
+            path: '/rules'
+        });
+    }
+
+    // console.log('Employee Id', req.session.employee);
+
 };

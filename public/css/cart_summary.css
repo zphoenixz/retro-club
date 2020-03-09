@@ -48,6 +48,9 @@ body{
     box-shadow: 5px 10px;
     font-family: BalsamiqSansBold;
 }
+#column1 form input{
+    left: 50%;
+}
 
 #column2{
     float:left; width:50%;

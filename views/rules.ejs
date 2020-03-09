@@ -1,86 +1,83 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<link rel="stylesheet" href="/css/rules.css">
+    <link rel="stylesheet" href="/css/rules.css">
     <title>Rules</title>
 </head>
+
 <body>
     <form id="header1" name="header1" action="/admin/cart" method="get">
         <input type="image" src="/images/icons/shopping_cart.png" width="30" height="30" />
-    </form>    
+    </form>
 
     <form id="header2" name="header2" action="/logout" method="post">
         <input type="image" src="/images/icons/exit.png" width="30" height="30" />
-    </form>    
+    </form>
 
     <article id=sideContainer>
         <img src="/images/titles/retro_club.jpg" width="250" height="60"><br>
         <input type="text" id="first" readonly><br>
-        <input type="text" id="second" readonly><br>            
-        <input type="text" id="third" readonly><br>            
-    </article> 
+        <input type="text" id="second" readonly><br>
+        <input type="text" id="third" readonly><br>
+    </article>
 
     <article id=mainContainer>
         <form action="/admin/home" method="GET">
-            <input type="image" src="/images/icons/home.png" id="home" name="home" width="30" height="30"/><br>
+            <input type="image" src="/images/icons/home.png" id="home" name="home" width="30" height="30" /><br>
         </form>
 
         <center>
             <img src="/images/titles/rules.png" width="350" height="130">
         </center>
-        
-        <article id="container1">
-            <p>Discount policies</p>
-            <form action="" method="POST">
+        <form action="/admin/rules" method="POST">
+            <article id="container1">
+                <p>Discount policies</p>
+
                 <select id="options" name="options">
                     <option value="">options</option>
-                    <option value="first_discount">1 to 3</option>
-                    <option value="second_discount">3 to 5</option>
-                    <option value="third_discount">5 or more</option>
-                </select> 
-            </form>
+                    <option value="1">1 to 3</option>
+                    <option value="2">3 to 5</option>
+                    <option value="3">5 or more</option>
+                </select>
 
-            <article id=discount_tag>
-                <p>Discount:</p>
-            </article>
 
-            <br>
-            <br>
-            <br>
+                <article id="discount_tag">
+                    <p>Discount:</p>
+                </article>
 
-            <form action="" method="POST">
+                <br>
+                <br>
+                <br>
+
+
                 <input type="text" id="min" name="min">to</input>
-                <input type="text" id="max" name="max">videos.</input>                    
-                <input type="text" id="des" name="des">%</input>           
-            </form>
-        
-            <br>
-        <article>
+                <input type="text" id="max" name="max">videos.</input>
+                <input type="text" id="des" name="des">%</input>
 
-        <article id="container2">
-            <form action="" method="POST">
-                <h3>First day price</h3>
-                <input type="text" id="first_day_price" name="first_day_price">Bs.</input>
-            </form>
-        </article>
 
-            <form action="" method="POST">
-                <article id="container3">
-                    <h3>After price</h3>
-                    <input type="text" id="after_price" name="after_price">Bs.</input>
+                <br>
+                <article>
+
+                    <article id="container2">
+                        <h3>First day price</h3>
+                        <input type="text" id="first_day_price" name="first_day_price">Bs.</input>
+                    </article>
+
+                    <article id="container3">
+                        <h3>After price</h3>
+                        <input type="text" id="after_price" name="after_price">Bs.</input>
+                    </article>
+
+                    <article id="container4">
+                        <h3>Max days</h3>
+                        <input type="text" id="max_days" name="max_days">days</input>
+                    </article>
+
+                    <button type="submit" name="save">Save Changes</button>
+
                 </article>
-            </form>
-             
-            <form action="" method="POST">
-                <article id="container4">
-                    <h3>Max days</h3>
-                    <input type="text" id="max_days" name="max_days">days</input>
-                </article>
-            </form>
-                
-            <form action="" method="POST">
-                <button type="submit" name="save">Save Changes</button>
-            </form>
-    </article>
+        </form>
 </body>
+
 </html>
