@@ -29,7 +29,7 @@
 </head>
 
 <body>
-    <% if (message) { %>
+    <% if (locals.message) { %>
         <div class="alert">
             <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
             <h2><%= message %></h2>
@@ -53,31 +53,44 @@
             <img src="/images/titles/search_movie.png" id="img" width="340" height="130">
         </center>
 
-        <article id="container1">
-            <input type="image" src="/images/icons/search_icon.png" width="15" height="15">
-        </article>
 
-        <article id="container2">
-            <form action="" method="post">
-                <input type="text" name="search" id="search" placeholder="search movies">
-            </form>
-        </article>
+        <form action="/admin/movies/search" method="post">
+            <article id="container1">
+                <input type="image" src="/images/icons/search_icon.png" width="15" height="15">
+            </article>
 
-        <article id="container3">
-            <form action="" method="post">
-                <select id="by" name="by">
-                    <option value="">By</option>
-                    <option value="id">ID</option>
-                    <option value="Title" selected>Title</option>
-                </select><br>
-            </form>
-        </article>
+            <article id="container2">
+                    <input type="text" name="search" id="search" placeholder="search movies">
+            </article>
 
+            <article id="container3">
+                    <select id="by" name="by">
+                        <option value="">By</option>
+                        <option value="id">ID</option>
+                        <option value="title" selected>Title</option>
+                    </select><br>
+            
+            </article>
+        </form>
         
+
         <div class="scroll">
+            <% for (let i = 1 ; i <= 10 ; i++) { %>
+            <% if(locals.moviesTitle){  %>
+            <form action="<%= ("/movies/edit/" + locals.moviesTitle[i-1].Movie_id_m) %>" method="get">
+            <% } else{ %>
+            <form action="/movies/edit/" method="get">
+            <% }  %>
+                <input type="text" id="<%= ("field_" + i) %>" name="<%= ("field_" + i) %>" class="field left" readonly>
+                <% if(locals.moviesTitle){  %>
+                <input type="image" id="view" name="view" src="/images/icons/view_edit.png" width="25px"
+                    height="25px" top="10">
+                <% }  %>
+            </form>
+            <% } %>
             <form action="/movies/edit" method="get">
                 <input type="text" id="field_1" name="field_1" class="field left" readonly>
-                <input type="image" id="view_edit1" name="view_edit1" src="/images/icons/view_edit.png" width="25px"
+                <input type="image" id="" name="view_edit1" src="/images/icons/view_edit.png" width="25px"
                     height="25px" top="10">
             </form>
 
@@ -117,6 +130,16 @@
                     height="24">
             </form>
 
+            <form action="/movies/edit" method="get">
+                <input type="text" id="field_8" name="field_8" class="field left" readonly>
+                <input type="image" id="view_edit8" name="view_edit8" src="/images/icons/view_edit.png" width="24"
+                    height="24">
+            </form>
+            <form action="/movies/edit" method="get">
+                <input type="text" id="field_8" name="field_8" class="field left" readonly>
+                <input type="image" id="view_edit8" name="view_edit8" src="/images/icons/view_edit.png" width="24"
+                    height="24">
+            </form>
             <form action="/movies/edit" method="get">
                 <input type="text" id="field_8" name="field_8" class="field left" readonly>
                 <input type="image" id="view_edit8" name="view_edit8" src="/images/icons/view_edit.png" width="24"

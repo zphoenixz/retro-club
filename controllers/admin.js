@@ -640,27 +640,49 @@ exports.postRulesnew = async (req, res, next) => {
 };
 
 exports.postMovieSearchview = async (req, res, next) => {
+    const toSearch = req.body.search;
+    const by = req.body.by;
+
     try {
-        const moviesTitle = await Title.findAll({
-            include: [{
-                model: Movie,
-                as: 'Movie',
-                required: true,
-            }],
-            where: {
-                movie_name: {
-                    [Op.like]: 'jO%'
-                }
-            },
-            raw: true
-        });
+        let moviesTitle;
+        if(by == "title" || by ==""){
+            moviesTitle = await Title.findAll({
+                include: [{
+                    model: Movie,
+                    as: 'Movie',
+                    required: true,
+                }],
+                where: {
+                    movie_name: {
+                        [Op.like]: toSearch + '%'
+                    }
+                },
+                raw: true,
+                limit: 10
+            });
+        }else{
+            moviesTitle = await Title.findAll({
+                include: [{
+                    model: Movie,
+                    as: 'Movie',
+                    required: true,
+                }],
+                where: {
+                    movie_id_m: parseInt(toSearch)  
+                },
+                raw: true,
+                limit: 10
+            });
+        }
         console.log(moviesTitle);
+
+        res.render('search_movie', {
+            path: '/movie',
+            moviesTitle: moviesTitle
+        });
     } catch (error) {
         console.log(error);
     }
     console.log('Employee Id', req.session.employee);
-    res.render('search_movie', {
-        path: '/movie',
-
-    });
+ 
 };
