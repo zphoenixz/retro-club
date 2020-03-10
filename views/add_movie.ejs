@@ -20,7 +20,7 @@
         </form>    
 
         <center>
-            <img src="/images/titles/new_movie.png" width="329" height="113">        
+            <img src="/images/titles/new_movie.png" id="img" width="329" height="113">        
         </center>     
 
         <form action="" method="POST">
@@ -29,6 +29,8 @@
                     <option value="">Titles</option>
                 </select><br>
                 <input type="text" id="title" name="title"class="field left" placeholder="Title" readonly><br>
+                <input type="image" src="/images/icons/mas.png" id="add" width="30" height="30"/>    
+                <input type="image" src="/images/icons/menos.png" id="minus" width="30" height="30"/>    
             </article>
     
             <article id=container2>
@@ -38,20 +40,31 @@
             </article>
     
             <br>
-            <br>
 
             <article id=container3>
-                <select id="titles" name="titles">
-                    <option value="">Titles</option>
+                <select id="oscars" name="oscars">
+                    <option value="">Oscars</option>
                 </select><br>
-                <input type="text" id="title" name="title"class="field left" placeholder="Title" readonly>
+                <select id="nomination" name="nomination">
+                    <option value="">Nominations</option>
+                </select><br>
+ 
+                <input type="checkbox" id="nominated" name="nominated">
+                <label for="checkbox"> Nominated</label>
+
+                <input type="checkbox" id="winner" name="winner">
+                <label for="checkbox"> Winner</label>
             </article>
     
             <article id=container4>
-                <input type="text" id="year" name="year" class="field left" placeholder="Year" readonly><br>
-                <input type="text" id="duration" name="duration" class="field left" placeholder="Duration" readonly><br>
-                <input type="text" id="unit_price" name="unit_price" class="field left" placeholder="Unit price" readonly><br>
+                <select id="starring" name="starring">
+                    <option value="">Starring</option>
+                </select>
+                <input type="text" id="actor" name="actor" class="field left" placeholder="Actor" readonly><br>
+                <input type="image" src="/images/icons/mas.png" id="add" width="30" height="30"/>    
+                <input type="image" src="/images/icons/menos.png" id="minus" width="30" height="30"/>    
             </article>
+            <button type="submit">Add</button>    
         </form> 
     </div>
 </body>
