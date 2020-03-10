@@ -24,22 +24,14 @@
     .closebtn:hover {
         color: black;
     }
+
+    h1{
+        text-align: left;
+    }
     </style>
 </head>
 
 <body>
-    <% if (message!="m") { %>
-        <div class="alert">
-            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-            <h2><%= message %></h2>
-        </div>
-    <% } else if (error!="e") { %>
-        <div class="alert">
-            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-            <h2><%= error %></h2>
-        </div>
-    <% } %>
-
     <article id="column1">
         <img src="/images/titles/retro_club.jpg" width="330" height="75">
         <h2>
@@ -55,9 +47,14 @@
             <input type="text" name="username" placeholder="Username"><br>
             <input type="password" name="password" placeholder="Password"><br><br>
             <button type="submit">Sign in</button>
-
-
         </form> 
     </article>  
+
+    <%if (error!="e") { %>
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+            <h1><%= error%></h1>
+        </div>
+    <% } %>
 </body>
 </html>
