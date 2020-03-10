@@ -106,11 +106,24 @@ exports.getMovieAddview = (req, res, next) => {
     });
 };
 
-exports.getRulesview = (req, res, next) => {
-    console.log('Employee Id', req.session.employee);
-    res.render('rules', {
-        path: '/rules'
-    });
+exports.getRulesview = async (req, res, next) => {
+
+    try {
+        const discounts = await Discount.findAll({
+            raw: true,
+        });
+        const prices = await Price.findAll({
+            raw: true,
+        });
+        console.log('Employee Id', req.session.employee);
+        res.render('rules', {
+            discounts: discounts,
+            prices: prices,
+            path: '/rules'
+        });
+    } catch (error) {
+        console.log(error);
+    }
 };
 
 
@@ -573,6 +586,7 @@ exports.postRulesnew = async (req, res, next) => {
     console.log(min, max, dis, firstDayPrice, afterPrice, maxDays);
 
     try {
+
         if (min > max) {
             const error = new Error("Min % cannot be greater than Max %.")
             throw error;
@@ -584,20 +598,47 @@ exports.postRulesnew = async (req, res, next) => {
         }
 
         const discountTable = await Discount.findByPk(option);
-
-        console.log(discountTable);
         await discountTable.update({
             discount: dis
         });
 
-        console.log(discountTable);
+        const maxDaysTable = await Discount.findAll();
+        await maxDaysTable[maxDaysTable.length-1].update({
+            superior_limit: maxDays
+        });
+
+
+        const priceTable = await Price.findByPk(0);
+        await priceTable.update({
+            first_day_price: firstDayPrice,
+            addition_per_day: afterPrice,
+        });
+
+        const discounts = await Discount.findAll({
+            raw: true,
+        });
+        const prices = await Price.findAll({
+            raw: true,
+        });
+        console.log("Rules updated successfully!")
+
         res.render('rules', {
+            discounts: discounts,
+            prices: prices,
             path: '/rules'
         });
 
     } catch (error) {
+        const discounts = await Discount.findAll({
+            raw: true,
+        });
+        const prices = await Price.findAll({
+            raw: true,
+        });
         console.log(error);
         res.render('rules', {
+            discounts: discounts,
+            prices: prices,
             path: '/rules'
         });
     }

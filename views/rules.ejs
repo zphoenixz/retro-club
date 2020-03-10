@@ -34,13 +34,20 @@
             <article id="container1">
                 <p>Discount policies</p>
 
-                <select id="options" name="options">
+                <select id="options" name="options" onchange=discountChange()>
                     <option value="">options</option>
-                    <option value="1">1 to 3</option>
-                    <option value="2">3 to 5</option>
-                    <option value="3">5 or more</option>
+                    <% for (let i = 0 ; i < discounts.length ; i++) { %>
+                    <% if(i == 0){  %>
+                    <option value="<%= discounts[i].id_d %>" selected>
+                        <%= 1 + " to " + (discounts[i].superior_limit - 1) %></option>
+                    <% }else if(i == discounts.length -1) { %>
+                    <option value="<%= discounts[i].id_d %>"><%= discounts[i-1].superior_limit + " or more" %></option>
+                    <% }else{%>
+                    <option value="<%= discounts[i].id_d %>">
+                        <%= discounts[i-1].superior_limit  + " to " + (discounts[i].superior_limit - 1) %></option>
+                    <% } %>
+                    <% } %>
                 </select>
-
 
                 <article id="discount_tag">
                     <p>Discount:</p>
@@ -49,29 +56,55 @@
                 <br>
                 <br>
                 <br>
+                <input type="text" id="min" name="min" value=<%= 1 %>>to</input>
+                <input type="text" id="max" name="max" value=<%= (discounts[0].superior_limit - 1) %>>videos.</input>
+                <input type="text" id="des" name="des" value=<%= discounts[0].discount * 100 %>>%</input>
+
+                <script>
+                    var discountLocal = JSON.parse('<%-JSON.stringify(discounts)%>');
 
 
-                <input type="text" id="min" name="min">to</input>
-                <input type="text" id="max" name="max">videos.</input>
-                <input type="text" id="des" name="des">%</input>
+                    function discountChange() {
+                        const op = parseInt(document.getElementById("options").value);
 
+                        const min = document.getElementById("min");
+                        const max = document.getElementById("max");
+                        const des = document.getElementById("des");
+
+                        const currentOp = discountLocal[op - 1];
+                        if (currentOp.id_d == 1) {
+                            min.value = 1;
+                        } else {
+                            min.value = discountLocal[op - 2].superior_limit;
+                        }
+
+                        max.value = currentOp.superior_limit - 1;
+                        des.value = currentOp.discount * 100;
+
+                    }
+
+                    // document.getElementById("options").onchange = function () { myFunction() };
+
+                        // min.value = ;
+
+                </script>
 
                 <br>
                 <article>
-
+                    <% console.log(prices)%>
                     <article id="container2">
                         <h3>First day price</h3>
-                        <input type="text" id="first_day_price" name="first_day_price">Bs.</input>
+                        <input type="text" id="first_day_price" name="first_day_price" value="<%= prices[0].first_day_price %>">Bs.</input>
                     </article>
 
                     <article id="container3">
                         <h3>After price</h3>
-                        <input type="text" id="after_price" name="after_price">Bs.</input>
+                        <input type="text" id="after_price" name="after_price"value="<%= prices[0].addition_per_day %>">Bs.</input>
                     </article>
 
                     <article id="container4">
                         <h3>Max days</h3>
-                        <input type="text" id="max_days" name="max_days">days</input>
+                        <input type="text" id="max_days" name="max_days" value="<%= discounts[discounts.length-1].superior_limit %>">days</input>
                     </article>
 
                     <button type="submit" name="save">Save Changes</button>
