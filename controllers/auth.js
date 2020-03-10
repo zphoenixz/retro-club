@@ -8,7 +8,8 @@ exports.getLoginError = (req, res, next) => {
     if (!req.session.isLoggedIn) {
         res.render('sign_up', {
             path: '/',
-            error: customError
+            error: customError,
+            message: "m"
         });
     } else {
         return res.redirect('/admin/home');
@@ -17,7 +18,9 @@ exports.getLoginError = (req, res, next) => {
 exports.getLogin = (req, res, next) => {
     if (!req.session.isLoggedIn) {
         res.render('sign_up', {
-            path: '/'
+            path: '/',
+            error: "e",
+            message: "m"
         });
     } else {
         return res.redirect('/admin/home');
