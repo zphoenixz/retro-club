@@ -9,7 +9,6 @@ exports.getLoginError = (req, res, next) => {
         res.render('sign_up', {
             path: '/',
             error: customError,
-            message: "m"
         });
     } else {
         return res.redirect('/admin/home');
@@ -19,8 +18,6 @@ exports.getLogin = (req, res, next) => {
     if (!req.session.isLoggedIn) {
         res.render('sign_up', {
             path: '/',
-            error: "e",
-            message: "m"
         });
     } else {
         return res.redirect('/admin/home');
@@ -43,13 +40,13 @@ exports.postLogin = async (req, res, next) => {
             // const error = new Error('Validation failed. User doestn exists.');
             // error.statusCode = 422;
             // throw error;
-            return res.redirect('/'+error);
+            return res.redirect('/login/'+error);
             // return res.redirect('/', {Error:'Validation failed. User doesnt exists.'});
         }
         if (employee.password != pwd) {
             console.log('Validation failed. Incorrect Password');
             const error = 'Validation failed. Incorrect Password';
-            return res.redirect('/'+error);
+            return res.redirect('/login/'+error);
         }
 
         req.session.isLoggedIn = true;
