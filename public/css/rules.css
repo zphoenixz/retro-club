@@ -55,8 +55,7 @@ body{
 }
 
 #mainContainer{
-    float:left; width:60%;
-    width: 600px;
+    float:left; width:39%;
     height: 580px;
     background-color: #30323d;
     opacity: 85%;
@@ -78,11 +77,10 @@ body{
 
 #container1{
     float:left; width:80%;
-    width: 500px;
     height: 130px;
     margin-left: 40px;
     margin-bottom: 40px;
-    padding: 5px;
+    padding: 10px;
     border-style: solid;
     border-color: black;
 	background:#30323d;
@@ -99,8 +97,7 @@ p{
 }
 
 #options{
-    float:left; width:50%;
-    width: 212px;
+    float:left; width:45%;
     height: 27px;
     text-align:left;
 }
@@ -118,7 +115,7 @@ select{
     width: 70px;
     height: 18px;
     text-align:left;
-    margin-left: 55px;
+    margin-left: 50px;
 }
 
 #min{
@@ -151,8 +148,7 @@ select{
 }
 
 #container2{
-    float:left; width:30%;
-    width: 130px;
+    float:left; width:25%;
     height: 117px;
     border-style: solid;
     border-color: black;
@@ -166,8 +162,7 @@ select{
 }
 
 #container3{
-    float:left; width:30%;
-    width: 130px;
+    float:left; width:25%;
     height: 117px;
 	margin-left: 38px;
     background:#23395b;
@@ -182,10 +177,9 @@ select{
 }
 
 #container4{
-    float:left; width:30%;
-    width: 130px;
+    float:left; width:25%;
     height: 117px;
-	margin-left: 38px;
+	margin-left: 40px;
     border-style: solid;
     border-color: black;
 	background:#aa4465;

@@ -1,68 +1,58 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>New Movie</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="/css/add_movie.css" type="text/css">
-    <title>Movies</title>
 </head>
 
 <body>
-    <form>
-        <form id="header1" name="header1" action="/admin/cart" method="get">
-            <input type="image" src="/images/icons/shopping_cart.png" width="30" height="30" />
-        </form>    
-    
-        <form id="header2" name="header2" action="/logout" method="post">
-            <input type="image" src="/images/icons/exit.png" width="30" height="30" />
-        </form>  
+    <form id="header1" name="header1" action="/admin/cart" method="get">
+        <input type="image" src="/images/icons/shopping_cart.png" width="30" height="30" />
+    </form>    
 
-        <div class="contenedor">
-            <form id="header2" name="header2" action="/admin/movies" method="get">
-                <input type="image"id="back" src="/images/icons/go_back.png" width="24" height="24"> 
-            </form>  
-            
-            <img src="/images/icons/new_movie.png" width="329" height="113"><br>        
-    
+    <form id="header2" name="header2" action="/logout" method="post">
+        <input type="image" src="/images/icons/exit.png" width="30" height="30" />
+    </form> 
+
+    <div class="contenedor">
+        <form action="/admin/movies" method="get">
+            <input type="image" src="/images/icons/go_back.png" id="back" width="30" height="30"/>    
+        </form>    
+
+        <center>
+            <img src="/images/titles/new_movie.png" width="329" height="113">        
+        </center>     
+
+        <form action="" method="POST">
             <article id=container1>
-                <form>
-                    <select id="titles">
-                        <option value="">Titles</option>
-                    </select><br>
-                    <input type="text" id="title" class="field left" placeholder="Title" readonly><br>
-                </form>
+                <select id="titles" name="titles">
+                    <option value="">Titles</option>
+                </select><br>
+                <input type="text" id="title" name="title"class="field left" placeholder="Title" readonly><br>
             </article>
     
             <article id=container2>
-                <input type="text" id="year" class="field left" placeholder="Year" readonly><br>
-                <input type="text" id="duration" class="field left" placeholder="Duration" readonly><br>
-                <input type="text" id="unit_price" class="field left" placeholder="Unit price" readonly><br>
+                <input type="text" id="year" name="year" class="field left" placeholder="Year" readonly><br>
+                <input type="text" id="duration" name="duration" class="field left" placeholder="Duration" readonly><br>
+                <input type="text" id="unit_price" name="unit_price" class="field left" placeholder="Unit price" readonly><br>
             </article>
     
             <br>
-    
-            <!--
+            <br>
+
             <article id=container3>
-                <form>
-                    <select id="oscars">
-                        <option value="">Oscars</option>
-                    </select><br>
-                    <select id="nomination">
-                        <option value="">Nomination</option>
-                    </select><br>
-                </form>
+                <select id="titles" name="titles">
+                    <option value="">Titles</option>
+                </select><br>
+                <input type="text" id="title" name="title"class="field left" placeholder="Title" readonly>
             </article>
     
             <article id=container4>
-                <form>
-                    <select id="oscars">
-                        <option value="">Oscars</option>
-                    </select><br>
-                    <input type="text" id="title" class="field left" readonly><br>
-                </form>
-            </article>-->
-        </div>
-    </form>
-
+                <input type="text" id="year" name="year" class="field left" placeholder="Year" readonly><br>
+                <input type="text" id="duration" name="duration" class="field left" placeholder="Duration" readonly><br>
+                <input type="text" id="unit_price" name="unit_price" class="field left" placeholder="Unit price" readonly><br>
+            </article>
+        </form> 
+    </div>
 </body>
 </html>

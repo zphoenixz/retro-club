@@ -7,13 +7,18 @@
 
 body {
     background-color: #eafdf8;
+    font-family: BalsamiqSansBold;
 }
 
 
-#header{
+#header1{
     margin-left: 1400px;
-    margin-right: 10px;
-    margin-top: 20px;
+    margin-top: 30px;
+}
+
+#header2{
+    margin-left: 1400px;
+    margin-top: 10px;
 }
 
 #back{
@@ -21,11 +26,27 @@ body {
     float: left;
 }
 
+div.contenedor{
+    float: center; width: 20%;
+    height: 500px;
+    margin-left: 600px;
+    border-color: #f2edbe;
+    border-style:solid;
+    background-color: #2a628f;
+    opacity: 80%;
+    text-align: center;
+}
+
 #loan{
     background-color: #eafdf8;
     color: black;
     width: 200px;
     height: 27px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 13px;
+    box-shadow: 5px 5px #000000;
+    font-family: BalsamiqSansBold;
 }
 
 #status{
@@ -33,6 +54,11 @@ body {
     color: black;
     width: 200px;
     height: 27px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 13px;
+    box-shadow: 5px 5px #000000;
+    font-family: BalsamiqSansBold;
 }
 
 #customer_details{
@@ -40,6 +66,11 @@ body {
     color: white;
     width: 200px;
     height: 27px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 13px;
+    box-shadow: 5px 5px #000000;
+    font-family: BalsamiqSansBold;
 }
 
 #paid{
@@ -47,6 +78,11 @@ body {
     color:black;
     width: 200px;
     height: 27px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 13px;
+    box-shadow: 5px 5px #000000;
+    font-family: BalsamiqSansBold;
 }
 
 #from{
@@ -54,6 +90,11 @@ body {
     color:black;
     width: 200px;
     height: 27px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 13px;
+    box-shadow: 5px 5px #000000;
+    font-family: BalsamiqSansBold;
 }
 
 #to{
@@ -61,6 +102,11 @@ body {
     color:white;
     width: 200px;
     height: 27px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 13px;
+    box-shadow: 5px 5px #000000;
+    font-family: BalsamiqSansBold;
 }
 
 #address{
@@ -68,6 +114,11 @@ body {
     color:white;
     width: 200px;
     height: 27px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 13px;
+    box-shadow: 5px 5px #000000;
+    font-family: BalsamiqSansBold;
 }
 
 #loans{
@@ -75,6 +126,11 @@ body {
     color: black;
     width: 200px;
     height: 27px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 13px;
+    box-shadow: 5px 5px #000000;
+    font-family: BalsamiqSansBold;
 }
 
 #blacklist{
@@ -82,38 +138,35 @@ body {
     color: black;
     width: 200px;
     height: 27px;
-}
-
-div.contenedor{
-    margin-top: 70px;
-    margin-left: 589px;
-    border-color: #f2edbe;
-    border-style:solid;
-    width: 255px;
-    height: 550px;
-    background-color: #2a628f;
-    padding: 20px;
-    text-align: center;
-}
-
-input{
     margin-bottom: 10px;
     text-align: center;
+    font-size: 13px;
+    box-shadow: 5px 5px #000000;
+    font-family: BalsamiqSansBold;
 }
 
 select{
     width: 200px;
     height: 27px;
     margin-bottom: 10px;
+    font-size: 13px;
+    box-shadow: 5px 5px #000000;
+    font-family: BalsamiqSansBold;
 }
 
 button{
     width: 200px;
-    height: 35px;
-    background-color: #f2edbe;
+    height: 40px;
     border-style: solid;
     border-color: black;
-    color: black;
-    margin-top: 10px;
+    margin-top: 20px;    
+    padding: 5px;
+    background-color: #3d9796;
+    border-style: solid;
+    border-color: black;
+    color: white;
+    font-size: 15px;
+    box-shadow: 5px 5px #000000;
+    font-family: BalsamiqSansBold;
 }
 

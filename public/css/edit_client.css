@@ -7,12 +7,17 @@
 
 body {
     background-color: #eafdf8;
+    font-family: BalsamiqSansBold;
 }
 
-#header{
+#header1{
     margin-left: 1400px;
-    margin-right: 10px;
-    margin-top: 20px;
+    margin-top: 30px;
+}
+
+#header2{
+    margin-left: 1400px;
+    margin-top: 10px;
 }
 
 #back{
@@ -20,102 +25,122 @@ body {
     float: left;
 }
 
+div.contenedor{
+    float: center; width: 20%;
+    height: 500px;
+    margin-left: 600px;
+    border-color: #f2edbe;
+    border-style:solid;
+    background-color: #2a628f;
+    opacity: 80%;
+    text-align: center;
+}
+
+#img{
+    margin-top: 20px;
+    margin-right: 30px;
+}
+
 #id_card{
-    width: 165px;
-    height: 20px;
     background-color: #aa4465;
     color: white;
+    width: 170px;
+    height: 25px;
+    padding: 5px;
+    border-style: solid;
+    border-color: black;
+    font-size: 13px;
+    box-shadow: 5px 5px #000000;
+    font-family: BalsamiqSansBold;
 }
 
 #last_name{
-    width: 165px;
-    height: 20px;
     background-color: #eafdf8;
     color: black;
+    width: 170px;
+    height: 25px;
+    padding: 5px;
+    margin-top: 10px;
+    border-style: solid;
+    border-color: black;
+    font-size: 13px;
+    box-shadow: 5px 5px #000000;
+    font-family: BalsamiqSansBold;
 }
 
 #first_name{
-    width: 165px;
-    height: 20px;
     background-color: #f2edbe;
     color:black;
+    width: 170px;
+    height: 25px;
+    padding: 5px;
+    border-style: solid;
+    border-color: black;
+    margin-top: 10px;
+    font-size: 13px;
+    box-shadow: 5px 5px #000000;
+    font-family: BalsamiqSansBold;
 }
 
 #phone{
-    width: 165px;
-    height: 20px;
     background-color: #30323d;
     color:white;
+    width: 170px;
+    border-style: solid;
+    border-color: black;
+    height: 25px;
+    padding: 5px;
+    margin-top: 10px;
+    font-size: 13px;
+    box-shadow: 5px 5px #000000;
+    font-family: BalsamiqSansBold;
 }
 
 #email{
-    width: 165px;
-    height: 20px;
     background-color: #eafdf8;
     color:black;
+    width: 170px;
+    height: 25px;
+    padding: 5px;
+    border-style: solid;
+    border-color: black;
+    margin-top: 10px;
+    font-size: 13px;
+    box-shadow: 5px 5px #000000;
+    font-family: BalsamiqSansBold;
 }
 
 #address{
-    width: 165px;
-    height: 20px;
     background-color: #23395b;
-    color:white
-}
-
-#loans{
-    background-color: white;
-    color: black;
-}
-
-#blacklist{
-    background-color: white;
-    color: black;
-}
-
-div.contenedor{
-    margin-top: 100px;
-    margin-left: 630px;
-    border-color: #f2edbe;
-    border-style:solid;
-    width: 250px;
-    height: 500px;
-    background-color: #2a628f;
-    padding: 10px;
-    text-align: center;
-}
-
-input{
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-select{
-    width: 165px;
-    height: 29px;
-    margin-bottom: 10px;
-}
-
-#button1{
-    width: 135px;
-    height: 35px;
-    background-color: #f2edbe;
+    color:white;
+    width: 170px;
+    height: 25px;
+    padding: 5px;
     border-style: solid;
     border-color: black;
-    color: black;
-    float: left; width: 50%;
-    margin-right: 30px;
     margin-top: 10px;
+    font-size: 13px;
+    box-shadow: 5px 5px #000000;
+    font-family: BalsamiqSansBold;
 }
 
-#button2{
-    width: 55px;
-    height: 35px;
-    background-color: #cf2a27;
+button{
+    width: 200px;
+    height: 40px;
+    border-style: solid;
+    border-color: black;
+    margin-top: 20px;    
+    padding: 5px;
+    background-color: #3d9796;
     border-style: solid;
     border-color: black;
     color: white;
-    float: left; width: 30%;
-    margin-left: 10px;
-    margin-top: 10px;
+    font-size: 15px;
+    box-shadow: 5px 5px #000000;
+    font-family: BalsamiqSansBold;
 }
 
+select{
+    width: 200px;
+    height: 40px;
+}

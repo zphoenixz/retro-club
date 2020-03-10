@@ -2,18 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-<link rel="stylesheet" href="/css/cart_summary.css">
-<title>Summary</title>
+    <link rel="stylesheet" href="/css/cart_summary.css">
+    <title>Summary</title>
 </head>
 <body>
     <form id="header1" name="header1" action="/admin/cart" method="get">
         <input type="image" src="/images/icons/shopping_cart.png" width="30" height="30" />
-    </form>    
+    </form>
 
     <form id="header2" name="header2" action="/logout" method="post">
         <input type="image" src="/images/icons/exit.png" width="30" height="30" />
-    </form>    
-
+    </form>
+                    
     <article id=mainContainer>
         <form action="/admin/home" method="get">
             <input type="image" src="/images/icons/home.png" id="home" name="home" width="30" height="30"/>
@@ -26,22 +26,31 @@
         <article id="column1">
             <h3>Items</h3>
 
-            <form action="" method="get">
-                <input type="text" id="item" name="item" readonly>
-            </form>
-            
-            <form action="" method="get">
-            <input type="image" src="/images/icons/eye.png" id="edit" name="edit" width="30" height="30"/>
-            </form>
+            <article id="first">
+                <form action="" method="get">
+                    <input type="text" id="item" name="item" readonly>
+                </form>
+            </article>
 
-            <form action="" method="">
-                <input type="image" src="/images/icons/delete.png" id="delete" name="delete" width="30" height="30"/>
-            </form>
+            <article id="second">
+                <form action="" method="get">
+                <input type="image" src="/images/icons/eye.png" id="edit" name="edit" width="25" height="25"/>
+                </form>
+            </article>
+
+            <article id="third">
+                <form action="" method="post">
+                    <input type="image" src="/images/icons/delete.png" id="delete" name="delete" width="25" height="25"/>
+                </form>
+            </article>
         </article>    
              
         <article id="column2">
+            <form action="" method="post">
+                <input type="text" id="customer_id" name="customer_id"><br>
+            </form>
+
             <form action="" method="get">
-                <input type="text" id="customer_id" name="customer_id" readonly><br>
                 <select id="days">
                     <option value="">Number of days</option>
                 </select><br>                 
@@ -52,6 +61,9 @@
                 <input type="text" id="discount_bs" name="discount_bs" readonly><br>
                 <input type="text" id="total" name="total" value="Total:" readonly>
                 <input type="text" id="total_bs" name="total_bs" readonly>
+            </form>
+            
+            <form action="" method="post">
                 <button type="submit">Pay</button>
             </form>
         </article>

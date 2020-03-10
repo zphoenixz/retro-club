@@ -25,10 +25,10 @@ body{
 }
 
 #mainContainer{
-    width: 900px;
+    float: left; width: 60%;
     height: 500px;
     margin-top: 40px;
-    margin-left: 330px;
+    margin-left: 300px;
     background-color: #30323d;
     opacity: 85%;
     border-style: solid;
@@ -37,21 +37,17 @@ body{
 
 #column1{
     float:left; width:50%;
-    width: 380px;
     height: 261px;
     margin-left: 40px;
     background:#23395b;
-    text-align:left;
     border-style: solid;
     border-color: black;
-    font-size: 13px;
+    font-size: 15px;
     box-shadow: 5px 10px;
-    font-family: BalsamiqSansBold;
 }
 
 #column2{
-    float:left; width:50%;
-    width: 300px;
+    float:left; width:40%;
     height: 261px;
     margin-left: 40px;
     background:#30323d;
@@ -64,8 +60,12 @@ h3{
     text-decoration: underline;
 }
 
+#first{
+    float:left; width: 80%;
+}
+
 #item{
-    width: 290px;
+    width: 320px;
     height: 17px;
     margin-left: 10px;
     background-color: #f2edbe;
@@ -75,6 +75,14 @@ h3{
     font-size: 13px;
     box-shadow: 5px 5px;
     font-family: BalsamiqSansBold;
+}
+
+#second{
+    float:left; width: 10%;
+}
+
+#third{
+    float:left; width: 10%;
 }
 
 #customer_id{
@@ -130,7 +138,7 @@ select{
     border-color: black;
     margin-top: 10px;
     font-size: 13px;
-    padding-left: 5px;
+    padding: 5px;
     box-shadow: 5px 5px #000000;
     font-family: BalsamiqSansBold;
 }

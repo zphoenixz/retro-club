@@ -2,44 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="edit_client.css" type="text/css">
-    <title>Client</title>
+    <link rel="stylesheet" href="/edit_client.css" type="text/css">
 </head>
 
 <body>
+    <form id="header1" name="header1" action="/admin/cart" method="get">
+        <input type="image" src="/images/icons/shopping_cart.png" width="30" height="30" />
+    </form>    
 
-    <form id="header">
-        <input type="image" formaction="cart_summary.html" src="/images/icons/shopping_cart.png" id="shopping" width="30" height="30" />
-        <input type="image" formaction="sign_up.html" src="/images/icons/exit.png" id="exit" width="30" height="30" />
-    </form>
+    <form id="header2" name="header2" action="/logout" method="post">
+        <input type="image" src="/images/icons/exit.png" width="30" height="30" />
+    </form>     
 
     <div class="contenedor">
-        <form>
-            <input type="image" formaction="client.html" src="/images/icons/go_back.png" id="back" width="30" height="30"/>    
-        </form>
+        <form action="/admin/movies" method="get">
+            <input type="image" src="/images/icons/go_back.png" id="back" width="30" height="30"/>    
+        </form>    
 
         <center>
             <img src="/images/icons/edit_client.png" width="250" height="90">        
         </center>
 
-        <form>
-            <input type="text" id="id_card" placeholder="ID Card"><br>
-            <input type="text" id="last_name" placeholder="Last name"><br>
-            <input type="text" id="first_name" placeholder="First name"><br>
-            <input type="text" id="phone" placeholder="Phone"><br>
-            <input type="text" id="email" placeholder="Email"><br>
-            <input type="text" id="address" placeholder="Address"><br>
+        <form action="" method="get">
+            <input type="text" id="id_card" name="id_card" placeholder="ID Card"><br>
+            <input type="text" id="last_name" name="last_name" placeholder="Last name"><br>
+            <input type="text" id="first_name" name="first_name" placeholder="First name"><br>
+            <input type="text" id="phone" name="phone" placeholder="Phone"><br>
+            <input type="text" id="email" name="email" placeholder="Email"><br>
+            <input type="text" id="address" name="address" placeholder="Address"><br>
 
-            <select id="loans">
+            <select id="loans" name="loans">
                 <option value="">Loans</option>
             </select><br> 
   
-            <select id="blacklist">
+            <select id="blacklist" name="blacklist">
                 <option value="">Blacklist</option>
             </select><br> 
   
-            <button id="button1">Modify</button> 
-            <button id="button2">Delete</button>    
+            <button id="button1" name="button1">Modify</button> 
+            <button id="button2" name="button2">Delete</button>    
         </form>
     </div>
 </body>

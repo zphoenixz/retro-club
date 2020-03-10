@@ -13,25 +13,25 @@
 
     <form id="header2" name="header2" action="/logout" method="post">
         <input type="image" src="/images/icons/exit.png" width="30" height="30" />
-    </form>   
+    </form>     
 
-    <div class="contenedor" >
+    <div class="contenedor">
         <form action="/admin/customers" method="get">
             <input type="image" src="/images/icons/go_back.png" id="back" width="30" height="30"/>    
         </form>    
 
         <center>
-            <img src="/images/titles/new_client.png" width="224" height="113">        
+            <img src="/images/titles/new_client.png" id="img" width="224" height="113">        
         </center>
 
-        <form>
+        <form action="" method="post">
             <input type="text" id="id_card" placeholder="ID Card"><br>
             <input type="text" id="last_name" placeholder="Last name"><br>
             <input type="text" id="first_name" placeholder="First name"><br>
             <input type="text" id="phone" placeholder="Phone"><br>
             <input type="text" id="email" placeholder="Email"><br>
             <input type="text" id="address" placeholder="Address">
-            <button type="submit" formaction="client.html">Register</button>    
+            <button type="submit">Register</button>    
         </form>
     </div>      
 </body>

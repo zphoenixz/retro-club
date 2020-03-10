@@ -55,8 +55,7 @@ body{
 }
 
 #mainContainer{
-    float:left; width:60%;
-    width: 600px;
+    float:left; width:38%;
     height: 580px;
     background-color: #30323d;
     opacity: 85%;

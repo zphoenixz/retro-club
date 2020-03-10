@@ -1,43 +1,45 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>Loan Details</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="loan_details.css" type="text/css">
 </head>
 
 <body>
-    <form id="header">
-        <input type="image" formaction="cart_summary.html" src="/images/icons/shopping_cart.png" width="30" height="30" />
-        <input type="image" formaction="sign_up.html" src="/images/icons/exit.png" width="30" height="30" />
+    <form id="header1" name="header1" action="/admin/cart" method="get">
+        <input type="image" src="/images/icons/shopping_cart.png" width="30" height="30" />
     </form>    
 
+    <form id="header2" name="header2" action="/logout" method="post">
+        <input type="image" src="/images/icons/exit.png" width="30" height="30" />
+    </form>     
+
     <div class="contenedor">
-        <form>
-            <input type="image" formaction="search_loans.html" id="back" src="/images/icons/go_back.png" width="24" height="24"> 
-        </form>
+        <form action="/admin/movies" method="get">
+            <input type="image" src="/images/icons/go_back.png" id="back" width="30" height="30"/>    
+        </form>    
 
         <center>
             <img src="/images/icons/loan_details.png" width="280" height="100">        
         </center>
 
         <form>
-            <input type="text" id="loan"><br>
-            <input type="text" id="status"><br>
-            <input type="text" id="customer_details"><br>
-            <input type="text" id="paid"><br>
-            <input type="text" id="from"><br>
-            <input type="text" id="to"><br>
+            <input type="text" id="loan" name="loan"><br>
+            <input type="text" id="status" name="status"><br>
+            <input type="text" id="customer_details" name="customer_details"><br>
+            <input type="text" id="paid" name="paid"><br>
+            <input type="text" id="from" name="from"><br>
+            <input type="text" id="to" name="to"><br>
     
-            <select id="movie">
+            <select id="movie" name="movie">
               <option value="">Movie</option>
             </select><br> 
     
-            <select id="status">
+            <select id="status" name="status">
                 <option value="">Status</option>
               </select><br> 
     
-            <button id="new_status">Set new status</button> 
+            <button id="new_status" name="new_status">Set new status</button> 
         </form>
     </div>
 </body>
