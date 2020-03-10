@@ -1,6 +1,19 @@
 const Employee = require('../models/Employee');
 
 //GETS -----------------------------------------------------------------
+exports.getLoginError = (req, res, next) => {
+    const customError = req.params.customError;
+    console.log("customerror: " ,customError);
+    console.log('----------------------------');
+    if (!req.session.isLoggedIn) {
+        res.render('sign_up', {
+            path: '/',
+            error: customError
+        });
+    } else {
+        return res.redirect('/admin/home');
+    }
+};
 exports.getLogin = (req, res, next) => {
     if (!req.session.isLoggedIn) {
         res.render('sign_up', {
@@ -22,15 +35,18 @@ exports.postLogin = async (req, res, next) => {
             }
         });
         if (!employee) {
-            console.log('Validation failed. User doestn exists.');
+            console.log('Validation failed. User doesnt exists.');
+            const error = 'Validation failed. User doestn exists.';
             // const error = new Error('Validation failed. User doestn exists.');
             // error.statusCode = 422;
             // throw error;
-            return res.redirect('/');
+            return res.redirect('/'+error);
+            // return res.redirect('/', {Error:'Validation failed. User doesnt exists.'});
         }
         if (employee.password != pwd) {
             console.log('Validation failed. Incorrect Password');
-            return res.redirect('/');
+            const error = 'Validation failed. Incorrect Password';
+            return res.redirect('/'+error);
         }
 
         req.session.isLoggedIn = true;

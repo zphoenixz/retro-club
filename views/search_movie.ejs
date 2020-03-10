@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="/css/search_movie.css" type="text/css">
@@ -8,28 +9,28 @@
 <body>
     <form id="header1" name="header1" action="/admin/cart" method="get">
         <input type="image" src="/images/icons/shopping_cart.png" width="30" height="30" />
-    </form>    
+    </form>
 
     <form id="header2" name="header2" action="/logout" method="post">
         <input type="image" src="/images/icons/exit.png" width="30" height="30" />
-    </form>     
+    </form>
 
     <div class="contenedor">
         <form action="/admin/movies" method="get">
-            <input type="image" src="/images/icons/go_back.png" id="back" width="30" height="30"/>    
-        </form>    
+            <input type="image" src="/images/icons/go_back.png" id="back" width="30" height="30" />
+        </form>
 
         <center>
-            <img src="/images/titles/search_movie.png"  id="img" width="340" height="130">        
+            <img src="/images/titles/search_movie.png" id="img" width="340" height="130">
         </center>
 
         <article id="container1">
-            <input type="image" src="/images/icons/search_icon.png" width="15" height="15"> 
+            <input type="image" src="/images/icons/search_icon.png" width="15" height="15">
         </article>
 
         <article id="container2">
             <form action="" method="post">
-                <input type="text" name="search" id="search" placeholder="search customers">
+                <input type="text" name="search" id="search" placeholder="search movies">
             </form>
         </article>
 
@@ -37,53 +38,63 @@
             <form action="" method="post">
                 <select id="by" name="by">
                     <option value="">By</option>
-                    <option value="first_name">First name</option>
-                    <option value="last_name">Last name</option>
-                    <option value="email">Email</option>                
-                    <option value="phone">Phone</option>
-                </select><br> 
+                    <option value="id">ID</option>
+                    <option value="Title" selected>Title</option>
+                </select><br>
             </form>
         </article>
 
-        <form action="/movies/edit" method="get">        
-            <input type="text" id="field_1" name="field_1" class="field left" readonly>
-            <input type="image" id="view_edit1" name="view_edit1" src="/images/icons/view_edit.png" width="24" height="24">
-        </form>    
+        
+        <div class="scroll">
+            <form action="/movies/edit" method="get">
+                <input type="text" id="field_1" name="field_1" class="field left" readonly>
+                <input type="image" id="view_edit1" name="view_edit1" src="/images/icons/view_edit.png" width="25px"
+                    height="25px" top="10">
+            </form>
 
-        <form action="/movies/edit" method="get">        
-            <input type="text" id="field_2" name="field_2" class="field left" readonly>
-            <input type="image" id="view_edit2" name="view_edit2" src="/images/icons/view_edit.png" width="24" height="24"> 
-        </form>    
+            <form action="/movies/edit" method="get">
+                <input type="text" id="field_2" name="field_2" class="field left" readonly>
+                <input type="image" id="view_edit2" name="view_edit2" src="/images/icons/view_edit.png" width="24"
+                    height="24">
+            </form>
 
-        <form action="/movies/edit" method="get">        
-            <input type="text" id="field_3" name="field_3" class="field left" readonly>        
-            <input type="image" id="view_edit3" name="view_edit3" src="/images/icons/view_edit.png" width="24" height="24"> 
-        </form>    
+            <form action="/movies/edit" method="get">
+                <input type="text" id="field_3" name="field_3" class="field left" readonly>
+                <input type="image" id="view_edit3" name="view_edit3" src="/images/icons/view_edit.png" width="24"
+                    height="24">
+            </form>
 
-        <form action="/movies/edit" method="get">        
-            <input type="text" id="field_4" name="field_4" class="field left" readonly>
-            <input type="image" id="view_edit4" name="view_edit4" src="/images/icons/view_edit.png" width="24" height="24"> 
-        </form>    
+            <form action="/movies/edit" method="get">
+                <input type="text" id="field_4" name="field_4" class="field left" readonly>
+                <input type="image" id="view_edit4" name="view_edit4" src="/images/icons/view_edit.png" width="24"
+                    height="24">
+            </form>
 
-        <form action="/movies/edit" method="get">        
-            <input type="text" id="field_5" name="field_5" class="field left" readonly>        
-            <input type="image" id="view_edit5" name="view_edit5" src="/images/icons/view_edit.png" width="24" height="24"> 
-        </form>    
+            <form action="/movies/edit" method="get">
+                <input type="text" id="field_5" name="field_5" class="field left" readonly>
+                <input type="image" id="view_edit5" name="view_edit5" src="/images/icons/view_edit.png" width="24"
+                    height="24">
+            </form>
 
-        <form action="/movies/edit" method="get">        
-            <input type="text" id="field_6" name="field_6" class="field left" readonly>        
-            <input type="image" id="view_edit6" name="view_edit6" src="/images/icons/view_edit.png" width="24" height="24">
-        </form>    
+            <form action="/movies/edit" method="get">
+                <input type="text" id="field_6" name="field_6" class="field left" readonly>
+                <input type="image" id="view_edit6" name="view_edit6" src="/images/icons/view_edit.png" width="24"
+                    height="24">
+            </form>
 
-        <form action="/movies/edit" method="get">        
-            <input type="text" id="field_7" name="field_7" class="field left" readonly>
-            <input type="image" id="view_edit7" name="view_edit7" src="/images/icons/view_edit.png" width="24" height="24"> 
-        </form>    
+            <form action="/movies/edit" method="get">
+                <input type="text" id="field_7" name="field_7" class="field left" readonly>
+                <input type="image" id="view_edit7" name="view_edit7" src="/images/icons/view_edit.png" width="24"
+                    height="24">
+            </form>
 
-        <form action="/movies/edit" method="get">        
-            <input type="text" id="field_8" name="field_8" class="field left" readonly>
-            <input type="image" id="view_edit8" name="view_edit8" src="/images/icons/view_edit.png" width="24" height="24"> 
-        </form>  
-    </div>            
+            <form action="/movies/edit" method="get">
+                <input type="text" id="field_8" name="field_8" class="field left" readonly>
+                <input type="image" id="view_edit8" name="view_edit8" src="/images/icons/view_edit.png" width="24"
+                    height="24">
+            </form>
+        </div>
+    </div>
 </body>
+
 </html>

@@ -75,7 +75,7 @@ select{
 #field_1{
     background-color: #f2edbe;
     color: white;
-    width: 335px;
+    width: 90%;
     height: 25px;
     border-style: solid;
     border-color: black;
@@ -88,7 +88,7 @@ select{
 #field_2{
     background-color: #f2edbe;
     color: black;
-    width: 335px;
+    width: 90%;
     height: 25px;
     border-style: solid;
     border-color: black;
@@ -101,7 +101,7 @@ select{
 #field_3{
     background-color: #b7cfa9;
     color:black;
-    width: 335px;
+    width: 90%;
     height: 25px;
     border-style: solid;
     border-color: black;
@@ -114,7 +114,7 @@ select{
 #field_4{
     background-color: #b7cfa9;
     color:white;
-    width: 335px;
+    width: 90%;
     height: 25px;
     border-style: solid;
     border-color: black;
@@ -127,7 +127,7 @@ select{
 #field_5{
     background-color: #83ae99;
     color:black;
-    width: 335px;
+    width: 90%;
     height: 25px;
     border-style: solid;
     border-color: black;
@@ -140,7 +140,7 @@ select{
 #field_6{
     background-color: #5b8c88;
     color:white;
-    width: 335px;
+    width: 90%;
     height: 25px;
     border-style: solid;
     border-color: black;
@@ -153,7 +153,7 @@ select{
 #field_7{
     background-color: #406a73;
     color: black;
-    width: 335px;
+    width: 90%;
     height: 25px;
     border-style: solid;
     border-color: black;
@@ -166,7 +166,7 @@ select{
 #field_8{
     background-color: #2f4858;
     color: black;
-    width: 335px;
+    width: 90%;
     height: 25px;
     border-style: solid;
     border-color: black;
@@ -176,4 +176,19 @@ select{
     font-family: BalsamiqSansBold;
 }
 
+div.scroll { 
+    margin:4px, 4px; 
+    padding:4px; 
+    align-items: center;
+    width: 65%; 
+    height: 50%; 
+    display: inline-block;
+    overflow-x: hidden; 
+    overflow-x: auto; 
+    text-align:justify; 
+}
 
+form{
+    text-align: center;
+    /* left: 22%; */
+}

@@ -92,10 +92,10 @@ exports.getMovieview = (req, res, next) => {
     });
 };
 
-exports.getMovieSearchview = (req, res, next) => {
+exports.getMovieSearchview = async (req, res, next) => {
     console.log('Employee Id', req.session.employee);
     res.render('search_movie', {
-        path: '/movie'
+        path: '/movie',
     });
 };
 
@@ -107,7 +107,6 @@ exports.getMovieAddview = (req, res, next) => {
 };
 
 exports.getRulesview = async (req, res, next) => {
-
     try {
         const discounts = await Discount.findAll({
             raw: true,
@@ -586,34 +585,28 @@ exports.postRulesnew = async (req, res, next) => {
     console.log(min, max, dis, firstDayPrice, afterPrice, maxDays);
 
     try {
-
         if (min > max) {
             const error = new Error("Min % cannot be greater than Max %.")
             throw error;
         }
-
         if (2 > maxDays) {
             const error = new Error("Max days cannot be smaller than 2 days.")
             throw error;
         }
-
         const discountTable = await Discount.findByPk(option);
         await discountTable.update({
             discount: dis
         });
-
         const maxDaysTable = await Discount.findAll();
-        await maxDaysTable[maxDaysTable.length-1].update({
+        await maxDaysTable[maxDaysTable.length - 1].update({
             superior_limit: maxDays
         });
-
 
         const priceTable = await Price.findByPk(0);
         await priceTable.update({
             first_day_price: firstDayPrice,
             addition_per_day: afterPrice,
         });
-
         const discounts = await Discount.findAll({
             raw: true,
         });
@@ -621,7 +614,6 @@ exports.postRulesnew = async (req, res, next) => {
             raw: true,
         });
         console.log("Rules updated successfully!")
-
         res.render('rules', {
             discounts: discounts,
             prices: prices,
@@ -645,4 +637,30 @@ exports.postRulesnew = async (req, res, next) => {
 
     // console.log('Employee Id', req.session.employee);
 
+};
+
+exports.postMovieSearchview = async (req, res, next) => {
+    try {
+        const moviesTitle = await Title.findAll({
+            include: [{
+                model: Movie,
+                as: 'Movie',
+                required: true,
+            }],
+            where: {
+                movie_name: {
+                    [Op.like]: 'jO%'
+                }
+            },
+            raw: true
+        });
+        console.log(moviesTitle);
+    } catch (error) {
+        console.log(error);
+    }
+    console.log('Employee Id', req.session.employee);
+    res.render('search_movie', {
+        path: '/movie',
+
+    });
 };
