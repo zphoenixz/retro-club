@@ -3,9 +3,37 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="/css/add_movie.css" type="text/css">
+        <style>
+    .alert {
+        padding: 20px;
+        background-color: #f2edbe;
+        color: black;
+    }
+
+    .closebtn {
+        margin-left: 15px;
+        color: black;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .closebtn:hover {
+        color: black;
+    }
+    </style>
 </head>
 
 <body>
+    <% if (message) { %>
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+            <h2><%= message %></h2>
+        </div>
+    <% } %>
     <form id="header1" name="header1" action="/admin/cart" method="get">
         <input type="image" src="/images/icons/shopping_cart.png" width="30" height="30" />
     </form>    
