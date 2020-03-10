@@ -1,86 +1,116 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<link rel="stylesheet" href="/css/rules.css">
+    <link rel="stylesheet" href="/css/rules.css">
     <title>Rules</title>
 </head>
+
 <body>
     <form id="header1" name="header1" action="/admin/cart" method="get">
         <input type="image" src="/images/icons/shopping_cart.png" width="30" height="30" />
-    </form>    
+    </form>
 
     <form id="header2" name="header2" action="/logout" method="post">
         <input type="image" src="/images/icons/exit.png" width="30" height="30" />
-    </form>    
+    </form>
 
     <article id=sideContainer>
         <img src="/images/titles/retro_club.jpg" width="250" height="60"><br>
         <input type="text" id="first" readonly><br>
-        <input type="text" id="second" readonly><br>            
-        <input type="text" id="third" readonly><br>            
-    </article> 
+        <input type="text" id="second" readonly><br>
+        <input type="text" id="third" readonly><br>
+    </article>
 
     <article id=mainContainer>
         <form action="/admin/home" method="GET">
-            <input type="image" src="/images/icons/home.png" id="home" name="home" width="30" height="30"/><br>
+            <input type="image" src="/images/icons/home.png" id="home" name="home" width="30" height="30" /><br>
         </form>
 
         <center>
             <img src="/images/titles/rules.png" width="350" height="130">
         </center>
-        
-        <article id="container1">
-            <p>Discount policies</p>
-            <form action="" method="POST">
-                <select id="options" name="options">
+        <form action="/admin/rules" method="POST">
+            <article id="container1">
+                <p>Discount policies</p>
+
+                <select id="options" name="options" onchange=discountChange()>
                     <option value="">options</option>
-                    <option value="first_discount">1 to 3</option>
-                    <option value="second_discount">3 to 5</option>
-                    <option value="third_discount">5 or more</option>
-                </select> 
-            </form>
+                    <% for (let i = 0 ; i < discounts.length ; i++) { %>
+                    <% if(i == 0){  %>
+                    <option value="<%= discounts[i].id_d %>" selected>
+                        <%= 1 + " to " + (discounts[i].superior_limit - 1) %></option>
+                    <% }else if(i == discounts.length -1) { %>
+                    <option value="<%= discounts[i].id_d %>"><%= discounts[i-1].superior_limit + " or more" %></option>
+                    <% }else{%>
+                    <option value="<%= discounts[i].id_d %>">
+                        <%= discounts[i-1].superior_limit  + " to " + (discounts[i].superior_limit - 1) %></option>
+                    <% } %>
+                    <% } %>
+                </select>
 
-            <article id=discount_tag>
-                <p>Discount:</p>
-            </article>
-
-            <br>
-            <br>
-            <br>
-
-            <form action="" method="POST">
-                <input type="text" id="min" name="min">to</input>
-                <input type="text" id="max" name="max">videos.</input>                    
-                <input type="text" id="des" name="des">%</input>           
-            </form>
-        
-            <br>
-        <article>
-
-        <article id="container2">
-            <form action="" method="POST">
-                <h3>First day price</h3>
-                <input type="text" id="first_day_price" name="first_day_price">Bs.</input>
-            </form>
-        </article>
-
-            <form action="" method="POST">
-                <article id="container3">
-                    <h3>After price</h3>
-                    <input type="text" id="after_price" name="after_price">Bs.</input>
+                <article id="discount_tag">
+                    <p>Discount:</p>
                 </article>
-            </form>
-             
-            <form action="" method="POST">
-                <article id="container4">
-                    <h3>Max days</h3>
-                    <input type="text" id="max_days" name="max_days">days</input>
+
+                <br>
+                <br>
+                <br>
+                <input type="text" id="min" name="min" value=<%= 1 %>>to</input>
+                <input type="text" id="max" name="max" value=<%= (discounts[0].superior_limit - 1) %>>videos.</input>
+                <input type="text" id="des" name="des" value=<%= discounts[0].discount * 100 %>>%</input>
+
+                <script>
+                    var discountLocal = JSON.parse('<%-JSON.stringify(discounts)%>');
+
+
+                    function discountChange() {
+                        const op = parseInt(document.getElementById("options").value);
+
+                        const min = document.getElementById("min");
+                        const max = document.getElementById("max");
+                        const des = document.getElementById("des");
+
+                        const currentOp = discountLocal[op - 1];
+                        if (currentOp.id_d == 1) {
+                            min.value = 1;
+                        } else {
+                            min.value = discountLocal[op - 2].superior_limit;
+                        }
+
+                        max.value = currentOp.superior_limit - 1;
+                        des.value = currentOp.discount * 100;
+
+                    }
+
+                    // document.getElementById("options").onchange = function () { myFunction() };
+
+                        // min.value = ;
+
+                </script>
+
+                <br>
+                <article>
+                    <% console.log(prices)%>
+                    <article id="container2">
+                        <h3>First day price</h3>
+                        <input type="text" id="first_day_price" name="first_day_price" value="<%= prices[0].first_day_price %>">Bs.</input>
+                    </article>
+
+                    <article id="container3">
+                        <h3>After price</h3>
+                        <input type="text" id="after_price" name="after_price"value="<%= prices[0].addition_per_day %>">Bs.</input>
+                    </article>
+
+                    <article id="container4">
+                        <h3>Max days</h3>
+                        <input type="text" id="max_days" name="max_days" value="<%= discounts[discounts.length-1].superior_limit %>">days</input>
+                    </article>
+
+                    <button type="submit" name="save">Save Changes</button>
+
                 </article>
-            </form>
-                
-            <form action="" method="POST">
-                <button type="submit" name="save">Save Changes</button>
-            </form>
-    </article>
+        </form>
 </body>
+
 </html>

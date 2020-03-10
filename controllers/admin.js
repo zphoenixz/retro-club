@@ -106,11 +106,24 @@ exports.getMovieAddview = (req, res, next) => {
     });
 };
 
-exports.getRulesview = (req, res, next) => {
-    console.log('Employee Id', req.session.employee);
-    res.render('rules', {
-        path: '/movie'
-    });
+exports.getRulesview = async (req, res, next) => {
+
+    try {
+        const discounts = await Discount.findAll({
+            raw: true,
+        });
+        const prices = await Price.findAll({
+            raw: true,
+        });
+        console.log('Employee Id', req.session.employee);
+        res.render('rules', {
+            discounts: discounts,
+            prices: prices,
+            path: '/rules'
+        });
+    } catch (error) {
+        console.log(error);
+    }
 };
 
 
@@ -556,4 +569,80 @@ exports.postLoan = async (req, res, next) => {
             msg: 'Error when creating loan.'
         })
     }
+};
+
+exports.postRulesnew = async (req, res, next) => {
+
+    const option = parseInt(req.body.options);
+
+    const min = req.body.min;
+    const max = req.body.max;
+    const dis = parseInt(req.body.des) / 100;
+
+    const firstDayPrice = req.body.first_day_price;
+    const afterPrice = req.body.after_price;
+
+    const maxDays = req.body.max_days;
+    console.log(min, max, dis, firstDayPrice, afterPrice, maxDays);
+
+    try {
+
+        if (min > max) {
+            const error = new Error("Min % cannot be greater than Max %.")
+            throw error;
+        }
+
+        if (2 > maxDays) {
+            const error = new Error("Max days cannot be smaller than 2 days.")
+            throw error;
+        }
+
+        const discountTable = await Discount.findByPk(option);
+        await discountTable.update({
+            discount: dis
+        });
+
+        const maxDaysTable = await Discount.findAll();
+        await maxDaysTable[maxDaysTable.length-1].update({
+            superior_limit: maxDays
+        });
+
+
+        const priceTable = await Price.findByPk(0);
+        await priceTable.update({
+            first_day_price: firstDayPrice,
+            addition_per_day: afterPrice,
+        });
+
+        const discounts = await Discount.findAll({
+            raw: true,
+        });
+        const prices = await Price.findAll({
+            raw: true,
+        });
+        console.log("Rules updated successfully!")
+
+        res.render('rules', {
+            discounts: discounts,
+            prices: prices,
+            path: '/rules'
+        });
+
+    } catch (error) {
+        const discounts = await Discount.findAll({
+            raw: true,
+        });
+        const prices = await Price.findAll({
+            raw: true,
+        });
+        console.log(error);
+        res.render('rules', {
+            discounts: discounts,
+            prices: prices,
+            path: '/rules'
+        });
+    }
+
+    // console.log('Employee Id', req.session.employee);
+
 };
