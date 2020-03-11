@@ -651,6 +651,9 @@ exports.postMovieSearchview = async (req, res, next) => {
                     model: Movie,
                     as: 'Movie',
                     required: true,
+                    where: {
+                        movie_status: true
+                    },
                 }],
                 where: {
                     movie_name: {
@@ -666,6 +669,9 @@ exports.postMovieSearchview = async (req, res, next) => {
                     model: Movie,
                     as: 'Movie',
                     required: true,
+                    where: {
+                        movie_status: true
+                    }
                 }],
                 raw: true,
                 limit: 10
@@ -676,6 +682,9 @@ exports.postMovieSearchview = async (req, res, next) => {
                     model: Movie,
                     as: 'Movie',
                     required: true,
+                    where: {
+                        movie_status: true
+                    },
                 }],
                 where: {
                     movie_id_m: parseInt(toSearch)
