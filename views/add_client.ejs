@@ -28,11 +28,11 @@
 </head>
 
 <body>
-    <% if (message) { %>
-        <div class="alert">
-            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-            <h2><%= message %></h2>
-        </div>
+    <% if (locals.message) { %>
+    <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <h2><%= message %></h2>
+    </div>
     <% } %>
 
     <form id="header1" name="header1" action="/admin/cart" method="get">
