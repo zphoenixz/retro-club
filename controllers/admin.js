@@ -2,6 +2,7 @@ const {
     Op
 } = require("sequelize");
 const sequelize = require('../util/database');
+const querystring = require("querystring");
 
 const Person = require('../models/Person');
 const Customer = require('../models/Customer');
@@ -28,6 +29,7 @@ const Price = require('../models/Price');
 const Returned = require('../models/Returned');
 const Sale = require('../models/Sale');
 
+const InCart = require('../models/InCart');
 //Views -----------------------------------------------------------------
 exports.getHomeview = (req, res, next) => {
     console.log('Employee Id', req.session.employee);
@@ -663,7 +665,7 @@ exports.postMovieSearchview = async (req, res, next) => {
                 raw: true,
                 limit: 10
             });
-        } else if(toSearch == ""){
+        } else if (toSearch == "") {
             moviesTitle = await Title.findAll({
                 include: [{
                     model: Movie,
@@ -697,6 +699,7 @@ exports.postMovieSearchview = async (req, res, next) => {
 
         res.render('search_movie', {
             moviesTitle: moviesTitle,
+            searchBy: toSearch + "@" + by,
             path: '/movie'
         });
     } catch (error) {
@@ -707,8 +710,41 @@ exports.postMovieSearchview = async (req, res, next) => {
 };
 
 
-exports.addMovieCart = (req, res, next) => {
-    const movieId = req.params.movieId;
+exports.addMovieCart = async (req, res, next) => {
+    const movieId = parseInt(req.body.movieId);
+    const search = req.body.searchBy.split('@')[0];
+    const by = req.body.searchBy.split('@')[1];
+    try {
+        await InCart.sync({
+            force: true
+        })
+        const cart = await InCart.create({
+            id_movie: movieId,
+            id_employee: req.session.employee
+        });
+        console.log(cart);
+        const result = querystring.stringify({
+            search: search,
+            by: by
+        });
+        console.log(result);
+        res.end();
+    } catch (error) {
+
+    }
+
+    // if (!req.session.isLoggedIn) {
+    //     res.render('sign_up', {
+    //         path: '/',
+    //         error: customError,
+    //     });
+    // } else {
+    //     return res.redirect('/admin/home');
+    // }
+};
+
+exports.editMovie = (req, res, next) => {
+    const movieId = req.body.movieId;
     console.log("movieId: ", movieId);
     console.log('----------------------------');
     res.end();
