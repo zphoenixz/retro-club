@@ -1,4 +1,5 @@
 const Employee = require('../models/Employee');
+const InCart = require('../models/InCart'); 
 
 //GETS -----------------------------------------------------------------
 exports.getLoginError = (req, res, next) => {
@@ -14,6 +15,7 @@ exports.getLoginError = (req, res, next) => {
         return res.redirect('/admin/home');
     }
 };
+
 exports.getLogin = (req, res, next) => {
     if (!req.session.isLoggedIn) {
         res.render('sign_up', {
@@ -48,6 +50,10 @@ exports.postLogin = async (req, res, next) => {
             const error = 'Validation failed. Incorrect Password';
             return res.redirect('/login/'+error);
         }
+
+        await InCart.sync({
+            force: true
+        })
 
         req.session.isLoggedIn = true;
         console.log('Login success!');

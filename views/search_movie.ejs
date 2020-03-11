@@ -54,7 +54,6 @@
             <img src="/images/titles/search_movie.png" id="img" width="340" height="130">
         </center>
 
-
         <form action="/admin/movies/search" method="post">
             <article id="container1">
                 <input type="image" src="/images/icons/search_icon.png" width="15" height="15">
@@ -84,11 +83,9 @@
             <% if(locals.moviesTitle && locals.moviesTitle.length > (i-1) ){  %>
             
             <form action="/admin/movies/addcart" method="post">
-            <input id="searchBy" name="searchBy" type="hidden"value="<%= searchBy %>">
             <input type="image" id="movieId"name="movieId"class="cartBtn"src="/images/icons/cart.png" width="25px" height="25px" top="10"value="<%= moviesTitle[i-1].Movie_id_m %>" >
             </form>
             <form action="/admin/movies/edit" method="post">
-                
                 <input type="text" id="<%= ("field_" + i) %>" value="<%= "   id: " + moviesTitle[i-1].Movie_id_m + ", " + moviesTitle[i-1].movie_name +", stock: " + moviesTitle[i-1]['Movie.stock'] %>" name="<%= ("field_" + i) %>" class="field left" readonly>
                 <input type="image" id="movieId"name="movieId" src="/images/icons/view_edit.png" width="25px" height="25px"
                 value="<%= moviesTitle[i-1].Movie_id_m %>" top="10">

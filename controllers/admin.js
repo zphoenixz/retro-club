@@ -644,7 +644,7 @@ exports.postRulesnew = async (req, res, next) => {
 exports.postMovieSearchview = async (req, res, next) => {
     const toSearch = req.body.search;
     const by = req.body.by;
-    console.log(toSearch, by);
+
     try {
         let moviesTitle;
         if (by == "title") {
@@ -695,59 +695,68 @@ exports.postMovieSearchview = async (req, res, next) => {
                 limit: 10
             });
         }
-        console.log(moviesTitle);
-
+        req.session.moviesTitle = moviesTitle;
         res.render('search_movie', {
-            moviesTitle: moviesTitle,
-            searchBy: toSearch + "@" + by,
+            moviesTitle: req.session.moviesTitle ,
             path: '/movie'
         });
     } catch (error) {
         console.log(error);
     }
     console.log('Employee Id', req.session.employee);
-
 };
 
 
 exports.addMovieCart = async (req, res, next) => {
     const movieId = parseInt(req.body.movieId);
-    const search = req.body.searchBy.split('@')[0];
-    const by = req.body.searchBy.split('@')[1];
     try {
-        await InCart.sync({
-            force: true
-        })
         const cart = await InCart.create({
             id_movie: movieId,
             id_employee: req.session.employee
         });
-        console.log(cart);
-        const result = querystring.stringify({
-            search: search,
-            by: by
+        res.render('search_movie', {
+            moviesTitle: req.session.moviesTitle ,
+            path: '/movie'
         });
-        console.log(result);
-        res.end();
+
     } catch (error) {
-
+        console.log(error);
     }
-
-    // if (!req.session.isLoggedIn) {
-    //     res.render('sign_up', {
-    //         path: '/',
-    //         error: customError,
-    //     });
-    // } else {
-    //     return res.redirect('/admin/home');
-    // }
 };
 
-exports.editMovie = (req, res, next) => {
-    const movieId = req.body.movieId;
+exports.editMovie = async (req, res, next) => {
+    const movieId = parseInt(req.body.movieId);
     console.log("movieId: ", movieId);
-    console.log('----------------------------');
-    res.end();
+    
+    try {
+        // const movie = await Movie.findByPk(movieId)
+        // console.log(movie)
+
+        const movieTitle = await Title.findAll({
+            include: [{
+                model: Movie,
+                as: 'Movie',
+                required: true,
+                where: {
+                    movie_status: true
+                },
+            }],
+            where: {
+                movie_id_m: movieId
+            },
+            raw: true,
+            limit: 10
+        });
+        console.log(movieTitle)
+
+        res.render('edit_movie', {
+            path: '/movie'
+        });
+
+
+    } catch (error) {
+        console.log(error);
+    }
     // if (!req.session.isLoggedIn) {
     //     res.render('sign_up', {
     //         path: '/',
