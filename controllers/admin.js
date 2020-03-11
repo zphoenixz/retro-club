@@ -708,7 +708,12 @@ exports.postMovieSearchview = async (req, res, next) => {
 
 
 exports.addMovieCart = async (req, res, next) => {
-    const movieId = parseInt(req.body.movieId);
+    console.log("movieId: ", req);
+    console.log("movieId: ", req.body);
+
+    const movieId = parseInt(req.body.movieIdC);
+    console.log("movieId: ", req.body.movieIdC);
+    console.log("movieId: ", movieId);
     try {
         const cart = await InCart.create({
             id_movie: movieId,

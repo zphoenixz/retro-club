@@ -83,8 +83,10 @@
             <% if(locals.moviesTitle && locals.moviesTitle.length > (i-1) ){  %>
             
             <form action="/admin/movies/addcart" method="post">
-            <input type="image" id="movieId"name="movieId"class="cartBtn"src="/images/icons/cart.png" width="25px" height="25px" top="10"value="<%= moviesTitle[i-1].Movie_id_m %>" >
-            </form>
+             
+            <input type="image"class="cartBtn"src="/images/icons/cart.png" width="25px" height="25px" top="10"  >
+            <input id="movieIdC" name="movieIdC" type="hidden" value="<%= moviesTitle[i-1].Movie_id_m %>">
+        </form>
             <form action="/admin/movies/edit" method="post">
                 <input type="text" id="<%= ("field_" + i) %>" value="<%= "   id: " + moviesTitle[i-1].Movie_id_m + ", " + moviesTitle[i-1].movie_name +", stock: " + moviesTitle[i-1]['Movie.stock'] %>" name="<%= ("field_" + i) %>" class="field left" readonly>
                 <input type="image" id="movieId"name="movieId" src="/images/icons/view_edit.png" width="25px" height="25px"
