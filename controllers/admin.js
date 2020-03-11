@@ -38,7 +38,36 @@ exports.getHomeview = (req, res, next) => {
     });
 };
 
-exports.getCartview = (req, res, next) => {
+exports.getCartview = async (req, res, next) => {
+    try {
+        const movies = await InCart.findAll();
+
+        movies.forEach(async (movie, index) => {
+
+            console.log("Movie ID:",movie.id_movie)
+            const movieTitle = await Title.findAll({
+                include: [{
+                    model: Movie,
+                    as: 'Movie',
+                    required: true,
+                    where: {
+                        movie_status: true
+                    },
+                }],
+                where: {
+                    movie_id_m: movie.id_movie
+                },
+                raw: true,
+                limit: 1
+            });
+            console.log("Movie title:",movieTitle)
+            
+        });
+
+
+    } catch (error) {
+        
+    }
     console.log('Employee Id', req.session.employee);
     res.render('cart_summary', {
         path: '/cart'
@@ -708,20 +737,18 @@ exports.postMovieSearchview = async (req, res, next) => {
 
 
 exports.addMovieCart = async (req, res, next) => {
-    console.log("movieId: ", req);
-    console.log("movieId: ", req.body);
 
     const movieId = parseInt(req.body.movieIdC);
-    console.log("movieId: ", req.body.movieIdC);
-    console.log("movieId: ", movieId);
     try {
-        const cart = await InCart.create({
+        const item = await InCart.create({
             id_movie: movieId,
             id_employee: req.session.employee
         });
+        console.log("Cart item:", item);
         res.render('search_movie', {
             moviesTitle: req.session.moviesTitle ,
-            path: '/movie'
+            path: '/movie',
+            message: "Movie have been added!"
         });
 
     } catch (error) {
@@ -730,13 +757,10 @@ exports.addMovieCart = async (req, res, next) => {
 };
 
 exports.editMovie = async (req, res, next) => {
-    const movieId = parseInt(req.body.movieId);
+    const movieId = parseInt(req.body.movieIdE);
     console.log("movieId: ", movieId);
     
     try {
-        // const movie = await Movie.findByPk(movieId)
-        // console.log(movie)
-
         const movieTitle = await Title.findAll({
             include: [{
                 model: Movie,

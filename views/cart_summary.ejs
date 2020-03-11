@@ -53,24 +53,26 @@
         
         <article id="column1">
             <h3>Items</h3>
-
+            
+            <% for (let i = 1 ; i <= 10 ; i++) { %>
+            <% if(locals.moviesTitle && locals.moviesTitle.length > (i-1) ){  %>
             <article id="first">
-                <form action="" method="get">
-                    <input type="text" id="item" name="item" readonly>
-                </form>
+                <input type="text" id="item" name="item" readonly>
             </article>
-
             <article id="second">
                 <form action="" method="get">
                 <input type="image" src="/images/icons/eye.png" id="edit" name="edit" width="25" height="25"/>
                 </form>
             </article>
-
             <article id="third">
                 <form action="" method="post">
                     <input type="image" src="/images/icons/delete.png" id="delete" name="delete" width="25" height="25"/>
                 </form>
             </article>
+            <% } %>
+            <% } %>
+
+
         </article>    
              
         <article id="column2">
