@@ -642,10 +642,10 @@ exports.postRulesnew = async (req, res, next) => {
 exports.postMovieSearchview = async (req, res, next) => {
     const toSearch = req.body.search;
     const by = req.body.by;
-
+    console.log(toSearch, by);
     try {
         let moviesTitle;
-        if(by == "title" || by ==""){
+        if (by == "title") {
             moviesTitle = await Title.findAll({
                 include: [{
                     model: Movie,
@@ -660,7 +660,17 @@ exports.postMovieSearchview = async (req, res, next) => {
                 raw: true,
                 limit: 10
             });
-        }else{
+        } else if(toSearch == ""){
+            moviesTitle = await Title.findAll({
+                include: [{
+                    model: Movie,
+                    as: 'Movie',
+                    required: true,
+                }],
+                raw: true,
+                limit: 10
+            });
+        } else {
             moviesTitle = await Title.findAll({
                 include: [{
                     model: Movie,
@@ -668,7 +678,7 @@ exports.postMovieSearchview = async (req, res, next) => {
                     required: true,
                 }],
                 where: {
-                    movie_id_m: parseInt(toSearch)  
+                    movie_id_m: parseInt(toSearch)
                 },
                 raw: true,
                 limit: 10
@@ -677,12 +687,28 @@ exports.postMovieSearchview = async (req, res, next) => {
         console.log(moviesTitle);
 
         res.render('search_movie', {
-            path: '/movie',
-            moviesTitle: moviesTitle
+            moviesTitle: moviesTitle,
+            path: '/movie'
         });
     } catch (error) {
         console.log(error);
     }
     console.log('Employee Id', req.session.employee);
- 
+
+};
+
+
+exports.addMovieCart = (req, res, next) => {
+    const movieId = req.params.movieId;
+    console.log("movieId: ", movieId);
+    console.log('----------------------------');
+    res.end();
+    // if (!req.session.isLoggedIn) {
+    //     res.render('sign_up', {
+    //         path: '/',
+    //         error: customError,
+    //     });
+    // } else {
+    //     return res.redirect('/admin/home');
+    // }
 };

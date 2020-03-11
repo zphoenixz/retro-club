@@ -1,6 +1,6 @@
 @font-face {
     font-family: "BalsamiqSansBold";
-    src: url("/fonts/balsamiqsansbold.eot");    
+    src: url("/fonts/balsamiqsansbold.eot");
     src: url("/fonts/balsamiqsansbold.woff");
     src: url("/fonts/balsamiqsansbold.woff2");
 }
@@ -9,25 +9,25 @@ body {
     background-color: #eafdf8;
 }
 
-#header1{
+#header1 {
     margin-left: 1400px;
     margin-top: 30px;
 }
 
-#header2{
+#header2 {
     margin-left: 1400px;
     margin-top: 10px;
 }
 
-#back{
+#back {
     margin: 10px;
     float: left;
 }
 
-div.contenedor{
+div.contenedor {
     margin-left: 450px;
     border-color: #f2edbe;
-    border-style:solid;
+    border-style: solid;
     width: 650px;
     height: 600px;
     background-color: #2a628f;
@@ -35,12 +35,12 @@ div.contenedor{
     opacity: 80%;
 }
 
-#img{
+#img {
     margin-top: 20px;
     margin-right: 20px;
 }
 
-#search{
+#search {
     width: 278px;
     height: 25px;
     text-align: left;
@@ -50,7 +50,7 @@ div.contenedor{
     font-family: BalsamiqSansBold;
 }
 
-select{
+select {
     width: 100px;
     height: 27px;
     font-size: 13px;
@@ -58,25 +58,28 @@ select{
     font-family: BalsamiqSansBold;
 }
 
-#container1{
-    float: left; width: 30;
+#container1 {
+    float: left;
+    width: 30;
     margin-left: 110px;
 }
 
-#container2{
-    float: left; width: 30;
+#container2 {
+    float: left;
+    width: 30;
     margin-left: 10px;
 }
 
-#container3{
-    float: left; width: 30;
+#container3 {
+    float: left;
+    width: 30;
     margin-left: 10px;
 }
 
-#field_1{
+#field_1 {
     background-color: #f2edbe;
     color: white;
-    width: 90%;
+    width: 80%;
     height: 25px;
     border-style: solid;
     border-color: black;
@@ -87,10 +90,10 @@ select{
     border-radius: 10px;
 }
 
-#field_2{
+#field_2 {
     background-color: #f2edbe;
     color: black;
-    width: 90%;
+    width: 80%;
     height: 25px;
     border-style: solid;
     border-color: black;
@@ -101,10 +104,10 @@ select{
     border-radius: 10px;
 }
 
-#field_3{
+#field_3 {
     background-color: #b7cfa9;
-    color:black;
-    width: 90%;
+    color: black;
+    width: 80%;
     height: 25px;
     border-style: solid;
     border-color: black;
@@ -115,10 +118,10 @@ select{
     border-radius: 10px;
 }
 
-#field_4{
+#field_4 {
     background-color: #b7cfa9;
-    color:white;
-    width: 90%;
+    color: white;
+    width: 80%;
     height: 25px;
     border-style: solid;
     border-color: black;
@@ -129,10 +132,10 @@ select{
     border-radius: 10px;
 }
 
-#field_5{
+#field_5 {
     background-color: #83ae99;
-    color:black;
-    width: 90%;
+    color: black;
+    width: 80%;
     height: 25px;
     border-style: solid;
     border-color: black;
@@ -143,10 +146,10 @@ select{
     border-radius: 10px;
 }
 
-#field_6{
+#field_6 {
     background-color: #5b8c88;
-    color:white;
-    width: 90%;
+    color: white;
+    width: 80%;
     height: 25px;
     border-style: solid;
     border-color: black;
@@ -157,10 +160,10 @@ select{
     border-radius: 10px;
 }
 
-#field_7{
+#field_7 {
     background-color: #406a73;
     color: black;
-    width: 90%;
+    width: 80%;
     height: 25px;
     border-style: solid;
     border-color: black;
@@ -171,10 +174,10 @@ select{
     border-radius: 10px;
 }
 
-#field_8{
+#field_8 {
     background-color: #2f4858;
     color: black;
-    width: 90%;
+    width: 80%;
     height: 25px;
     border-style: solid;
     border-color: black;
@@ -185,19 +188,62 @@ select{
     border-radius: 10px;
 }
 
-div.scroll { 
-    margin:4px, 4px; 
-    padding:4px; 
-    align-items: center;
-    width: 65%; 
-    height: 50%; 
-    display: inline-block;
-    overflow-x: hidden; 
-    overflow-x: auto; 
-    text-align:justify; 
+#field_9 {
+    background-color: #2f4858;
+    color: black;
+    width: 80%;
+    height: 25px;
+    border-style: solid;
+    border-color: black;
+    margin-top: 10px;
+    text-align: left;
+    font-size: 13px;
+    font-family: BalsamiqSansBold;
+    border-radius: 10px;
 }
 
-form{
+#field_10 {
+    background-color: #2f4858;
+    color: black;
+    width: 80%;
+    height: 25px;
+    border-style: solid;
+    border-color: black;
+    margin-top: 10px;
+    text-align: left;
+    font-size: 13px;
+    font-family: BalsamiqSansBold;
+    border-radius: 10px;
+}
+
+div.scroll {
+    margin: 4px, 4px;
+    padding: 4px;
+    align-items: center;
+    width: 65%;
+    height: 50%;
+    display: inline-block;
+    overflow-x: hidden;
+    overflow-x: auto;
+    text-align: justify;
+}
+
+/* form{
     text-align: center;
-    /* left: 22%; */
+} */
+
+/* #cart{
+    width: 5%;
+    left: 0
+}
+#cartForm{
+    width: 5%;
+    left: 0
+} */
+.clearfix {
+    overflow: auto;
+}
+
+.cartBtn {
+    float: left;
 }

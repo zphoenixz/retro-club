@@ -34,9 +34,11 @@ router.get('/loans/search', isAuth, adminController.getLoanSearchview);
 
 router.get('/movies', isAuth, adminController.getMovieview);
 router.get('/movies/search', isAuth, adminController.getMovieSearchview);
+router.get('/movies/search/:movieId', adminController.addMovieCart);
 router.get('/movies/new', isAuth, adminController.getMovieAddview);
 
 router.get('/rules', isAuth, adminController.getRulesview);
 router.post('/rules', isAuth, adminController.postRulesnew);
 router.post('/movies/search', isAuth, adminController.postMovieSearchview);
+
 module.exports = router;

@@ -5,35 +5,36 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="/css/search_movie.css" type="text/css">
     <style>
-    .alert {
-        padding: 20px;
-        background-color: #3d9796;
-        color: white;
-    }
+        .alert {
+            padding: 20px;
+            background-color: #3d9796;
+            color: white;
+        }
 
-    .closebtn {
-        margin-left: 15px;
-        color: white;
-        font-weight: bold;
-        float: right;
-        font-size: 22px;
-        line-height: 20px;
-        cursor: pointer;
-        transition: 0.3s;
-    }
+        .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
 
-    .closebtn:hover {
-        color: black;
-    }
+        .closebtn:hover {
+            color: black;
+        }
     </style>
 </head>
 
 <body>
+
     <% if (locals.message) { %>
-        <div class="alert">
-            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-            <h2><%= message %></h2>
-        </div>
+    <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <h2><%= message %></h2>
+    </div>
     <% } %>
 
     <form id="header1" name="header1" action="/admin/cart" method="get">
@@ -60,91 +61,42 @@
             </article>
 
             <article id="container2">
-                    <input type="text" name="search" id="search" placeholder="search movies">
+                <input type="text" name="search" id="search" placeholder="search movies">
             </article>
 
             <article id="container3">
-                    <select id="by" name="by">
-                        <option value="">By</option>
-                        <option value="id">ID</option>
-                        <option value="title" selected>Title</option>
-                    </select><br>
-            
+                <select id="by" name="by">
+                    <option value="">By</option>
+                    <option value="id">ID</option>
+                    <option value="title" selected>Title</option>
+                </select><br>
+
             </article>
         </form>
-        
+        <script>
+
+
+        </script>
 
         <div class="scroll">
             <% for (let i = 1 ; i <= 10 ; i++) { %>
-            <% if(locals.moviesTitle){  %>
-            <form action="<%= ("/movies/edit/" + locals.moviesTitle[i-1].Movie_id_m) %>" method="get">
+            <div class="clearfix">
+            <% if(locals.moviesTitle && locals.moviesTitle.length > (i-1) ){  %>
+            <form action="<%= "/movies/add/" + moviesTitle[i-1].Movie_id_m %>" method="get">
+            <input type="image" class="cartBtn"src="/images/icons/cart.png" width="25px" height="25px" top="10">
+            </form>
+            <form action="<%= "/movies/edit/" + moviesTitle[i-1].Movie_id_m %>" method="get">
+
+                <input type="text" id="<%= ("field_" + i) %>" value="<%= "   id: " + moviesTitle[i-1].Movie_id_m + ", " + moviesTitle[i-1].movie_name +", stock: " + moviesTitle[i-1]['Movie.stock'] %>" name="<%= ("field_" + i) %>" class="field left" readonly>
+                <input type="image" id="view" name="view" src="/images/icons/view_edit.png" width="25px" height="25px"
+                    top="10">
             <% } else{ %>
-            <form action="/movies/edit/" method="get">
-            <% }  %>
+                <form action="/movies/edit/" method="get">
                 <input type="text" id="<%= ("field_" + i) %>" name="<%= ("field_" + i) %>" class="field left" readonly>
-                <% if(locals.moviesTitle){  %>
-                <input type="image" id="view" name="view" src="/images/icons/view_edit.png" width="25px"
-                    height="25px" top="10">
-                <% }  %>
+            <% } %>
             </form>
             <% } %>
-            <form action="/movies/edit" method="get">
-                <input type="text" id="field_1" name="field_1" class="field left" readonly>
-                <input type="image" id="" name="view_edit1" src="/images/icons/view_edit.png" width="25px"
-                    height="25px" top="10">
-            </form>
-
-            <form action="/movies/edit" method="get">
-                <input type="text" id="field_2" name="field_2" class="field left" readonly>
-                <input type="image" id="view_edit2" name="view_edit2" src="/images/icons/view_edit.png" width="24"
-                    height="24">
-            </form>
-
-            <form action="/movies/edit" method="get">
-                <input type="text" id="field_3" name="field_3" class="field left" readonly>
-                <input type="image" id="view_edit3" name="view_edit3" src="/images/icons/view_edit.png" width="24"
-                    height="24">
-            </form>
-
-            <form action="/movies/edit" method="get">
-                <input type="text" id="field_4" name="field_4" class="field left" readonly>
-                <input type="image" id="view_edit4" name="view_edit4" src="/images/icons/view_edit.png" width="24"
-                    height="24">
-            </form>
-
-            <form action="/movies/edit" method="get">
-                <input type="text" id="field_5" name="field_5" class="field left" readonly>
-                <input type="image" id="view_edit5" name="view_edit5" src="/images/icons/view_edit.png" width="24"
-                    height="24">
-            </form>
-
-            <form action="/movies/edit" method="get">
-                <input type="text" id="field_6" name="field_6" class="field left" readonly>
-                <input type="image" id="view_edit6" name="view_edit6" src="/images/icons/view_edit.png" width="24"
-                    height="24">
-            </form>
-
-            <form action="/movies/edit" method="get">
-                <input type="text" id="field_7" name="field_7" class="field left" readonly>
-                <input type="image" id="view_edit7" name="view_edit7" src="/images/icons/view_edit.png" width="24"
-                    height="24">
-            </form>
-
-            <form action="/movies/edit" method="get">
-                <input type="text" id="field_8" name="field_8" class="field left" readonly>
-                <input type="image" id="view_edit8" name="view_edit8" src="/images/icons/view_edit.png" width="24"
-                    height="24">
-            </form>
-            <form action="/movies/edit" method="get">
-                <input type="text" id="field_8" name="field_8" class="field left" readonly>
-                <input type="image" id="view_edit8" name="view_edit8" src="/images/icons/view_edit.png" width="24"
-                    height="24">
-            </form>
-            <form action="/movies/edit" method="get">
-                <input type="text" id="field_8" name="field_8" class="field left" readonly>
-                <input type="image" id="view_edit8" name="view_edit8" src="/images/icons/view_edit.png" width="24"
-                    height="24">
-            </form>
+        </div>
         </div>
     </div>
 </body>
