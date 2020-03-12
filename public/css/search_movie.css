@@ -9,14 +9,34 @@ body {
     background-color: #eafdf8;
 }
 
-#header1 {
-    margin-left: 1400px;
-    margin-top: 30px;
-}
-
-#header2 {
+#header1{
     margin-left: 1400px;
     margin-top: 10px;
+    border-style: solid;
+    border-radius: 25px;
+    border-color: #3d9796;
+    background-color: #3d9796;
+    margin-right: 70px;
+}
+
+#header2{
+    margin-left: 1400px;
+    margin-top: 15px;
+    border-style: solid;
+    border-radius: 25px;
+    border-color: #3d9796;
+    background-color: #3d9796;
+    margin-right: 70px;
+}
+
+#header3{
+    margin-left: 1400px;
+    margin-top: 15px;
+    border-style: solid;
+    border-radius: 25px;
+    border-color: #3d9796;
+    background-color: #3d9796;
+    margin-right: 70px;
 }
 
 #back {
@@ -78,7 +98,7 @@ select {
 
 #field_1 {
     background-color: #f2edbe;
-    color: white;
+    color: black;
     width: 80%;
     height: 25px;
     border-style: solid;
@@ -120,7 +140,7 @@ select {
 
 #field_4 {
     background-color: #b7cfa9;
-    color: white;
+    color: black;
     width: 80%;
     height: 25px;
     border-style: solid;
@@ -148,7 +168,7 @@ select {
 
 #field_6 {
     background-color: #5b8c88;
-    color: white;
+    color: black;
     width: 80%;
     height: 25px;
     border-style: solid;

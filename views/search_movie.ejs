@@ -9,6 +9,7 @@
             padding: 20px;
             background-color: #3d9796;
             color: white;
+            font-family: BalsamiqSansBold;
         }
 
         .closebtn {
@@ -37,13 +38,19 @@
     </div>
     <% } %>
 
-    <form id="header1" name="header1" action="/admin/cart" method="get">
-        <input type="image" src="/images/icons/shopping_cart.png" width="30" height="30" />
-    </form>
+    <center>
+        <form id="header1" name="header1" action="/admin/cart" method="get">
+            <input type="image" src="/images/icons/shopping_cart.png" width="30" height="30" />
+        </form>    
 
-    <form id="header2" name="header2" action="/logout" method="post">
-        <input type="image" src="/images/icons/exit.png" width="30" height="30" />
-    </form>
+        <form id="header2" name="header2" action="/movies/search" method="get">
+            <input type="image" src="/images/icons/movie.png" width="30" height="30" />
+        </form>
+
+        <form id="header3" name="header3" action="/logout" method="post">
+            <input type="image" src="/images/icons/exit.png" width="30" height="30" />
+        </form>    
+    </center>
 
     <div class="contenedor">
         <form action="/admin/movies" method="get">
