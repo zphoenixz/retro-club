@@ -5,26 +5,29 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="/css/cart_summary.css">
     <style>
-        .alert {
-            padding: 20px;
-            background-color: #3d9796;
-            color: white;
-        }
+    .alert {
+        padding: 20px;
+        background-color: #3d9796;
+        color: white;
+        font-family: BalsamiqSansBold;
+        text-align: left;
+        font-size: 10px;
+    }
 
-        .closebtn {
-            margin-left: 15px;
-            color: white;
-            font-weight: bold;
-            float: right;
-            font-size: 22px;
-            line-height: 20px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+    .closebtn {
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
 
-        .closebtn:hover {
-            color: black;
-        }
+    .closebtn:hover {
+        color: black;
+    }
     </style>
     <title>Summary</title>
 </head>
@@ -36,14 +39,21 @@
         <h2><%= message %></h2>
     </div>
     <% } %>
-    <form id="header1" name="header1" action="/admin/cart" method="get">
-        <input type="image" src="/images/icons/shopping_cart.png" width="30" height="30" />
-    </form>
 
-    <form id="header2" name="header2" action="/logout" method="post">
-        <input type="image" src="/images/icons/exit.png" width="30" height="30" />
-    </form>
+    <center>
+        <form id="header1" name="header1" action="/admin/cart" method="get">
+            <input type="image" src="/images/icons/shopping_cart.png" width="30" height="30" />
+        </form>    
 
+        <form id="header2" name="header2" action="/movies/search" method="get">
+            <input type="image" src="/images/icons/movie.png" width="30" height="30" />
+        </form>
+
+        <form id="header3" name="header3" action="/logout" method="post">
+            <input type="image" src="/images/icons/exit.png" width="30" height="30" />
+        </form>    
+    </center> 
+                    
     <article id=mainContainer>
         <form action="/admin/home" method="get">
             <input type="image" src="/images/icons/home.png" id="home" name="home" width="30" height="30" />

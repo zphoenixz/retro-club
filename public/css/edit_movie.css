@@ -12,12 +12,32 @@ body {
 
 #header1{
     margin-left: 1400px;
-    margin-top: 30px;
+    margin-top: 10px;
+    border-style: solid;
+    border-radius: 25px;
+    border-color: #3d9796;
+    background-color: #3d9796;
+    margin-right: 70px;
 }
 
 #header2{
     margin-left: 1400px;
-    margin-top: 10px;
+    margin-top: 15px;
+    border-style: solid;
+    border-radius: 25px;
+    border-color: #3d9796;
+    background-color: #3d9796;
+    margin-right: 70px;
+}
+
+#header3{
+    margin-left: 1400px;
+    margin-top: 15px;
+    border-style: solid;
+    border-radius: 25px;
+    border-color: #3d9796;
+    background-color: #3d9796;
+    margin-right: 70px;
 }
 
 #back{
@@ -180,7 +200,7 @@ select{
 }
 
 #add_cart{
-    width: 200px;
+    width: 300px;
     height: 35px;
     color: white;
     border-style: solid;
@@ -188,7 +208,7 @@ select{
     background-color: #3d9796;
     margin-bottom: 10px;
     margin-top: 10px;
-    margin-right: 200px;
+    margin-right: 20px;
     font-size: 13px;
     padding-left: 5px;
     box-shadow: 5px 5px #000000;
@@ -198,32 +218,31 @@ select{
 #modify{
     width: 140px;
     height: 35px;
-    color: white;
+    color: black;
     border-style: solid;
     border-color: black;    
     background-color: #f2edbe;
     margin-bottom: 10px;
     margin-top: 10px;
-    margin-right: 200px;
+    margin-right: 20px;
     font-size: 13px;
     padding-left: 5px;
     box-shadow: 5px 5px #000000;
     font-family: BalsamiqSansBold;
 }
 
-#remove{
+#delete{
     width: 140px;
     height: 35px;
     color: white;
     border-style: solid;
     border-color: black;    
-    background-color: #f2edbe;
+    background-color: #cf2a27;
     margin-bottom: 10px;
     margin-top: 10px;
-    margin-right: 200px;
     font-size: 13px;
     padding-left: 5px;
-    box-shadow: 5px 5px red (cf2a27);
+    box-shadow: 5px 5px #000000;
     font-family: BalsamiqSansBold;
 }
 

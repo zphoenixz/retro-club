@@ -10,15 +10,34 @@ body {
     font-family: BalsamiqSansBold;
 }
 
-
 #header1{
     margin-left: 1400px;
-    margin-top: 30px;
+    margin-top: 10px;
+    border-style: solid;
+    border-radius: 25px;
+    border-color: #3d9796;
+    background-color: #3d9796;
+    margin-right: 70px;
 }
 
 #header2{
     margin-left: 1400px;
-    margin-top: 10px;
+    margin-top: 15px;
+    border-style: solid;
+    border-radius: 25px;
+    border-color: #3d9796;
+    background-color: #3d9796;
+    margin-right: 70px;
+}
+
+#header3{
+    margin-left: 1400px;
+    margin-top: 15px;
+    border-style: solid;
+    border-radius: 25px;
+    border-color: #3d9796;
+    background-color: #3d9796;
+    margin-right: 70px;
 }
 
 #back{
