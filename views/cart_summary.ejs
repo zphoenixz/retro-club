@@ -1,38 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="/css/cart_summary.css">
     <style>
-    .alert {
-        padding: 20px;
-        background-color: #3d9796;
-        color: white;
-    }
+        .alert {
+            padding: 20px;
+            background-color: #3d9796;
+            color: white;
+        }
 
-    .closebtn {
-        margin-left: 15px;
-        color: white;
-        font-weight: bold;
-        float: right;
-        font-size: 22px;
-        line-height: 20px;
-        cursor: pointer;
-        transition: 0.3s;
-    }
+        .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
 
-    .closebtn:hover {
-        color: black;
-    }
+        .closebtn:hover {
+            color: black;
+        }
     </style>
     <title>Summary</title>
 </head>
+
 <body>
     <% if (locals.message) { %>
-        <div class="alert">
-            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-            <h2><%= message %></h2>
-        </div>
+    <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <h2><%= message %></h2>
+    </div>
     <% } %>
     <form id="header1" name="header1" action="/admin/cart" method="get">
         <input type="image" src="/images/icons/shopping_cart.png" width="30" height="30" />
@@ -41,62 +43,100 @@
     <form id="header2" name="header2" action="/logout" method="post">
         <input type="image" src="/images/icons/exit.png" width="30" height="30" />
     </form>
-                    
+
     <article id=mainContainer>
         <form action="/admin/home" method="get">
-            <input type="image" src="/images/icons/home.png" id="home" name="home" width="30" height="30"/>
+            <input type="image" src="/images/icons/home.png" id="home" name="home" width="30" height="30" />
         </form>
 
         <center>
             <img src="/images/titles/cart_summary.png" width="339" height="120">
         </center>
-        
+
         <article id="column1">
             <h3>Items</h3>
-            
-            <% for (let i = 1 ; i <= 10 ; i++) { %>
-            <% if(locals.moviesTitle && locals.moviesTitle.length > (i-1) ){  %>
-            <article id="first">
-                <input type="text" id="item" name="item" readonly>
-            </article>
-            <article id="second">
-                <form action="" method="get">
-                <input type="image" src="/images/icons/eye.png" id="edit" name="edit" width="25" height="25"/>
-                </form>
-            </article>
-            <article id="third">
-                <form action="" method="post">
-                    <input type="image" src="/images/icons/delete.png" id="delete" name="delete" width="25" height="25"/>
-                </form>
-            </article>
+            <% if(locals.cartItems){  %>
+            <% for (let i = 0 ; i < cartItems.length; i++) { %>
+            <div class="row">
+                <article id="first">
+                    <input type="text" id="item" name="item" readonly
+                        value="<%= "         Movie id: " + cartItems[i].id + ",        Title: " + cartItems[i].title %>">
+                </article>
+                <article id="second">
+                    <form action="" method="get">
+                        <input type="image" src="/images/icons/eye.png" id="edit" name="edit" width="28" height="20"
+                            class="edit" />
+                    </form>
+                </article>
+
+                <article id="third">
+                    <form action="" method="post">
+                        <input type="image" src="/images/icons/delete.png" id="delete" name="delete" width="22"
+                            height="22" class="del" />
+                    </form>
+                </article>
+            </div>
             <% } %>
             <% } %>
 
 
-        </article>    
-             
+        </article>
         <article id="column2">
             <form action="" method="post">
                 <input type="text" id="customer_id" name="customer_id"><br>
             </form>
 
             <form action="" method="get">
-                <select id="days">
+            
+                <select id="days" onchange=dayChange()>
                     <option value="">Number of days</option>
-                </select><br>                 
+                    <% if(locals.discount){  %>
+                    <% for (let i = 1 ; i < discount[2].superior_limit; i++) { %>
+                    <option value="<%=i+1%>"><%=(i+1) + " dias"%></option>
+                    <% } %>
+                    <% } %>
+                </select><br>
                 <input type="text" id="pre_total" name="pre_total" value="Pre total:" readonly>
                 <input type="text" id="pre_total_bs" name="pre_total_bs" readonly><br>
                 <input type="text" id="discount" name="discount" value="Discount:" readonly>
+                <% if(locals.actualDiscount){  %>
+                <input type="text" id="discount_p" name="discount_p" value="<%= actualDiscount*100 + "%"%>" readonly>
+                <% } else{%>
                 <input type="text" id="discount_p" name="discount_p" readonly>
+                <% } %>
                 <input type="text" id="discount_bs" name="discount_bs" readonly><br>
                 <input type="text" id="total" name="total" value="Total:" readonly>
                 <input type="text" id="total_bs" name="total_bs" readonly>
+
+                <script>
+                    var price = JSON.parse('<%-JSON.stringify(price)%>');
+                    var actualDiscount = '<%-actualDiscount%>';
+                    var qty = '<%-cartItems.length%>';
+
+                    console.log(price[0]);
+                    console.log(actualDiscount);
+                    console.log(qty);
+                    function dayChange() {
+                        var days = document.getElementById("days").value;
+                        if (days != "Number of days") {
+                            days = parseInt(days.split(" ")[0]);
+                            const bill1 = price[0].first_day_price + price[0].addition_per_day * (days - 1);
+                            const bill2 = bill1 * qty;
+                            const bill3 = bill2 * (1 - actualDiscount);
+                            const bill4 = Math.round(bill3 * 10) / 10;
+                            document.getElementById("pre_total_bs").value = bill2 + " Bs.-";
+                            document.getElementById("discount_bs").value = Math.round(bill2 * actualDiscount* 10) / 10 + " Bs.-";
+                            document.getElementById("total_bs").value = bill4 + " Bs.-";
+                        }
+                    }
+                </script>
             </form>
-            
+
             <form action="" method="post">
                 <button type="submit">Pay</button>
             </form>
         </article>
     </article>
 </body>
+
 </html>

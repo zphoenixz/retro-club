@@ -40,11 +40,13 @@ exports.getHomeview = (req, res, next) => {
 
 exports.getCartview = async (req, res, next) => {
     try {
-        const movies = await InCart.findAll();
+        const movies = await InCart.findAll({
+            raw: true
+        });
+        var cartItems = []
 
-        movies.forEach(async (movie, index) => {
-
-            console.log("Movie ID:",movie.id_movie)
+        for (const movie of movies) {
+            
             const movieTitle = await Title.findAll({
                 include: [{
                     model: Movie,
@@ -60,18 +62,53 @@ exports.getCartview = async (req, res, next) => {
                 raw: true,
                 limit: 1
             });
-            console.log("Movie title:",movieTitle)
-            
+            cartItems.push({
+                id: movieTitle[0].Movie_id_m,
+                title: movieTitle[0].movie_name
+            });
+        }
+
+        const discount = await Discount.findAll({
+            raw: true,
+        });
+        const price = await Price.findAll({
+            raw: true
         });
 
+        const actualDiscount = (await Discount.findAll({
+            where: {
+                superior_limit: {
+                    [Op.gt]: cartItems.length,
+                }
+            },
+            raw: true,
+            order: [
+                ['id_d', 'ASC'],
+            ]
+        }))[0];
 
+        console.log("Cart items: ", cartItems);
+        console.log("Discount: ", discount);
+        console.log("Actual discount: ", actualDiscount.discount);
+        console.log("Price: ", price);
+
+        // const total1 = price.first_day_price + price.addition_per_day * (days - 1);
+        // const total2 = moviesId.length * total1;
+        // const total3 = total2 * (1 - discount.discount);
+        // const total4 = Math.round(total3 * 10) / 10
+        // console.log(total1, total2, total3, total4);
+
+        res.render('cart_summary', {
+            path: '/cart',
+            cartItems: cartItems,
+            discount: discount,
+            actualDiscount: actualDiscount.discount,
+            price: price
+        });
     } catch (error) {
-        
+        console.log(error);
     }
-    console.log('Employee Id', req.session.employee);
-    res.render('cart_summary', {
-        path: '/cart'
-    });
+
 };
 
 exports.getCustomerview = (req, res, next) => {
@@ -726,7 +763,7 @@ exports.postMovieSearchview = async (req, res, next) => {
         }
         req.session.moviesTitle = moviesTitle;
         res.render('search_movie', {
-            moviesTitle: req.session.moviesTitle ,
+            moviesTitle: req.session.moviesTitle,
             path: '/movie'
         });
     } catch (error) {
@@ -739,6 +776,7 @@ exports.postMovieSearchview = async (req, res, next) => {
 exports.addMovieCart = async (req, res, next) => {
 
     const movieId = parseInt(req.body.movieIdC);
+    console.log("movieId: ", movieId);
     try {
         const item = await InCart.create({
             id_movie: movieId,
@@ -746,7 +784,7 @@ exports.addMovieCart = async (req, res, next) => {
         });
         console.log("Cart item:", item);
         res.render('search_movie', {
-            moviesTitle: req.session.moviesTitle ,
+            moviesTitle: req.session.moviesTitle,
             path: '/movie',
             message: "Movie have been added!"
         });
@@ -759,7 +797,7 @@ exports.addMovieCart = async (req, res, next) => {
 exports.editMovie = async (req, res, next) => {
     const movieId = parseInt(req.body.movieIdE);
     console.log("movieId: ", movieId);
-    
+
     try {
         const movieTitle = await Title.findAll({
             include: [{
