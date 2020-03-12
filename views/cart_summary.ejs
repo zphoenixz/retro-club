@@ -66,13 +66,15 @@
                     <form action="" method="get">
                         <input type="image" src="/images/icons/eye.png" id="edit" name="edit" width="28" height="20"
                             class="edit" />
+                        
                     </form>
                 </article>
 
                 <article id="third">
-                    <form action="" method="post">
+                    <form action="/admin/movies/delcart" method="post">
                         <input type="image" src="/images/icons/delete.png" id="delete" name="delete" width="22"
                             height="22" class="del" />
+                        <input id="movieID" name="movieID" type="hidden" value="<%= cartItems[i].id %>">
                     </form>
                 </article>
             </div>

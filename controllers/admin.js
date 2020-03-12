@@ -512,7 +512,7 @@ exports.postLoan = async (req, res, next) => {
             throw error;
         }
         const checkUser = await Customer.findByPk(customerId);
-        if(!checkUser){
+        if (!checkUser) {
             const error = 'Validation failed. Customer doesnt exist.';
             throw error;
         }
@@ -526,11 +526,11 @@ exports.postLoan = async (req, res, next) => {
         for (const item of moviesInCart) {
             moviesId.push(item.id_movie);
         }
-        if(moviesId.length == 0){
+        if (moviesId.length == 0) {
             const error = 'Validation failed. No movies in cart.';
             throw error;
         }
-        
+
         let movies = [];
 
         const customerStatus = await Customer.findByPk(customerId);
@@ -562,7 +562,7 @@ exports.postLoan = async (req, res, next) => {
             // console.log("Last Returned: ", lastReturned, prevLoan[0].end_date, startDate);
 
             if (prevLoan[0].end_date >= startDate && !lastReturned) {
-                const error = 'Loan rejected. Client :' + customerId + ': is yet to return a loan :'+ prevLoan[0].id_l +':.';
+                const error = 'Loan rejected. Client :' + customerId + ': is yet to return a loan :' + prevLoan[0].id_l + ':.';
                 throw error;
             } else if (prevLoan[0].end_date < startDate && !lastReturned) {
 
@@ -574,7 +574,7 @@ exports.postLoan = async (req, res, next) => {
                     }
                 });
                 // console.log("customer Updated: ", customerUpdated);
-                const error = 'Loan rejected. Client :' + customerId + ': owes a loan :'+ prevLoan[0].id_l +':. Client has been Blacklisted.';
+                const error = 'Loan rejected. Client :' + customerId + ': owes a loan :' + prevLoan[0].id_l + ':. Client has been Blacklisted.';
                 throw error;
             }
         }
@@ -595,9 +595,9 @@ exports.postLoan = async (req, res, next) => {
             start_date: startDate,
             end_date: endDate
         });
-        
+
         movies.forEach(async (movie) => {
-            
+
             const loanMovie = await LoanMovie.create({
                 Loan_id_l: loan.id_l,
                 Movie_id_m: movie.id_m
@@ -785,7 +785,6 @@ exports.postMovieSearchview = async (req, res, next) => {
     console.log('Employee Id', req.session.employee);
 };
 
-
 exports.addMovieCart = async (req, res, next) => {
 
     const movieId = parseInt(req.body.movieIdC);
@@ -801,6 +800,26 @@ exports.addMovieCart = async (req, res, next) => {
             path: '/movie',
             message: "Movie have been added!"
         });
+
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+exports.delMovieCart = async (req, res, next) => {
+    const movieId = parseInt(req.body.movieID);
+    console.log("movieId: ", movieId);
+    try {
+        const item = await InCart.findAll({
+            where:{
+                id_movie: movieId
+            },
+            limit: 1
+        });
+
+        console.log("Cart item:", item);
+        await item[0].destroy();
+        res.redirect("/admin/cart")
 
     } catch (error) {
         console.log(error);

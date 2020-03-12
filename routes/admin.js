@@ -38,6 +38,7 @@ router.get('/rules', isAuth, adminController.getRulesview);
 router.post('/rules', isAuth, adminController.postRulesnew);
 router.post('/movies/search', isAuth, adminController.postMovieSearchview);
 router.post('/movies/addcart', adminController.addMovieCart);
+router.post('/movies/delcart', adminController.delMovieCart);
 router.post('/movies/edit', adminController.editMovie);
 router.post('/loan/add', isAuth, adminController.postLoan);
 
