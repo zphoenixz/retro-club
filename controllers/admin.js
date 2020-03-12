@@ -39,6 +39,10 @@ exports.getHomeview = (req, res, next) => {
 };
 
 exports.getCartview = async (req, res, next) => {
+    const message = req.query.msg;
+    const error = req.query.err;
+
+    console.log(message, error);
     try {
         const movies = await InCart.findAll({
             raw: true
@@ -46,7 +50,7 @@ exports.getCartview = async (req, res, next) => {
         var cartItems = []
 
         for (const movie of movies) {
-            
+
             const movieTitle = await Title.findAll({
                 include: [{
                     model: Movie,
@@ -92,18 +96,14 @@ exports.getCartview = async (req, res, next) => {
         console.log("Actual discount: ", actualDiscount.discount);
         console.log("Price: ", price);
 
-        // const total1 = price.first_day_price + price.addition_per_day * (days - 1);
-        // const total2 = moviesId.length * total1;
-        // const total3 = total2 * (1 - discount.discount);
-        // const total4 = Math.round(total3 * 10) / 10
-        // console.log(total1, total2, total3, total4);
-
         res.render('cart_summary', {
             path: '/cart',
             cartItems: cartItems,
             discount: discount,
             actualDiscount: actualDiscount.discount,
-            price: price
+            price: price,
+            message: message,
+            error: error
         });
     } catch (error) {
         console.log(error);
@@ -493,29 +493,55 @@ exports.postMovie = async (req, res, next) => {
 };
 
 exports.postLoan = async (req, res, next) => {
-    let employeeId = 2; //3 = employeeId------------------------req.body.
-    let customerId = 4;
+    let employeeId = req.session.employee; //3 = employeeId------------------------req.body.
+    let customerId = req.body.customer_id;
     let priceId = 1;
-    let moviesId = [7, 8];
+    let moviesId = [];
 
     var today = new Date();
     let startDate = today.toISOString().slice(0, 10).replace('T', ' ');
-    let days = 5;
-    // console.log(startDate);
-    var endDate = new Date(today.getTime() + 60 * 60 * 24 * 1000 * days).toISOString().slice(0, 10).replace('T', ' ');
-    // console.log(endDate);
+    let days = parseInt(req.body.days.split(" ")[0]);
 
     try {
+        if (req.body.customer_id == "") {
+            const error = 'Validation failed. Client ID empty.';
+            throw error;
+        }
+        if (req.body.days == "Number of days") {
+            const error = 'Validation failed. Number of days empty.';
+            throw error;
+        }
+        const checkUser = await Customer.findByPk(customerId);
+        if(!checkUser){
+            const error = 'Validation failed. Customer doesnt exist.';
+            throw error;
+        }
+
+        var endDate = new Date(today.getTime() + 60 * 60 * 24 * 1000 * days).toISOString().slice(0, 10).replace('T', ' ');
+
+        const moviesInCart = await InCart.findAll({
+            raw: true
+        });
+
+        for (const item of moviesInCart) {
+            moviesId.push(item.id_movie);
+        }
+        if(moviesId.length == 0){
+            const error = 'Validation failed. No movies in cart.';
+            throw error;
+        }
+        
         let movies = [];
 
         const customerStatus = await Customer.findByPk(customerId);
 
         if (customerStatus.customer_status == 0) {
-            return res.status(409).json({
-                msg: 'Loan rejected. User is Blacklisted.',
-                userID: customerId
-                // reason:
-            });
+            const error = 'Loan rejected. Client :' + customerId + ': is Blacklisted.';
+            throw error;
+            // return res.status(409).json({
+            //     msg: 'Loan rejected. User is Blacklisted.',
+            //     userID: customerId
+            // });
         }
 
         const prevLoan = await Loan.findAll({
@@ -526,22 +552,18 @@ exports.postLoan = async (req, res, next) => {
                 ['start_date', 'DESC'],
             ]
         });
-        console.log("Previous Loan: ", prevLoan[0]);
+        // console.log("Previous Loan: ", prevLoan[0]);
         if (prevLoan.length > 0) {
             const lastReturned = await Returned.findOne({
                 where: {
                     Loan_id_l: prevLoan[0].id_l
                 }
             });
-            console.log("Last Returned: ", lastReturned, prevLoan[0].end_date, startDate);
+            // console.log("Last Returned: ", lastReturned, prevLoan[0].end_date, startDate);
 
             if (prevLoan[0].end_date >= startDate && !lastReturned) {
-                return res.status(409).json({
-                    msg: 'Loan rejected. User is yet to return a loan.',
-                    loanId: prevLoan[0].id_l,
-                    userID: customerId
-                    // reason:
-                });
+                const error = 'Loan rejected. Client :' + customerId + ': is yet to return a loan :'+ prevLoan[0].id_l +':.';
+                throw error;
             } else if (prevLoan[0].end_date < startDate && !lastReturned) {
 
                 const customerUpdated = await Customer.update({
@@ -551,27 +573,20 @@ exports.postLoan = async (req, res, next) => {
                         id_c: customerId
                     }
                 });
-                console.log("customer Updated: ", customerUpdated);
-
-                return res.status(409).json({
-                    msg: 'Loan rejected. User owes a loan. Client have been Blacklisted.',
-                    loanId: prevLoan[0].id_l,
-                    userID: customerId
-                    // reason:
-                });
+                // console.log("customer Updated: ", customerUpdated);
+                const error = 'Loan rejected. Client :' + customerId + ': owes a loan :'+ prevLoan[0].id_l +':. Client has been Blacklisted.';
+                throw error;
             }
         }
 
         moviesId.forEach(async (movieId) => {
             const movieEnoughStock = await Movie.findByPk(movieId);
             if (movieEnoughStock.stock == 0) {
-                return res.status(409).json({
-                    msg: 'Loan rejected. Movie is out of stock.',
-                    movieId: movieEnoughStock.Movie_id_m
-                });
+                const error = 'Loan rejected. Movie :' + movieEnoughStock.Movie_id_m + ':. Movie is out of stock.';
+                throw error;
             }
             movies.push(movieEnoughStock);
-            console.log("Movie Enough Stock: ", movieEnoughStock);
+            // console.log("Movie Enough Stock: ", movieEnoughStock);
         });
 
         const loan = await Loan.create({
@@ -580,13 +595,14 @@ exports.postLoan = async (req, res, next) => {
             start_date: startDate,
             end_date: endDate
         });
-
+        
         movies.forEach(async (movie) => {
+            
             const loanMovie = await LoanMovie.create({
                 Loan_id_l: loan.id_l,
                 Movie_id_m: movie.id_m
             });
-            console.log("Loan Movie: ", loanMovie);
+            // console.log("Loan Movie: ", loanMovie);
             const movieUpdated = await movie.update({
                 stock: sequelize.literal('stock - 1')
             }, {
@@ -594,7 +610,7 @@ exports.postLoan = async (req, res, next) => {
                     id_m: movie.id_m
                 }
             });
-            console.log("Updated Movie: ", movieUpdated);
+            // console.log("Updated Movie: ", movieUpdated);
         });
 
         const discount = (await Discount.findAll({
@@ -607,34 +623,31 @@ exports.postLoan = async (req, res, next) => {
                 ['id_d', 'ASC'],
             ]
         }))[0];
-        console.log("Discount: ", discount);
+        // console.log("Discount: ", discount);
 
         const price = await Price.findByPk(priceId);
-        console.log("Price: ", price);
+        // console.log("Price: ", price);
 
         const total1 = price.first_day_price + price.addition_per_day * (days - 1);
         const total2 = moviesId.length * total1;
         const total3 = total2 * (1 - discount.discount);
         const total4 = Math.round(total3 * 10) / 10
-        console.log(total1, total2, total3, total4);
+        // console.log(total1, total2, total3, total4);
         const sale = await Sale.create({
             Loan_id_l: loan.id_l,
             Discount_id_d: discount.id_d,
             Price_id_p: price.id_p,
             total: total4
         });
-        console.log("Sale: ", sale);
+        // console.log("Sale: ", sale);
+        const message = 'Loan :' + loan.id_l + ': created succesfully!. Total: ' + total4 + ' Bs.';
 
-        return res.status(201).json({
-            msg: 'Loan created succesfully!',
-            loanId: loan.id_l,
-            total: total4
-        })
+        res.redirect('/admin/cart?msg=' + message);
+
     } catch (err) {
         console.log(err);
-        return res.status(500).json({
-            msg: 'Error when creating loan.'
-        })
+        res.redirect('/admin/cart?err=' + err);
+
     }
 };
 

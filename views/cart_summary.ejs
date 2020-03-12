@@ -82,14 +82,11 @@
 
         </article>
         <article id="column2">
-            <form action="" method="post">
+            <form action="/admin/loan/add" method="post">
                 <input type="text" id="customer_id" name="customer_id"><br>
-            </form>
 
-            <form action="" method="get">
-            
-                <select id="days" onchange=dayChange()>
-                    <option value="">Number of days</option>
+                <select id="days" name="days" onchange=dayChange()>
+                    <option value="Number of days">Number of days</option>
                     <% if(locals.discount){  %>
                     <% for (let i = 1 ; i < discount[2].superior_limit; i++) { %>
                     <option value="<%=i+1%>"><%=(i+1) + " dias"%></option>
@@ -125,16 +122,14 @@
                             const bill3 = bill2 * (1 - actualDiscount);
                             const bill4 = Math.round(bill3 * 10) / 10;
                             document.getElementById("pre_total_bs").value = bill2 + " Bs.-";
-                            document.getElementById("discount_bs").value = Math.round(bill2 * actualDiscount* 10) / 10 + " Bs.-";
+                            document.getElementById("discount_bs").value = Math.round(bill2 * actualDiscount * 10) / 10 + " Bs.-";
                             document.getElementById("total_bs").value = bill4 + " Bs.-";
                         }
                     }
                 </script>
-            </form>
-
-            <form action="" method="post">
                 <button type="submit">Pay</button>
             </form>
+
         </article>
     </article>
 </body>
