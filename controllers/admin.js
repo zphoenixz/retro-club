@@ -800,7 +800,6 @@ exports.addMovieCart = async (req, res, next) => {
             path: '/movie',
             message: "Movie have been added!"
         });
-
     } catch (error) {
         console.log(error);
     }

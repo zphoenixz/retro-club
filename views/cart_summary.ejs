@@ -5,29 +5,29 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="/css/cart_summary.css">
     <style>
-    .alert {
-        padding: 20px;
-        background-color: #3d9796;
-        color: white;
-        font-family: BalsamiqSansBold;
-        text-align: left;
-        font-size: 10px;
-    }
+        .alert {
+            padding: 20px;
+            background-color: #3d9796;
+            color: white;
+            font-family: BalsamiqSansBold;
+            text-align: left;
+            font-size: 10px;
+        }
 
-    .closebtn {
-        margin-left: 15px;
-        color: white;
-        font-weight: bold;
-        float: right;
-        font-size: 22px;
-        line-height: 20px;
-        cursor: pointer;
-        transition: 0.3s;
-    }
+        .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
 
-    .closebtn:hover {
-        color: black;
-    }
+        .closebtn:hover {
+            color: black;
+        }
     </style>
     <title>Summary</title>
 </head>
@@ -39,21 +39,27 @@
         <h2><%= message %></h2>
     </div>
     <% } %>
+    <% if (locals.error) { %>
+    <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <h2><%= error %></h2>
+    </div>
+    <% } %>
 
     <center>
         <form id="header1" name="header1" action="/admin/cart" method="get">
             <input type="image" src="/images/icons/shopping_cart.png" width="30" height="30" />
-        </form>    
+        </form>
 
-        <form id="header2" name="header2" action="/movies/search" method="get">
+        <form id="header2" name="header2" action="/admin/movies/search" method="get">
             <input type="image" src="/images/icons/movie.png" width="30" height="30" />
         </form>
 
         <form id="header3" name="header3" action="/logout" method="post">
             <input type="image" src="/images/icons/exit.png" width="30" height="30" />
-        </form>    
-    </center> 
-                    
+        </form>
+    </center>
+
     <article id=mainContainer>
         <form action="/admin/home" method="get">
             <input type="image" src="/images/icons/home.png" id="home" name="home" width="30" height="30" />
@@ -76,7 +82,7 @@
                     <form action="" method="get">
                         <input type="image" src="/images/icons/eye.png" id="edit" name="edit" width="28" height="20"
                             class="edit" />
-                        
+
                     </form>
                 </article>
 
