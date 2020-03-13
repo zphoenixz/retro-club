@@ -29,6 +29,7 @@ router.get('/customers/new', isAuth, adminController.getAddCustomerview);
 
 router.get('/loans', isAuth, adminController.getLoanview);
 router.get('/loans/search', isAuth, adminController.getLoanSearchview);
+router.post('/loans/search', isAuth, adminController.postLoanSearchview);
 
 router.get('/movies', isAuth, adminController.getMovieview);
 router.get('/movies/search', isAuth, adminController.getMovieSearchview);

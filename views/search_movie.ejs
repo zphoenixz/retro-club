@@ -43,7 +43,7 @@
     <center>
         <form id="header1" name="header1" action="/admin/cart" method="get">
             <input type="image" src="/images/icons/shopping_cart.png" width="30" height="30" />
-        </form>    
+        </form>
 
         <form id="header2" name="header2" action="/admin/movies/search" method="get">
             <input type="image" src="/images/icons/movie.png" width="30" height="30" />
@@ -51,7 +51,7 @@
 
         <form id="header3" name="header3" action="/logout" method="post">
             <input type="image" src="/images/icons/exit.png" width="30" height="30" />
-        </form>    
+        </form>
     </center>
 
     <div class="contenedor">
@@ -89,23 +89,28 @@
         <div class="scroll">
             <% for (let i = 1 ; i <= 10 ; i++) { %>
             <div class="clearfix">
-            <% if(locals.moviesTitle && locals.moviesTitle.length > (i-1) ){  %>
-            
-            <form action="/admin/movies/addcart" method="post">
-            <input type="image"class="cartBtn"src="/images/icons/cart.png" width="25px" height="25px" top="10"  >
-            <input id="movieIdC" name="movieIdC" type="hidden" value="<%= moviesTitle[i-1].Movie_id_m %>">
-        </form>
-            <form action="/admin/movies/edit" method="post">
-                <input type="text" id="<%= ("field_" + i) %>" value="<%= "   id: " + moviesTitle[i-1].Movie_id_m + ", " + moviesTitle[i-1].movie_name +", stock: " + moviesTitle[i-1]['Movie.stock'] %>" name="<%= ("field_" + i) %>" class="field left" readonly>
-                <input type="image" id="movieId"name="movieId" src="/images/icons/view_edit.png" width="25px" height="25px" top="10">
-                <input id="movieIdE" name="movieIdE" type="hidden" value="<%= moviesTitle[i-1].Movie_id_m %>">
-            <% } else{ %>
+                <% if(locals.moviesTitle && locals.moviesTitle.length > (i-1) ){  %>
+
+                <form action="/admin/movies/addcart" method="post">
+                    <input type="image" class="cartBtn" src="/images/icons/cart.png" width="25px" height="25px"
+                        top="10">
+                    <input id="movieIdC" name="movieIdC" type="hidden" value="<%= moviesTitle[i-1].Movie_id_m %>">
+                </form>
                 <form action="/admin/movies/edit" method="post">
-                <input type="text" id="<%= ("field_" + i) %>" name="<%= ("field_" + i) %>" class="field left" readonly>
-            <% } %>
-            </form>
-            <% } %>
-        </div>
+                    <input type="text" id="<%= ("field_" + i) %>"
+                        value="<%= "   id: " + moviesTitle[i-1].Movie_id_m + ", " + moviesTitle[i-1].movie_name +", stock: " + moviesTitle[i-1]['Movie.stock'] %>"
+                        name="<%= ("field_" + i) %>" class="field left" readonly>
+                    <input type="image" id="movieId" name="movieId" src="/images/icons/view_edit.png" width="25px"
+                        height="25px" top="10">
+                    <input id="movieIdE" name="movieIdE" type="hidden" value="<%= moviesTitle[i-1].Movie_id_m %>">
+                    <% } else{ %>
+                    <form action="/admin/movies/edit" method="post">
+                        <input type="text" id="<%= ("field_" + i) %>" name="<%= ("field_" + i) %>" class="field left"
+                            readonly>
+                        <% } %>
+                    </form>
+                    <% } %>
+            </div>
         </div>
     </div>
 </body>

@@ -94,8 +94,8 @@ select{
 
 #field_1{
     background-color: #f2edbe;
-    color: white;
-    width: 335px;
+    color: black;
+    width: 100%;
     height: 25px;
     border-style: solid;
     border-color: black;
@@ -108,7 +108,7 @@ select{
 #field_2{
     background-color: #f2edbe;
     color: black;
-    width: 335px;
+    width: 100%;
     height: 25px;
     border-style: solid;
     border-color: black;
@@ -121,7 +121,7 @@ select{
 #field_3{
     background-color: #b7cfa9;
     color:black;
-    width: 335px;
+    width: 100%;
     height: 25px;
     border-style: solid;
     border-color: black;
@@ -134,7 +134,7 @@ select{
 #field_4{
     background-color: #b7cfa9;
     color:white;
-    width: 335px;
+    width: 100%;
     height: 25px;
     border-style: solid;
     border-color: black;
@@ -147,7 +147,7 @@ select{
 #field_5{
     background-color: #83ae99;
     color:black;
-    width: 335px;
+    width: 100%;
     height: 25px;
     border-style: solid;
     border-color: black;
@@ -160,7 +160,7 @@ select{
 #field_6{
     background-color: #5b8c88;
     color:white;
-    width: 335px;
+    width: 100%;
     height: 25px;
     border-style: solid;
     border-color: black;
@@ -173,7 +173,7 @@ select{
 #field_7{
     background-color: #406a73;
     color: black;
-    width: 335px;
+    width: 100%;
     height: 25px;
     border-style: solid;
     border-color: black;
@@ -186,7 +186,7 @@ select{
 #field_8{
     background-color: #2f4858;
     color: black;
-    width: 335px;
+    width: 100%;
     height: 25px;
     border-style: solid;
     border-color: black;
@@ -194,6 +194,54 @@ select{
     text-align: left;
     font-size: 13px;
     font-family: BalsamiqSansBold;
+}
+
+#field_9 {
+    background-color: #2f4858;
+    color: black;
+    width: 100%;
+    height: 25px;
+    border-style: solid;
+    border-color: black;
+    margin-top: 10px;
+    text-align: left;
+    font-size: 13px;
+    font-family: BalsamiqSansBold;
+    border-radius: 10px;
+}
+
+#field_10 {
+    background-color: #2f4858;
+    color: black;
+    width: 100%;
+    height: 25px;
+    border-style: solid;
+    border-color: black;
+    margin-top: 10px;
+    text-align: left;
+    font-size: 13px;
+    font-family: BalsamiqSansBold;
+    border-radius: 10px;
+}
+
+div.scroll {
+    margin: 4px, 4px;
+    padding: 4px;
+    align-items: center;
+    width: 65%;
+    height: 50%;
+    display: inline-block;
+    overflow-x: hidden;
+    overflow-x: auto;
+    text-align: justify;
+}
+
+.clearfix {
+    overflow: auto;
+}
+
+.cartBtn {
+    float: left;
 }
 
 

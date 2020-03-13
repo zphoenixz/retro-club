@@ -146,6 +146,49 @@ exports.getLoanview = (req, res, next) => {
     });
 };
 
+exports.postLoanSearchview = async (req, res, next) => {
+    const toSearch = req.body.search;
+    const by = req.body.by;
+    console.log("asdasdasdasd");
+    console.log(toSearch, by);
+    try {
+        let loans;
+        if (by == "loanId") {
+            loans = await Person.findAll({
+                include: [{
+                    model: Customer,
+                    as: 'Customer',
+                    required: true,
+                    include: [{
+                        model: Loan,
+                        as: 'Loan',
+                        required: true,
+                        where: {
+                            id_l: parseInt(toSearch)
+                        },
+                    }],
+                }],
+                raw: true,
+                limit: 1
+            });
+        } 
+        console.log(loans);
+        console.log(loans[0]);
+        console.log(loans[0].first_name);
+        // console.log(loans[0].Customer.id_c);
+        console.log(loans[0]['Customer.id_c']);
+
+        console.log('Employee Id', req.session.employee);
+        req.session.loans = loans;
+        res.render('search_loans', {
+            path: '/loan',
+            loans: loans
+        });
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 exports.getLoanSearchview = (req, res, next) => {
     console.log('Employee Id', req.session.employee);
     res.render('search_loans', {

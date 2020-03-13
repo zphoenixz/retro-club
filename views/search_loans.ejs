@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="/css/search_client.css" type="text/css">
+    <link rel="stylesheet" href="/css/search_loans.css" type="text/css">
     <style>
-    .alert {
-        padding: 20px;
-        background-color: #3d9796;
-        color: white;
-        font-family: BalsamiqSansBold;   
-        text-align: left;
-        font-size: 10px;     
-    }
+        .alert {
+            padding: 20px;
+            background-color: #3d9796;
+            color: white;
+            font-family: BalsamiqSansBold;
+            text-align: left;
+            font-size: 10px;
+        }
 
-    .closebtn {
-        margin-left: 15px;
-        color: white;
-        font-weight: bold;
-        float: right;
-        font-size: 22px;
-        line-height: 20px;
-        cursor: pointer;
-        transition: 0.3s;
-    }
+        .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
 
-    .closebtn:hover {
-        color: black;
-    }
+        .closebtn:hover {
+            color: black;
+        }
     </style>
 </head>
 
@@ -37,11 +38,11 @@
         <h2><%= message %></h2>
     </div>
     <% } %>
-    
+
     <center>
         <form id="header1" name="header1" action="/admin/cart" method="get">
             <input type="image" src="/images/icons/shopping_cart.png" width="30" height="30" />
-        </form>    
+        </form>
 
         <form id="header2" name="header2" action="/admin/movies/search" method="get">
             <input type="image" src="/images/icons/movie.png" width="30" height="30" />
@@ -49,79 +50,61 @@
 
         <form id="header3" name="header3" action="/logout" method="post">
             <input type="image" src="/images/icons/exit.png" width="30" height="30" />
-        </form>    
+        </form>
     </center>
 
     <div class="contenedor">
         <form action="/admin/loans" method="get">
-            <input type="image" src="/images/icons/go_back.png" id="back" width="30" height="30"/>    
-        </form>    
+            <input type="image" src="/images/icons/go_back.png" id="back" width="30" height="30" />
+        </form>
 
         <center>
-            <img src="/images/titles/search_loans.png" id="img" width="340" height="130">        
+            <img src="/images/titles/search_loans.png" id="img" width="340" height="130">
         </center>
 
-        <article id="container1">
-            <input type="image" src="/images/icons/search_icon.png" width="15" height="15"> 
-        </article>
-
+        
+        <form action="/admin/loans/search" method="post">
+            <article id="container1">
+                <input type="image" src="/images/icons/search_icon.png" width="15" height="15">
+            </article>
         <article id="container2">
-            <form action="" method="post">
-                <input type="text" name="search" id="search" placeholder="search customers">
-            </form>
+        
+            <input type="text" name="search" id="search" placeholder="search loans">
+        
         </article>
+        
 
         <article id="container3">
-            <form action="" method="post">
                 <select id="by" name="by">
                     <option value="">By</option>
-                    <option value="first_name">First name</option>
-                    <option value="last_name">Last name</option>
-                    <option value="email">Email</option>                
-                    <option value="phone">Phone</option>
-                </select><br> 
-            </form>
+                    <option value="loanId">Loan ID</option>
+                    <option value="customerId">Customer ID</option>
+                </select><br>
+            
         </article>
+        </form>
+        <div class="scroll">
+            <% for (let i = 1 ; i <= 10 ; i++) { %>
+            <div class="clearfix">
+                <% if(locals.loans && locals.loans.length > (i-1) ){  %>
 
-        <form action="/loans/edit" method="get">        
-            <input type="text" id="field_1" name="field_1" class="field left" readonly>
-            <input type="image" id="view_edit1" name="view_edit1" src="/images/icons/view_edit.png" width="24" height="24">
-        </form>    
-
-        <form action="/loans/edit" method="get">        
-            <input type="text" id="field_2" name="field_2" class="field left" readonly>
-            <input type="image" id="view_edit2" name="view_edit2" src="/images/icons/view_edit.png" width="24" height="24"> 
-        </form>    
-
-        <form action="/loans/edit" method="get">        
-            <input type="text" id="field_3" name="field_3" class="field left" readonly>        
-            <input type="image" id="view_edit3" name="view_edit3" src="/images/icons/view_edit.png" width="24" height="24"> 
-        </form>    
-
-        <form action="/loans/edit" method="get">        
-            <input type="text" id="field_4" name="field_4" class="field left" readonly>
-            <input type="image" id="view_edit4" name="view_edit4" src="/images/icons/view_edit.png" width="24" height="24"> 
-        </form>    
-
-        <form action="/loans/edit" method="get">        
-            <input type="text" id="field_5" name="field_5" class="field left" readonly>        
-            <input type="image" id="view_edit5" name="view_edit5" src="/images/icons/view_edit.png" width="24" height="24"> 
-        </form>    
-
-        <form action="/loans/edit" method="get">        
-            <input type="text" id="field_6" name="field_6" class="field left" readonly>        
-            <input type="image" id="view_edit6" name="view_edit6" src="/images/icons/view_edit.png" width="24" height="24">
-        </form>    
-
-        <form action="/loans/edit" method="get">        
-            <input type="text" id="field_7" name="field_7" class="field left" readonly>
-            <input type="image" id="view_edit7" name="view_edit7" src="/images/icons/view_edit.png" width="24" height="24"> 
-        </form>    
-
-        <form action="/loans/edit" method="get">        
-            <input type="text" id="field_8" name="field_8" class="field left" readonly>
-            <input type="image" id="view_edit8" name="view_edit8" src="/images/icons/view_edit.png" width="24" height="24"> 
-        </form>   
+                <form action="/admin/movies/edit" method="post">
+                    <input type="text" id="<%= ("field_" + i) %>"
+                        value="<%= loans[i-1].first_name + " "+ loans[i-1].last_name + ", From: " + loans[i-1]['Customer.Loan.start_date'] + ", to: " + loans[i-1]['Customer.Loan.end_date']%>"
+                        name="<%= ("field_" + i) %>" class="field left" readonly>
+                    <input type="image" id="movieId" name="movieId" src="/images/icons/view_edit.png" width="25px"
+                        height="25px" top="10">
+                    <input id="movieIdE" name="movieIdE" type="hidden" value="">
+                <% } else{ %>
+                    <form action="/admin/movies/edit" method="post">
+                        <input type="text" id="<%= ("field_" + i) %>" name="<%= ("field_" + i) %>" class="field left"
+                            readonly>
+                    <% } %>
+                    </form>
+            <% } %>
+            </div>
+        </div>
     </div>
 </body>
+
 </html>
