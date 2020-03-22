@@ -15,7 +15,7 @@ The SQL ORM for this project:
 
 ![](others/db_pic.png)
 
-Database have been designed using Vertabelo.
+Database has been designed using Vertabelo.
 website: https://www.vertabelo.com
 
 ## FrontEnd
