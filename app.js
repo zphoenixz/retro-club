@@ -1,5 +1,5 @@
 const path = require('path');
-
+//Prueba
 const express = require('express');
 const bodyParser = require('body-parser');
 const errorController = require('./controllers/error');
